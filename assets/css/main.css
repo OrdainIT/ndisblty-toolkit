@@ -1,0 +1,430 @@
+.od-custom-accordion2.pg-custom-accordion {
+  margin-left: 0;
+}
+
+
+/* List Item css */
+
+.od-list-item.it-software-item-list {
+    margin-bottom: 0;
+}
+
+/* blog css */
+
+.elementor-widget-container .it-blog-wrap {
+    padding-bottom: 120px;
+}
+
+.od-price-box3.ma-price-style {
+    background: transparent;
+}
+
+
+.it-price-shape-1 {
+ 
+    transform: rotate(0);
+}
+
+.elementor-widget-container .ag-hero-thumb img {
+    border-radius: 10px;
+}
+
+/* single job css */
+
+
+
+
+.it-career-details-left h4, .it-career-details-left h6, .it-career-details-left h1, .it-career-details-left h2, .it-career-details-left h3, .it-career-details-left h5{
+margin-bottom: 30px;
+}
+
+
+.it-career-details-left p strong {
+    font-weight: 600;
+    font-style: normal;
+    display: inline-block;
+    margin-right: 5px;
+    color: var(--it-common-black);
+}
+
+.it-career-details-left p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    font-family: var(--it-ff-roboto);
+}
+
+.it-career-details-social-wrap {
+    padding-top: 80px;
+    border-top: 1px solid rgba(95, 97, 104, 0.5);
+    margin-top: 50px;
+}
+
+.it-career-sidebar-widget.style-20  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+ .elementor-widget-container .it-hero-thumb img {
+    max-width: inherit;
+ }
+
+ button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn {
+    right: 6px;
+    top: 2.9px;
+    transform: translateY(0);
+}
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner.pg-btn.green-bg {
+    position: absolute;
+    top: 9px;
+    transform: translateY(0);
+    right: 7px;
+}
+
+
+
+ .wpcf7-form-control-wrap input {
+    width: 100%;
+}
+.pg-hero-input-box .wpcf7-form-control-wrap input {
+    width: 100% !important;;
+}
+
+form.wpcf7-form .pg-hero-input-icon {
+    position: absolute;
+    top: 30%;
+    transform: translateY(0);
+    left: 22px;
+}
+
+
+input.wpcf7-form-control {
+    border-radius: 30px;
+}
+
+.elementor-widget-od-image-box .ag-service-style {
+    padding: 0;
+}
+
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner.ag-btn{
+    
+    top: 6px;
+    transform: translateY(0);
+    right: 5px;
+}
+
+.wpcf7 p {
+    margin-bottom: 0 !important;
+}
+.wpcf7{
+    position: relative;
+}
+.wpcf7-spinner {
+    position: absolute !important;
+}
+
+.elementor-widget-container .dt-hero-thumb img {
+    border-radius: 14px;
+    box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.15);
+}
+
+.elementor-widget-od-about-img-box .ma-software-style {
+    padding: 0 !important;
+}
+
+.it-testimonial-shape-4{
+    z-index: 1 !important;
+}
+
+.elementor-widget-container .cr-brand-item img {
+    border-radius: 80px;
+    box-shadow: 0 4px 10px 0 rgba(20, 50, 48, 0.1);
+}
+
+.it-cta-input-box button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn {
+   
+    top: 2.9px;
+}
+
+.ss-about-funfact-item {
+    text-align: center;
+}
+
+
+
+
+/* start Responsive */
+
+
+@media only screen and (min-width: 1400px) and (max-width: 1599px){
+
+.elementor-widget-container .it-hero-thumb img {
+    max-width: 100%;
+}
+
+
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn {
+   
+    top: 4.5px;
+}
+.dt-hero-input-box button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn {
+   
+    top: 1.5px;
+}
+
+
+
+}
+@media only screen and (min-width: 1200px) and (max-width: 1399px){
+  .dt-hero-input-box button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn {
+   
+    top: 1.5px;
+}
+
+.elementor-widget-container .it-hero-thumb img {
+    max-width: 100%;
+}
+
+
+}
+
+
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+
+    .it-menu-mobile h2.elementor-heading-title {
+    color: #fff !important;
+
+}
+
+.it-meta-menu li.elementor-icon-list-item a::before {
+   display: none;
+}
+
+.it-megamenu-list li.elementor-icon-list-item a span {
+    color: #fff!important;
+}
+
+    header .it-header-area {
+        padding: 15px 0 !important;
+    }
+    .elementor-widget-container .it-hero-thumb img {
+    max-width: 100%;
+}
+button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn {
+    top: 4.5px;
+}
+
+.dt-hero-input-box button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn{
+    top:1.2px
+}
+
+.ma-hero-content button.wpcf7-form-control.wpcf7-submit.has-spinner.cr-btn {
+    margin-top: 15px;
+}
+
+.elementor-widget-container .ai-service-style-2 {
+    padding: 0 !important;
+}
+
+.it-cta-input-box button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn {
+    top: 2px;
+}
+
+.home-img-title .elementor-heading-title {
+    color: #fff !important;
+}
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+
+.it-menu-mobile h2.elementor-heading-title {
+    color: #fff !important;
+
+}
+
+
+.it-meta-menu li.elementor-icon-list-item a::before {
+   display: none;
+}
+    .home-img-title .elementor-heading-title {
+    color: #fff !important;
+}
+    header .it-header-area {
+        padding: 15px 0 !important;
+    }
+    .elementor-widget-container .it-hero-thumb img {
+    max-width: 100%;
+}
+
+    button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn {
+    top: 5.5px;
+}
+
+.dt-hero-input-box button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn{
+    top:1.2px
+}
+
+.it-megamenu-list li.elementor-icon-list-item a span {
+    color: #fff !important;
+}
+
+}
+
+
+
+
+@media only screen and (min-width: 576px) and (max-width: 767px){
+    .home-img-title .elementor-heading-title {
+    color: #fff !important;
+}
+
+.it-meta-menu li.elementor-icon-list-item a::before {
+   display: none;
+}
+
+.it-megamenu-list li.elementor-icon-list-item a span {
+    color: #fff !important;
+}
+
+    header .it-header-area {
+        padding: 15px 0 !important;
+    }
+    .elementor-widget-container .it-hero-thumb img {
+    max-width: 100%;
+}
+
+header .it-header-area{
+    padding: 15px 0 !important;
+}
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner.cr-btn {
+    margin-top: 15px;
+}
+
+.elementor-widget-container .ma-hero-thumb img {
+    max-width: 100% !important;
+}
+
+
+.it-menu-mobile .it-megamenu-list ul li a span {
+    font-size: 16px !important;
+    color: var(--it-common-white) 16px !important;
+}
+
+.home-img-title h2 a {
+    color: #fff !important;
+}
+
+.home-img-title h2 {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.it-menu-mobile h2.elementor-heading-title {
+    font-size: 18px !important;
+    margin-bottom: 0;
+    padding-bottom: 14px;
+    margin-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.4);
+    color: #fff !important;
+    margin-top: 30px;
+}
+
+.it-testimonial-shape-4 {
+   display: none !important;
+}
+
+ button.wpcf7-form-control.wpcf7-submit.has-spinner.pg-btn.green-bg {
+        top: 5px;
+    }
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner.pg-btn.green-bg {
+        top: 4px;
+    }
+button.wpcf7-form-control.wpcf7-submit.has-spinner.cr-btn {
+        margin-top: 15px;
+    }
+.elementor-widget-container .ma-hero-thumb img {
+        max-width: 100%;
+    }
+
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn {
+
+    top: 3px;
+}
+
+.it-cta-input-box button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn{
+ padding: 14.4px 25px;
+}
+
+.dt-hero-input-box button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn{
+    top:2.1px
+}
+
+
+
+
+}
+
+
+
+
+
+@media only screen and (max-width: 575px){
+    .home-img-title .elementor-heading-title {
+    color: #fff !important;
+}
+
+.it-meta-menu li.elementor-icon-list-item a::before {
+   display: none;
+}
+.it-megamenu-list li.elementor-icon-list-item a span {
+    color: #fff !important;
+}
+    header .it-header-area {
+        padding: 15px 0 !important;
+    }
+    .elementor-widget-container .it-hero-thumb img {
+    max-width: 100%;
+}
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner.cr-btn {
+        margin-top: 0;
+    }
+
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner.pg-btn.green-bg {
+    top: 6px;;
+}
+
+.it-cta-input-box button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn {
+    padding: 14.4px 25px;
+    top: 1.9px;
+}
+
+.dt-hero-input-box button.wpcf7-form-control.wpcf7-submit.has-spinner.it-btn{
+    top:1.7px
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
