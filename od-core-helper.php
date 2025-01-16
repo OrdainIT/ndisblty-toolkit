@@ -26,6 +26,7 @@ define('ORDAINIT_TOOLKIT_ADDONS_PATH', plugin_dir_path(__FILE__));
 define('ORDAINIT_TOOLKIT_ELEMENTS_PATH', ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/elementor');
 define('ORDAINIT_TOOLKIT_WIDGET_PATH', ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/widgets');
 define('ORDAINIT_TOOLKIT_INCLUDE_PATH', ORDAINIT_TOOLKIT_ADDONS_DIR . '/include');
+define('OD', 'ordainit-toolkit');
 
 // $GLOBAL['ordainit-toolkit_icons'] = 
 /**

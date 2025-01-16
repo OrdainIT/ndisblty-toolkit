@@ -208,7 +208,8 @@ class OD_Core_Plugin
 	{
 		return [
 			'button',
-			'blog',,
+			'blog',
+			'hero-slider',
 		];
 	}
 
