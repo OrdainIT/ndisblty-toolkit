@@ -209,6 +209,7 @@ class OD_Core_Plugin
 			'blog',
 			'hero-slider',
 			'hero-banner',
+			'text-slider',
 		];
 	}
 
