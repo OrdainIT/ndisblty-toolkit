@@ -201,15 +201,14 @@ class OD_Core_Plugin
 	}
 
 
-
-
-
+	// Widgets
 	public function ordainit_toolkit_widget_list()
 	{
 		return [
 			'button',
 			'blog',
 			'hero-slider',
+			'hero-banner',
 		];
 	}
 
