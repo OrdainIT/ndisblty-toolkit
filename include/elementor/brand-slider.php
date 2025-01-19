@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class OD_Text_Slider extends Widget_Base
+class OD_Brand_Slider extends Widget_Base
 {
 
     /**
@@ -27,7 +27,7 @@ class OD_Text_Slider extends Widget_Base
      */
     public function get_name()
     {
-        return 'od-text-slider';
+        return 'od-brand-slider';
     }
 
     /**
@@ -41,7 +41,7 @@ class OD_Text_Slider extends Widget_Base
      */
     public function get_title()
     {
-        return __('Text Slider', 'ordainit-toolkit');
+        return __('Brand Slider', 'ordainit-toolkit');
     }
 
     /**
@@ -104,7 +104,7 @@ class OD_Text_Slider extends Widget_Base
      */
     protected function register_controls()
     {
-        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/text-slider.php');
+        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/brand-slider.php');
     }
 
     /**
@@ -119,57 +119,55 @@ class OD_Text_Slider extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        $od_text_slider_lists = $settings['od_text_slider_lists'];
-        $speed = isset($settings['od_text_slider_speed']) ? $settings['od_text_slider_speed'] : '15';
-
+        $od_brand_slider_lists = $settings['od_brand_slider_lists'];
+        $speed = isset($settings['od_brand_slider_speed']) ? $settings['od_brand_slider_speed'] : '15';
 ?>
 
 
-
-        <div class="it-text-slider-area it-text-slider-ptb red-bg">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-12 it-fade-anim">
-                        <div class="it-text-slider-wrapper" style="--speed: <?php echo esc_attr($speed); ?>s;">
-                            <div class="it-text-slider">
-                                <?php foreach ($od_text_slider_lists as $od_text_slider_list): ?>
-                                    <div class="it-text-slider-item">
-                                        <span><?php echo esc_html($od_text_slider_list['od_text_slider_list_text'], OD); ?></span>
-                                        <img
-                                            src="<?php echo esc_url($od_text_slider_list['od_text_slider_list_image']['url'], OD); ?>"
-                                            alt="<?php echo esc_html__('hero-img', OD); ?>" />
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
+        <div class="it-brand-item-wrap" style="--speed: <?php echo esc_attr($speed); ?>s;">
+            <div class="it-brand-slider slider-transtion d-flex align-items-center">
+                <?php foreach ($od_brand_slider_lists as $od_brand_slider_list): ?>
+                    <div class="it-brand-item text-center">
+                        <img
+                            src="<?php echo esc_url($od_brand_slider_list['od_brand_slider_list_image']['url'], OD); ?>"
+                            alt="<?php echo esc_html__('brand-img', OD); ?>">
                     </div>
-                </div>
+                <?php endforeach; ?>
+                <?php foreach ($od_brand_slider_lists as $od_brand_slider_list):
+                ?>
+                    <div class="it-brand-item text-center">
+                        <img
+                            src="<?php echo esc_url($od_brand_slider_list['od_brand_slider_list_image']['url'], OD); ?>"
+                            alt="<?php echo esc_html__('brand-img', OD); ?>">
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
-
         <style>
-            .it-text-slider-wrapper {
+            .it-brand-item-wrap {
                 overflow: hidden;
                 white-space: nowrap;
+                position: relative;
             }
 
-            .it-text-slider {
-                display: inline-flex;
+            .it-brand-slider {
+                display: flex;
                 animation: marquee var(--speed, 15s) linear infinite;
+                width: max-content;
+
             }
 
-            .it-text-slider-item {
+            .it-brand-item {
                 display: flex;
                 align-items: center;
+                margin: 0 50px;
             }
 
-            .it-text-slider-item span {
-                margin-left: 45px;
-            }
+            .it-brand-item img {
+                height: 100%;
+                object-fit: contain;
 
-            .it-text-slider-item img {
-                margin-left: 45px;
             }
 
             @keyframes marquee {
@@ -183,7 +181,6 @@ class OD_Text_Slider extends Widget_Base
             }
         </style>
 
-
         <script>
             jQuery(document).ready(function($) {
 
@@ -195,4 +192,4 @@ class OD_Text_Slider extends Widget_Base
     }
 }
 
-$widgets_manager->register(new OD_Text_Slider());
+$widgets_manager->register(new OD_Brand_Slider());

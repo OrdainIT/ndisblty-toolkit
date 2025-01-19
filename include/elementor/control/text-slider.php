@@ -93,7 +93,7 @@ $this->end_controls_section();
 $this->start_controls_section(
     'od_text_slider_style',
     [
-        'label' => esc_html__('Text Slider Style', 'ordainit-toolkit'),
+        'label' => esc_html__('Text Slider Style', OD),
         'tab' => Controls_Manager::TAB_STYLE,
     ]
 );
@@ -102,7 +102,7 @@ $this->start_controls_section(
 $this->add_control(
     'od_text_slider_bg_color',
     [
-        'label' => esc_html__('BG Color', 'ordainit-toolkit'),
+        'label' => esc_html__('BG Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .red-bg' => 'background-color: {{VALUE}}',
@@ -113,7 +113,7 @@ $this->add_control(
 $this->add_responsive_control(
     'od_text_slider_margin',
     [
-        'label' => esc_html__('Margin', 'ordainit-toolkit'),
+        'label' => esc_html__('Margin', OD),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'size_units' => ['px', '%', 'em', 'rem'],
         'selectors' => [
@@ -125,7 +125,7 @@ $this->add_responsive_control(
 $this->add_responsive_control(
     'od_text_slider_padding',
     [
-        'label' => esc_html__('Padding', 'ordainit-toolkit'),
+        'label' => esc_html__('Padding', OD),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'size_units' => ['px', '%', 'em', 'rem'],
         'selectors' => [
@@ -141,7 +141,7 @@ $this->end_controls_section();
 $this->start_controls_section(
     'od_text_slider_content_style',
     [
-        'label' => __('Slider Content Style', 'ordainit-toolkit'),
+        'label' => __('Slider Content Style', OD),
         'tab' => Controls_Manager::TAB_STYLE,
     ]
 );

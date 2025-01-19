@@ -210,6 +210,10 @@ class OD_Core_Plugin
 			'hero-slider',
 			'hero-banner',
 			'text-slider',
+			'brand-slider',
+			'image-box',
+			'title-box',
+			'funfact-box',
 		];
 	}
 
