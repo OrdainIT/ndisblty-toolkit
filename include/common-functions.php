@@ -350,6 +350,12 @@ function od_kses($raw)
             'stroke-linecap' => true,
             'stroke-linejoin' => true,
         ],
+        'g' => array(
+            'clip-path' => true,
+        ),
+        'clipPath' => array(
+            'id' => true,
+        ),
         'path' => [
             'd'             => true,
             'fill'          => true,
@@ -391,6 +397,7 @@ function od_kses($raw)
             'stroke'        => true,
             'stroke-width'  => true,
         ],
+        'defs' => array(),
 
     );
 

@@ -195,6 +195,7 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-step-title' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-step-4-title' => 'color: {{VALUE}}',
         ],
     ]
 );
@@ -204,7 +205,10 @@ $this->add_group_control(
     [
         'label' => esc_html__('Title Typography', OD),
         'name' => 'od_process_box_title_typography',
-        'selector' => '{{WRAPPER}} .it-step-title',
+        'selector' => '
+            {{WRAPPER}} .it-step-title,
+            {{WRAPPER}} .it-step-4-title
+        ',
     ]
 );
 
@@ -222,6 +226,7 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-step-content p' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-step-3-content p' => 'color: {{VALUE}}',
         ],
     ]
 );
@@ -231,7 +236,10 @@ $this->add_group_control(
     [
         'label' => esc_html__('Description Typography', OD),
         'name' => 'od_process_box_description_typography',
-        'selector' => '{{WRAPPER}} .it-step-content p',
+        'selector' => '
+            {{WRAPPER}} .it-step-content p,
+            {{WRAPPER}} .it-step-3-content p
+        ',
     ]
 );
 
@@ -250,6 +258,9 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .it-step-content span' => 'color: {{VALUE}}',
         ],
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
     ]
 );
 
@@ -261,6 +272,9 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .it-step-content span' => 'background-color: {{VALUE}}',
         ],
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
     ]
 );
 
@@ -270,6 +284,23 @@ $this->add_group_control(
         'label' => esc_html__('Step Typography', OD),
         'name' => 'od_process_box_steps_typography',
         'selector' => '{{WRAPPER}} .it-step-content span',
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
+    ]
+);
+
+$this->add_control(
+    'od_process_box_icon_color',
+    [
+        'label' => esc_html__('Icon Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-step-4-icon svg path' => 'fill: {{VALUE}}',
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-2']
+        ]
     ]
 );
 
