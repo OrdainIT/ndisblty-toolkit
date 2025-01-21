@@ -126,9 +126,7 @@ class OD_Funfact_Box extends Widget_Base
         $od_funfact_box_alignment = $settings['od_funfact_box_alignment'];
 ?>
 
-        <?php if ($settings['od_design_style']  == 'layout-3'): ?>
-
-        <?php elseif ($settings['od_design_style']  == 'layout-2'):
+        <?php if ($settings['od_design_style']  == 'layout-2'):
             $this->add_render_attribute('funfact_box_args', 'class', 'it-funfact-2-item');
             $this->add_render_attribute('funfact_box_args', 'style', 'text-align: ' . $od_funfact_box_alignment . ';');
         ?>

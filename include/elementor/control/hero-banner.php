@@ -464,7 +464,7 @@ $this->add_control(
 $this->add_control(
     'od_hero_banner_icon_animation_color',
     [
-        'label' => __('Animation Color', 'ordainit-toolkit'),
+        'label' => __('Animation Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => 'rgba(220, 28, 28, 0.2)',
         'selectors' => [
@@ -657,7 +657,7 @@ $this->add_group_control(
 $this->add_responsive_control(
     'od_hero_banner_btn_margin',
     [
-        'label' => esc_html__('Button Margin', 'ordainit-toolkit'),
+        'label' => esc_html__('Button Margin', OD),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'size_units' => ['px', '%', 'em', 'rem'],
         'selectors' => [
@@ -669,7 +669,7 @@ $this->add_responsive_control(
 $this->add_responsive_control(
     'od_hero_banner_btn_padding',
     [
-        'label' => esc_html__('Button Padding', 'ordainit-toolkit'),
+        'label' => esc_html__('Button Padding', OD),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'size_units' => ['px', '%', 'em', 'rem'],
         'selectors' => [
@@ -689,7 +689,7 @@ $this->add_group_control(
 $this->add_control(
     'od_hero_banner_btn_border_radius',
     [
-        'label' => esc_html__('Border Radius', 'ordainit-toolkit'),
+        'label' => esc_html__('Border Radius', OD),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'size_units' => ['px', '%', 'em', 'rem'],
         'selectors' => [

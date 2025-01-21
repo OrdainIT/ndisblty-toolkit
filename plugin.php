@@ -214,6 +214,8 @@ class OD_Core_Plugin
 			'image-box',
 			'title-box',
 			'funfact-box',
+			'process-box',
+			'single-choose',
 		];
 	}
 
