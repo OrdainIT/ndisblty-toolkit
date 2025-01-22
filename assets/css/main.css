@@ -3,6 +3,11 @@ span.it-service-2-icon img {
 }
 
 
+.it-service-5-style .it-service-4-thumb img {
+    object-fit: cover;
+}
+
+
 
 
 /* start Responsive */

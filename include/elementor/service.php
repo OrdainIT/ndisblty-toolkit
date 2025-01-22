@@ -228,7 +228,7 @@ class Od_service extends Widget_Base
                         ?>
                                 <div class="col-12">
                                     <div class="it-service-3-item-wrap it-reveal-item">
-                                        <a href="<?php the_permalink();?>">
+                                        <a href="<?php the_permalink(); ?>">
                                             <div class="row align-items-center">
                                                 <div class="col-lg-6">
                                                     <div class="it-service-3-left">
@@ -264,6 +264,102 @@ class Od_service extends Widget_Base
                 </div>
             </div>
         <?php elseif ($settings['od_design_style']  == 'layout-4'): ?>
+
+            <div class="service_widget_3">
+                <div class="container">
+                    <div class="row gx-35 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-3 row-cols-md-2  row-cols-1">
+                        <?php
+                        $i = -1;
+
+                        if ($service_query->have_posts()) :
+                            while ($service_query->have_posts()) : $service_query->the_post();
+
+                                $i++;
+
+
+                        ?>
+                                <div class="col mb-30 wow itfadeUp" data-wow-duration=".9s"
+                                    data-wow-delay="<?php echo esc_attr(.3 + $i * .2); ?>s">
+                                    <div class="it-service-4-item zoom text-center" style="background-image: url(<?php echo ORDAINIT_TOOLKIT_ADDONS_URL . '/assets/img/shap/service-4-1.png'; ?>);">
+                                        <?php if (has_post_thumbnail()): ?>
+                                            <div class="it-service-4-thumb img-zoom">
+                                                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                            </div>
+                                        <?php endif; ?>
+                                        <h4 class="it-service-4-title"><a class="border-line-white"
+                                                href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                                        <p class="mb-35"><?php echo wp_trim_words(get_the_excerpt(), 9, '...'); ?></p>
+                                        <a class="it-service-4-arrow" href="<?php the_permalink(); ?>">
+                                            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M14.4258 10.9899L23.0101 10.9899L23.0101 19.5741" stroke="currentcolor"
+                                                    stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path d="M10.9902 23.0106L22.8908 11.11" stroke="currentcolor" stroke-width="1.5"
+                                                    stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+
+                        <?php endwhile;
+                            wp_reset_postdata();
+                        endif; ?>
+                    </div>
+                </div>
+            </div>
+
+
+
+        <?php elseif ($settings['od_design_style']  == 'layout-5'): ?>
+
+            <div class="service_widget_5 it-service-5-style">
+                <div class="container">
+                    <div class="row gx-35 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-3 row-cols-md-2  row-cols-1">
+                        <?php
+                        $i = -1;
+
+                        if ($service_query->have_posts()) :
+                            while ($service_query->have_posts()) : $service_query->the_post();
+
+                                $i++;
+
+                                $service_meta_thumbnail = get_post_meta(get_the_ID(), 'ndisblty_service_meta_side', true);
+
+
+                                $service_thumbnail_image = isset($service_meta_thumbnail['service_thumbnail_image']) ? $service_meta_thumbnail['service_thumbnail_image']['url'] : '';
+
+                        ?>
+                                <div class="col mb-30 wow itfadeUp" data-wow-duration=".9s"
+                                    data-wow-delay="<?php echo esc_attr(.3 + $i * .2); ?>s">
+                                    <div class="it-service-4-item text-center">
+                                        <?php if (has_post_thumbnail()): ?>
+                                            <div class="it-service-4-thumb">
+                                                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                            </div>
+                                        <?php endif; ?>
+                                        <h4 class="it-service-4-title"><a class="border-line-white"
+                                                href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                                        <p class="mb-20"><?php echo wp_trim_words(get_the_excerpt(), 8, '...'); ?></p>
+                                        <a class="it-service-4-arrow" href="<?php the_permalink(); ?>">
+                                            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M14.4258 10.9899L23.0101 10.9899L23.0101 19.5741" stroke="currentcolor"
+                                                    stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path d="M10.9902 23.0106L22.8908 11.11" stroke="currentcolor" stroke-width="1.5"
+                                                    stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                        <?php endwhile;
+                            wp_reset_postdata();
+                        endif; ?>
+                    </div>
+                </div>
+            </div>
+
 
         <?php else: ?>
 

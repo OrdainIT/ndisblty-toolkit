@@ -219,6 +219,7 @@ class OD_Core_Plugin
 			'process-full',
 			'icon-box',
 			'service',
+			'team',
 		];
 	}
 
