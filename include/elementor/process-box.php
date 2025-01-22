@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class OD_Button extends Widget_Base
+class OD_Process_Box extends Widget_Base
 {
 
     /**
@@ -27,7 +27,7 @@ class OD_Button extends Widget_Base
      */
     public function get_name()
     {
-        return 'od-button';
+        return 'od-process-box';
     }
 
     /**
@@ -41,7 +41,7 @@ class OD_Button extends Widget_Base
      */
     public function get_title()
     {
-        return __('Button', 'ordainit-toolkit');
+        return __('Process Box', 'ordainit-toolkit');
     }
 
     /**
@@ -104,7 +104,7 @@ class OD_Button extends Widget_Base
      */
     protected function register_controls()
     {
-        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/button.php');
+        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/process-box.php');
     }
 
     /**
@@ -119,33 +119,46 @@ class OD_Button extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        $od_btn_text = $settings['od_btn_text'];
-        $od_btn_link_type = $settings['od_btn_link_type'];
-        $od_btn_link = $settings['od_btn_link'];
-        $od_btn_page_link = $settings['od_btn_page_link'];
+        $od_process_box_title = $settings['od_process_box_title'];
+        $od_process_box_description = $settings['od_process_box_description'];
+        $od_process_box_steps = $settings['od_process_box_steps'];
+        $od_process_box_img = $settings['od_process_box_img'];
+        $od_process_box_icon = $settings['od_process_box_icon'];
 ?>
-        <?php
-        // Link
-        if ('2' == $od_btn_link_type) {
-            $this->add_render_attribute('od-button-arg', 'href', get_permalink($od_btn_page_link));
-            $this->add_render_attribute('od-button-arg', 'target', '_self');
-            $this->add_render_attribute('od-button-arg', 'rel', 'nofollow');
-            $this->add_render_attribute('od-button-arg', 'class', 'it-btn');
-        } else {
-            if (! empty($od_btn_link['url'])) {
-                $this->add_link_attributes('od-button-arg', $od_btn_link);
-                $this->add_render_attribute('od-button-arg', 'class', 'it-btn-red');
-            }
-        }
-        ?>
 
-        <a <?php echo $this->get_render_attribute_string('od-button-arg'); ?>>
-            <?php echo esc_html($od_btn_text, 'ordainit-toolkit'); ?>
-        </a>
+
+        <?php if ($settings['od_design_style']  == 'layout-2'): ?>
+            <div class="it-step-3-item p-relative text-center mb-30">
+                <span class="it-step-4-icon">
+                    <?php echo od_kses($od_process_box_icon, OD); ?>
+                </span>
+                <div class="it-step-3-content">
+                    <h4 class="it-step-4-title"><?php echo od_kses($od_process_box_title, OD); ?></h4>
+                    <p class="mb-0"><?php echo od_kses($od_process_box_description, OD); ?></p>
+                </div>
+            </div>
+
+        <?php else: ?>
+
+            <div class="it-step-item d-flex justify-content-center align-items-center">
+                <div class="it-step-thumb mr-25">
+                    <img src="<?php echo esc_url($od_process_box_img['url'], OD); ?>"
+                        alt="<?php echo esc_html__('process-img', OD); ?>" />
+                </div>
+                <div class="it-step-content">
+                    <span><?php echo esc_html($od_process_box_steps, OD); ?></span>
+                    <h4 class="it-step-title"><?php echo od_kses($od_process_box_title, OD); ?></h4>
+                    <p><?php echo od_kses($od_process_box_description, OD); ?></p>
+                </div>
+            </div>
+
+        <?php endif; ?>
 
 
         <script>
             jQuery(document).ready(function($) {
+
+
 
             });
         </script>
@@ -153,4 +166,4 @@ class OD_Button extends Widget_Base
     }
 }
 
-$widgets_manager->register(new OD_Button());
+$widgets_manager->register(new OD_Process_Box());

@@ -1,86 +1,28 @@
-
-
-
-
-
-
-
-
-/* Hero Banner layout-5 */
-.elementor-widget-container .ss-hero-explore a {
-  text-decoration: underline;
+/* Hero Banner layout-1 */
+.elementor-widget-container .it-hero-thumb img {
+  max-width: inherit;
+  border-radius: 10px;
 }
 
-/* Cta layout-1 */
-.elementor-widget-container .it-cta-wrap {
-  margin-top: 0;
-}
-
-/* Testimonial-layout-6 */
-.elementor-widget-container .it-testimonial-shape-11 {
-  position: absolute;
-  top: 15%;
-  right: 9%;
-  z-index: 0;
-}
-
-.it-price-shap_anim img {
-  animation: itswing 1s forwards infinite alternate;
-}
-
-/* Feature box img */
-.elementor-widget-container .it-feature-icon img {
-  height: 110px;
-}
-.elementor-widget-container .dt-feature-icon img {
-  height: 59px;
-}
-.elementor-widget-container .pg-feature-icon img {
-  height: 82px;
-}
-.elementor-widget-container .ss-feature-icon img {
-  height: 140px;
-}
-.elementor-widget-container .ai-service-icon img {
-  height: 87px;
-}
-.elementor-widget-container .cr-platform-icon img {
-  height: 57px;
-}
-.elementor-widget-container .img-box-style-3 .ai-service-icon img {
-  height: 64px;
-}
-
-/*  Video Popup */
-.elementor-widget-container .it-video-inner-thumb img {
-  border-radius: 30px;
-}
-
-/*  Video btn - l:2 */
-.elementor-widget-container .cr-video-btn-layout-2 {
-  position: inherit;
-  transform: none;
-}
-
-/* Home- 7 Counter */
-.elementor-widget-container .seo-choose-item span i {
-  font-style: normal;
-}
-
-/* ABout Img box */
-.elementor-widget-container .ma-about-thumb img {
-  border-radius: 12px;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px),
+@media only screen and (min-width: 1600px) and (max-width: 1800px),
+  only screen and (min-width: 1400px) and (max-width: 1599px),
+  only screen and (min-width: 1200px) and (max-width: 1399px),
+  only screen and (min-width: 992px) and (max-width: 1199px),
+  only screen and (min-width: 768px) and (max-width: 991px),
   (max-width: 767px) {
-  .elementor-widget-container .ai-choose-thumb img {
-    width: 100%;
+  .elementor-widget-container .it-hero-thumb img {
+    max-width: 100%;
   }
 }
 
-@media only screen and (max-width: 767px) {
-  .elementor-widget-container .cr-cta-area img.cr-cta-shape-3 {
-    display: none;
-  }
+/* Hero Banner layout-2 */
+.elementor-widget-container .it-hero-2-thumb img {
+  border-radius: 20px;
+}
+
+/* Hero Banner layout-3 */
+.elementor-widget-container .it-hero-3-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

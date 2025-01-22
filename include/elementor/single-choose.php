@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class OD_Button extends Widget_Base
+class OD_Single_Choose extends Widget_Base
 {
 
     /**
@@ -27,7 +27,7 @@ class OD_Button extends Widget_Base
      */
     public function get_name()
     {
-        return 'od-button';
+        return 'od-single-choose';
     }
 
     /**
@@ -41,7 +41,7 @@ class OD_Button extends Widget_Base
      */
     public function get_title()
     {
-        return __('Button', 'ordainit-toolkit');
+        return __('Single Choose', 'ordainit-toolkit');
     }
 
     /**
@@ -104,7 +104,7 @@ class OD_Button extends Widget_Base
      */
     protected function register_controls()
     {
-        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/button.php');
+        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/single-choose.php');
     }
 
     /**
@@ -119,33 +119,42 @@ class OD_Button extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        $od_btn_text = $settings['od_btn_text'];
-        $od_btn_link_type = $settings['od_btn_link_type'];
-        $od_btn_link = $settings['od_btn_link'];
-        $od_btn_page_link = $settings['od_btn_page_link'];
+        $od_single_choose_title =  $settings['od_single_choose_title'];
+        $od_single_choose_description =  $settings['od_single_choose_description'];
+        $od_single_choose_icon =  $settings['od_single_choose_icon'];
 ?>
-        <?php
-        // Link
-        if ('2' == $od_btn_link_type) {
-            $this->add_render_attribute('od-button-arg', 'href', get_permalink($od_btn_page_link));
-            $this->add_render_attribute('od-button-arg', 'target', '_self');
-            $this->add_render_attribute('od-button-arg', 'rel', 'nofollow');
-            $this->add_render_attribute('od-button-arg', 'class', 'it-btn');
-        } else {
-            if (! empty($od_btn_link['url'])) {
-                $this->add_link_attributes('od-button-arg', $od_btn_link);
-                $this->add_render_attribute('od-button-arg', 'class', 'it-btn-red');
-            }
-        }
-        ?>
 
-        <a <?php echo $this->get_render_attribute_string('od-button-arg'); ?>>
-            <?php echo esc_html($od_btn_text, 'ordainit-toolkit'); ?>
-        </a>
+        <?php if ($settings['od_design_style']  == 'layout-2'): ?>
+            <div class="it-choose-5-style">
+                <div class="it-choose-5-item">
+                    <div class="it-choose-5-item-title-sm d-flex ">
+                        <?php echo od_kses($od_single_choose_icon, OD); ?>
+                        <span><?php echo esc_html($od_single_choose_title, OD); ?></span>
+                    </div>
+                    <p><?php echo od_kses($od_single_choose_description, OD); ?></p>
+                </div>
+            </div>
+
+        <?php else: ?>
+
+            <div class="it-choose-item">
+                <span>
+                    <?php echo od_kses($od_single_choose_icon, OD); ?>
+                </span>
+                <div class="it-choose-content">
+                    <h5 class="it-choose-item-title"><?php echo esc_html($od_single_choose_title, OD); ?></h5>
+                    <p><?php echo od_kses($od_single_choose_description, OD); ?></p>
+                </div>
+            </div>
+
+        <?php endif; ?>
+
 
 
         <script>
             jQuery(document).ready(function($) {
+
+
 
             });
         </script>
@@ -153,4 +162,4 @@ class OD_Button extends Widget_Base
     }
 }
 
-$widgets_manager->register(new OD_Button());
+$widgets_manager->register(new OD_Single_Choose());

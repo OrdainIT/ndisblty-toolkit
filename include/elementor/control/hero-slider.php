@@ -53,6 +53,7 @@ $this->add_control(
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => esc_html__('OD Hero Subtitle', OD),
                 'placeholder' => esc_html__('Type subtitle here', OD),
+                'description' => esc_html__('It will work only for layout-1', OD),
                 'label_block' => true,
             ],
             [
@@ -91,15 +92,6 @@ $this->add_control(
                 ],
 
             ],
-            [
-                'name' => 'od_hero_slider_list_shape_img',
-                'label' => esc_html__('Choose Shape Image', OD),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-
-            ],
         ],
         'default' => [
             [
@@ -113,6 +105,41 @@ $this->add_control(
             ],
         ],
         'title_field' => 'Slider Content',
+    ]
+);
+
+$this->end_controls_section();
+
+// Hero Shape Content
+$this->start_controls_section(
+    'od_hero_slider_shape_section',
+    [
+        'label' => __('Shape Image', OD),
+    ]
+);
+
+$this->add_control(
+    'od_hero_slider_shape_image_1',
+    [
+        'label' => esc_html__('Choose Shape Image', OD),
+        'type' => \Elementor\Controls_Manager::MEDIA,
+        'default' => [
+            'url' => \Elementor\Utils::get_placeholder_image_src(),
+        ],
+    ]
+);
+
+$this->add_control(
+    'od_hero_slider_shape_image_2',
+    [
+        'label' => esc_html__('Choose Shape Image 2', OD),
+        'type' => \Elementor\Controls_Manager::MEDIA,
+        'default' => [
+            'url' => \Elementor\Utils::get_placeholder_image_src(),
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-2']
+        ],
     ]
 );
 
@@ -175,10 +202,21 @@ $this->add_control(
     ]
 );
 
+$this->add_control(
+    'od_hero_slider_autoplay_delay',
+    [
+        'label' => esc_html__('Autoplay Delay (ms)', OD),
+        'type' => \Elementor\Controls_Manager::NUMBER,
+        'min' => 1000,
+        'step' => 100,
+        'default' => 4500,
+    ]
+);
+
 $this->end_controls_section();
 
 
-// Banner  Style
+// Slider Style
 $this->start_controls_section(
     'od_hero_slider_style',
     [
@@ -201,7 +239,7 @@ $this->add_control(
 
 $this->end_controls_section();
 
-// Banner Content Style
+// Slider Content Style
 $this->start_controls_section(
     'od_hero_slider_content_style',
     [
@@ -230,6 +268,10 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .it-slider-title .it-slider-title-shape svg path' => 'fill: {{VALUE}}',
         ],
+        'condition' => [
+            'od_design_style' => ['layout-1'],
+            'od_hero_slider_title_icon_switcher' => 'yes'
+        ]
     ]
 );
 
@@ -246,6 +288,9 @@ $this->add_control(
     'hr',
     [
         'type' => \Elementor\Controls_Manager::DIVIDER,
+        'condition' => [
+            'od_design_style' => ['layout-1'],
+        ]
     ]
 );
 
@@ -259,14 +304,21 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .it-slider-subtitle' => 'color: {{VALUE}}',
         ],
+        'condition' => [
+            'od_design_style' => ['layout-1'],
+        ]
     ]
 );
+
 $this->add_group_control(
     \Elementor\Group_Control_Typography::get_type(),
     [
         'label' => esc_html__('Subtitle Typography', OD),
         'name' => 'od_hero_slider_subtitle_typography',
         'selector' => '{{WRAPPER}} .it-slider-subtitle',
+        'condition' => [
+            'od_design_style' => ['layout-1'],
+        ]
     ]
 );
 
@@ -382,12 +434,71 @@ $this->add_control(
 $this->end_controls_tab();
 $this->end_controls_tabs();
 
+$this->add_control(
+    'hr_3',
+    [
+        'type' => \Elementor\Controls_Manager::DIVIDER,
+    ]
+);
+
 // Button Typography
 $this->add_group_control(
     \Elementor\Group_Control_Typography::get_type(),
     [
         'label' => esc_html__('Button Typography', OD),
         'name' => 'od_hero_slider_btn_typography',
+        'selector' => '{{WRAPPER}} .it-btn-red',
+    ]
+);
+
+$this->add_responsive_control(
+    'od_hero_slider_btn_margin',
+    [
+        'label' => esc_html__('Button Margin', 'ordainit-toolkit'),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => ['px', '%', 'em', 'rem'],
+        'selectors' => [
+            '{{WRAPPER}} .it-btn-red' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+    ]
+);
+
+$this->add_responsive_control(
+    'od_hero_slider_btn_padding',
+    [
+        'label' => esc_html__('Button Padding', 'ordainit-toolkit'),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => ['px', '%', 'em', 'rem'],
+        'selectors' => [
+            '{{WRAPPER}} .it-btn-red' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+    ]
+);
+
+$this->add_group_control(
+    \Elementor\Group_Control_Border::get_type(),
+    [
+        'name' => 'od_hero_slider_btn_border',
+        'selector' => '{{WRAPPER}} .it-btn-red',
+    ]
+);
+
+$this->add_control(
+    'od_hero_slider_btn_border_radius',
+    [
+        'label' => esc_html__('Border Radius', 'ordainit-toolkit'),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => ['px', '%', 'em', 'rem'],
+        'selectors' => [
+            '{{WRAPPER}} .it-btn-red' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+    ]
+);
+
+$this->add_group_control(
+    \Elementor\Group_Control_Box_Shadow::get_type(),
+    [
+        'name' => 'od_hero_slider_btn_box_shadow',
         'selector' => '{{WRAPPER}} .it-btn-red',
     ]
 );
@@ -482,6 +593,9 @@ $this->start_controls_section(
     [
         'label' => __('Slider Shape Style', OD),
         'tab' => Controls_Manager::TAB_STYLE,
+        'condition' => [
+            'od_design_style' => ['layout-1'],
+        ]
     ]
 );
 

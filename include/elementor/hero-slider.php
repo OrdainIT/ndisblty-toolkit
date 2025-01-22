@@ -120,14 +120,67 @@ class OD_Hero_Slider extends Widget_Base
     {
         $settings = $this->get_settings_for_display();
         $od_hero_slider_lists = $settings['od_hero_slider_lists'];
+        $od_hero_slider_shape_image_1 = $settings['od_hero_slider_shape_image_1'];
+        $od_hero_slider_shape_image_2 = $settings['od_hero_slider_shape_image_2'];
         $od_hero_slider_pagination_switcher = $settings['od_hero_slider_pagination_switcher'];
         $od_hero_slider_title_icon_switcher = $settings['od_hero_slider_title_icon_switcher'];
         $od_hero_slider_btn_switcher = $settings['od_hero_slider_btn_switcher'];
         $od_hero_slider_autoplay = $settings['od_hero_slider_autoplay'];
+        $od_hero_slider_autoplay_delay = $settings['od_hero_slider_autoplay_delay'];
 ?>
 
 
         <?php if ($settings['od_design_style']  == 'layout-2'): ?>
+
+            <div class="it-slider-area it-slider-style-2">
+                <div class="it-slider-wrap">
+                    <div class="swiper-container it-slider-active p-relative">
+                        <div class="swiper-wrapper">
+                            <?php foreach ($od_hero_slider_lists as $od_hero_slider_list) : ?>
+                                <div class="swiper-slide">
+                                    <div class="it-slider-overlay z-index-1 fix p-relative">
+                                        <img
+                                            class="it-slider-shape-2"
+                                            src="<?php echo esc_url($od_hero_slider_shape_image_1['url'], OD); ?>"
+                                            alt="<?php echo esc_html__('shape-img', OD); ?>" />
+                                        <img
+                                            class="it-slider-shape-3"
+                                            src="<?php echo esc_url($od_hero_slider_shape_image_2['url'], OD); ?>"
+                                            alt="<?php echo esc_html__('shape-img', OD); ?>" />
+                                        <div class="it-slider-bg"
+                                            style="background-image: url('<?php echo esc_url($od_hero_slider_list['od_hero_slider_list_bg_img']['url'], OD); ?>');">
+                                        </div>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xxl-6 col-xl-7 col-lg-9">
+                                                    <div class="it-slider-content z-index-1">
+                                                        <h1 class="it-slider-title p-relative mb-15"><?php echo od_kses($od_hero_slider_list['od_hero_slider_list_title'], OD); ?>
+                                                        </h1>
+                                                        <?php if (!empty($od_hero_slider_list['od_hero_slider_list_description'])): ?>
+                                                            <div class="it-slider-text pb-20">
+                                                                <p><?php echo od_kses($od_hero_slider_list['od_hero_slider_list_description'], OD); ?>.</p>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                        <?php if (!empty($od_hero_slider_btn_switcher)): ?>
+                                                            <div class="it-slider-btn">
+                                                                <a
+                                                                    class="it-btn-red" href="<?php echo esc_url($od_hero_slider_list['od_hero_slider_list_btn_url']['url'], OD); ?>">
+                                                                    <?php echo esc_html($od_hero_slider_list['od_hero_slider_list_btn_text'], OD); ?>
+                                                                </a>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="it-swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
 
         <?php else: ?>
 
@@ -141,7 +194,7 @@ class OD_Hero_Slider extends Widget_Base
                                     <div class="it-slider-overlay z-index-1 fix p-relative">
                                         <img
                                             class="it-slider-shape-1"
-                                            src="<?php echo esc_url($od_hero_slider_list['od_hero_slider_list_shape_img']['url'], OD); ?>"
+                                            src="<?php echo esc_url($od_hero_slider_shape_image_1['url'], OD); ?>"
                                             alt="<?php echo esc_html__('shape-img', OD); ?>" />
                                         <div class="it-slider-circle"></div>
                                         <div
@@ -151,7 +204,9 @@ class OD_Hero_Slider extends Widget_Base
                                             <div class="row">
                                                 <div class="col-xl-7 col-lg-8">
                                                     <div class="it-slider-content z-index-1">
-                                                        <span class="it-slider-subtitle"><?php echo esc_html($od_hero_slider_list['od_hero_slider_list_subtitle'], OD); ?></span>
+                                                        <?php if (!empty($od_hero_slider_list['od_hero_slider_list_subtitle'])): ?>
+                                                            <span class="it-slider-subtitle"><?php echo esc_html($od_hero_slider_list['od_hero_slider_list_subtitle'], OD); ?></span>
+                                                        <?php endif; ?>
                                                         <h1 class="it-slider-title p-relative">
                                                             <?php echo od_kses($od_hero_slider_list['od_hero_slider_list_title'], OD); ?>
                                                             <?php if (!empty($od_hero_slider_title_icon_switcher)): ?>
@@ -171,11 +226,13 @@ class OD_Hero_Slider extends Widget_Base
                                                                 </span>
                                                             <?php endif; ?>
                                                         </h1>
-                                                        <div class="it-slider-text pb-25">
-                                                            <p>
-                                                                <?php echo od_kses($od_hero_slider_list['od_hero_slider_list_description'], OD); ?>
-                                                            </p>
-                                                        </div>
+                                                        <?php if (!empty($od_hero_slider_list['od_hero_slider_list_description'])): ?>
+                                                            <div class="it-slider-text pb-25">
+                                                                <p>
+                                                                    <?php echo od_kses($od_hero_slider_list['od_hero_slider_list_description'], OD); ?>
+                                                                </p>
+                                                            </div>
+                                                        <?php endif; ?>
                                                         <?php if (!empty($od_hero_slider_btn_switcher)): ?>
                                                             <div class="it-slider-btn">
                                                                 <a class="it-btn-red"
@@ -207,6 +264,7 @@ class OD_Hero_Slider extends Widget_Base
             jQuery(document).ready(function($) {
 
                 const sliderAutoplay = <?php echo $od_hero_slider_autoplay === 'yes' ?  'true' : 'false'; ?>;
+                const autoplayDelay = <?php echo $od_hero_slider_autoplay_delay; ?>;
 
                 const sliderswiper = new Swiper('.it-slider-active', {
                     slidesPerView: 1,
@@ -214,7 +272,7 @@ class OD_Hero_Slider extends Widget_Base
                     autoplay: true,
                     effect: 'fade',
                     autoplay: sliderAutoplay ? {
-                        delay: 4500
+                        delay: autoplayDelay
                     } : false,
                     breakpoints: {
                         '1400': {

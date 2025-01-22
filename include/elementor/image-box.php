@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class OD_Button extends Widget_Base
+class OD_Image_Box extends Widget_Base
 {
 
     /**
@@ -27,7 +27,7 @@ class OD_Button extends Widget_Base
      */
     public function get_name()
     {
-        return 'od-button';
+        return 'od-image-box';
     }
 
     /**
@@ -41,7 +41,7 @@ class OD_Button extends Widget_Base
      */
     public function get_title()
     {
-        return __('Button', 'ordainit-toolkit');
+        return __('Image Box', 'ordainit-toolkit');
     }
 
     /**
@@ -104,7 +104,7 @@ class OD_Button extends Widget_Base
      */
     protected function register_controls()
     {
-        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/button.php');
+        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/image-box.php');
     }
 
     /**
@@ -119,33 +119,35 @@ class OD_Button extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        $od_btn_text = $settings['od_btn_text'];
-        $od_btn_link_type = $settings['od_btn_link_type'];
-        $od_btn_link = $settings['od_btn_link'];
-        $od_btn_page_link = $settings['od_btn_page_link'];
+        $od_image_box_title = $settings['od_image_box_title'];
+        $od_image_box_description = $settings['od_image_box_description'];
+        $od_image_box_thumbnail = $settings['od_image_box_thumbnail'];
+        $od_image_box_shape = $settings['od_image_box_shape'];
 ?>
-        <?php
-        // Link
-        if ('2' == $od_btn_link_type) {
-            $this->add_render_attribute('od-button-arg', 'href', get_permalink($od_btn_page_link));
-            $this->add_render_attribute('od-button-arg', 'target', '_self');
-            $this->add_render_attribute('od-button-arg', 'rel', 'nofollow');
-            $this->add_render_attribute('od-button-arg', 'class', 'it-btn');
-        } else {
-            if (! empty($od_btn_link['url'])) {
-                $this->add_link_attributes('od-button-arg', $od_btn_link);
-                $this->add_render_attribute('od-button-arg', 'class', 'it-btn-red');
-            }
-        }
-        ?>
 
-        <a <?php echo $this->get_render_attribute_string('od-button-arg'); ?>>
-            <?php echo esc_html($od_btn_text, 'ordainit-toolkit'); ?>
-        </a>
+        <div class="it-feature-item d-flex align-items-center">
+            <div class="it-feature-icon-box p-relative">
+                <img
+                    src="<?php echo esc_url($od_image_box_shape['url'], OD); ?>"
+                    alt="<?php echo esc_html__('shape-img', OD); ?>" />
+                <span class="icon">
+                    <img
+                        src="<?php echo esc_url($od_image_box_thumbnail['url'], OD); ?>"
+                        alt="<?php echo esc_html__('icon-img', OD); ?>" />
+                </span>
+            </div>
+            <div class="it-feature-content">
+                <h4 class="it-feature-title"><?php echo esc_html($od_image_box_title, OD); ?></h4>
+                <p><?php echo od_kses($od_image_box_description, OD); ?></p>
+            </div>
+        </div>
+
 
 
         <script>
             jQuery(document).ready(function($) {
+
+
 
             });
         </script>
@@ -153,4 +155,4 @@ class OD_Button extends Widget_Base
     }
 }
 
-$widgets_manager->register(new OD_Button());
+$widgets_manager->register(new OD_Image_Box());
