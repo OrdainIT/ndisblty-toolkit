@@ -24,137 +24,8 @@ $this->add_control(
 
 $this->end_controls_section();
 
-$this->start_controls_section(
-    'od_blog_section_title_wrap',
-    [
-        'label' => __('Title & Content', OD),
-    ]
-);
 
 
-$this->add_control(
-    'od_blog_section_title_switcher',
-    [
-        'label' => esc_html__('Title & Content Show/Hide', OD),
-        'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => esc_html__('Show', OD),
-        'label_off' => esc_html__('Hide', OD),
-        'return_value' => 'yes',
-        'default' => 'yes',
-    ]
-);
-
-
-
-$this->add_control(
-    'od_blog_section_title',
-    [
-        'label' => esc_html__('Title', OD),
-        'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => esc_html__('Latest Release News & Articles', OD),
-        'label_block' => true,
-    ]
-);
-
-$this->add_control(
-    'od_blog_section_subtitle',
-    [
-        'label' => esc_html__('Sub Title', OD),
-        'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => esc_html__('Blogs', OD),
-        'label_block' => true,
-        'condition' => [
-            'od_design_style' => ['layout-2'],
-        ],
-    ]
-);
-$this->add_control(
-    'od_blog_section_description',
-    [
-        'label' => esc_html__('Description', OD),
-        'type' => \Elementor\Controls_Manager::TEXTAREA,
-        'default' => od_kses('It is a long established fact that a reader will be distracted <br> by the readable content of a page.', OD),
-        'label_block' => true,
-        'condition' => [
-            'od_design_style' => ['layout-1'],
-        ],
-    ]
-);
-
-
-
-
-$this->end_controls_section();
-
-$this->start_controls_section(
-    'od_blog_section_button_wrap',
-    [
-        'label' => __('Button', OD),
-    ]
-);
-
-
-$this->add_control(
-    'od_btn_text',
-    [
-        'label' => esc_html__('Button Text', OD),
-        'type' => Controls_Manager::TEXT,
-        'default' => esc_html__('View All Blog', OD),
-        'title' => esc_html__('Enter button text', OD),
-        'label_block' => true,
-    ]
-);
-$this->add_control(
-    'od_btn_link_type',
-    [
-        'label' => esc_html__('Button Link Type', OD),
-        'type' => Controls_Manager::SELECT,
-        'options' => [
-            '1' => 'Custom Link',
-            '2' => 'Internal Page',
-        ],
-        'default' => '1',
-        'label_block' => true,
-    ]
-);
-
-$this->add_control(
-    'od_btn_link',
-    [
-        'label' => esc_html__('Button link', OD),
-        'type' => Controls_Manager::URL,
-        'dynamic' => [
-            'active' => true,
-        ],
-        'placeholder' => esc_html__('htods://your-link.com', OD),
-        'show_external' => false,
-        'default' => [
-            'url' => '#',
-            'is_external' => true,
-            'nofollow' => true,
-            'custom_attributes' => '',
-        ],
-        'condition' => [
-            'od_btn_link_type' => '1',
-        ],
-        'label_block' => true,
-    ]
-);
-$this->add_control(
-    'od_btn_page_link',
-    [
-        'label' => esc_html__('Select Button Page', OD),
-        'type' => Controls_Manager::SELECT2,
-        'label_block' => true,
-        'options' => od_get_all_pages(),
-        'condition' => [
-            'od_btn_link_type' => '2',
-        ]
-    ]
-);
-
-
-$this->end_controls_section();
 
 $this->start_controls_section(
     'od_blog_section_blog_qery',
@@ -217,158 +88,9 @@ $this->add_control(
 $this->end_controls_section();
 
 
-$this->start_controls_section(
-    'od_blog_section_shap',
-    [
-        'label' => __('Shap', OD),
-        'condition' => [
-            'od_design_style' => ['layout-2'],
-        ],
-    ]
-);
-
-
-$this->add_control(
-    'od_blog_section_shap_img_1',
-    [
-        'label' => esc_html__('Shap 1', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::MEDIA,
-        'default' => [
-            'url' => \Elementor\Utils::get_placeholder_image_src(),
-        ],
-    ]
-);
-$this->add_control(
-    'od_blog_section_shap_img_2',
-    [
-        'label' => esc_html__('Shap 2', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::MEDIA,
-        'default' => [
-            'url' => \Elementor\Utils::get_placeholder_image_src(),
-        ],
-    ]
-);
-$this->add_control(
-    'od_blog_section_shap_img_3',
-    [
-        'label' => esc_html__('Shap 3', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::MEDIA,
-        'default' => [
-            'url' => \Elementor\Utils::get_placeholder_image_src(),
-        ],
-    ]
-);
 
 
 
-
-
-$this->end_controls_section();
-
-$this->start_controls_section(
-    'od_blog_section_bg_style',
-    [
-        'label' => __('Section BG', OD),
-        'tab' => Controls_Manager::TAB_STYLE,
-    ]
-);
-
-
-$this->add_control(
-    'od_blog_section_bg_color',
-    [
-        'label' => esc_html__('BG Color', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'selectors' => [
-            '{{WRAPPER}} .it-blog-wrap' => 'background-color: {{VALUE}}',
-            '{{WRAPPER}} .blue-bg' => 'background-color: {{VALUE}}',
-        ],
-    ]
-);
-
-$this->end_controls_section();
-
-
-$this->start_controls_section(
-    'od_blog_section_title_content_style',
-    [
-        'label' => __('Title & Content', OD),
-        'tab' => Controls_Manager::TAB_STYLE,
-    ]
-);
-
-$this->add_control(
-    'od_blog_section_title_color',
-    [
-        'label' => esc_html__('Title Color', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'selectors' => [
-            '{{WRAPPER}} .it-section-title' => 'color: {{VALUE}}',
-            '{{WRAPPER}} .ss-section-title' => 'color: {{VALUE}}',
-        ],
-    ]
-);
-
-
-$this->add_group_control(
-    \Elementor\Group_Control_Typography::get_type(),
-    [
-        'name' => 'od_blog_section_title_typo',
-        'selector' => '{{WRAPPER}} .it-section-title, {{WRAPPER}} .ss-section-title',
-    ]
-);
-
-$this->add_control(
-    'od_blog_section_subtitle_color',
-    [
-        'label' => esc_html__('Sub Title Color', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'selectors' => [
-            '{{WRAPPER}} .ss-section-subtitle' => 'color: {{VALUE}}',
-        ],
-        'condition' => [
-            'od_design_style' => ['layout-2'],
-        ],
-    ]
-);
-
-$this->add_group_control(
-    \Elementor\Group_Control_Typography::get_type(),
-    [
-        'name' => 'od_blog_section_subtitle_typo',
-        'selector' => '{{WRAPPER}} .ss-section-subtitle',
-        'condition' => [
-            'od_design_style' => ['layout-2'],
-        ],
-    ]
-);
-$this->add_control(
-    'od_blog_section_desc_color',
-    [
-        'label' => esc_html__('Description Color', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'selectors' => [
-            '{{WRAPPER}} .it-section-title-box p' => 'color: {{VALUE}}',
-        ],
-        'condition' => [
-            'od_design_style' => ['layout-1'],
-        ],
-    ]
-);
-
-
-$this->add_group_control(
-    \Elementor\Group_Control_Typography::get_type(),
-    [
-        'name' => 'od_blog_section_desc_typo',
-        'selector' => '{{WRAPPER}} .it-section-title-box p',
-        'condition' => [
-            'od_design_style' => ['layout-1'],
-        ],
-    ]
-);
-
-$this->end_controls_section();
 
 
 
@@ -384,98 +106,54 @@ $this->start_controls_section(
 $this->add_control(
     'od_blog_post_bg_color',
     [
-        'label' => esc_html__('BG Color', 'textdomain'),
+        'label' => esc_html__('BG Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-blog-item' => 'background-color: {{VALUE}}',
-            '{{WRAPPER}} .ss-blog-item' => 'background-color: {{VALUE}}',
+            '{{WRAPPER}} .it-blog-2-content' => 'background-color: {{VALUE}}',
         ],
     ]
 );
 
-
-$this->add_control(
-    'od_blog_post_bg_hover_color',
+$this->add_group_control(
+    \Elementor\Group_Control_Box_Shadow::get_type(),
     [
-        'label' => esc_html__('BG Hover Color', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'selectors' => [
-            '{{WRAPPER}} .ss-blog-item:hover' => 'background-color: {{VALUE}}',
-        ],
-        'condition' => [
-            'od_design_style' => ['layout-1'],
-        ],
+        'name' => 'od_blog_post_box_shadow',
+        'selector' => '{{WRAPPER}} .it-blog-item, {{WRAPPER}} .it-blog-2-content',
     ]
 );
+
+
 
 
 $this->add_control(
     'od_blog_post_title_heading',
     [
-        'label' => esc_html__('Title', 'textdomain'),
+        'label' => esc_html__('Title', OD),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
     ]
 );
 
-$this->start_controls_tabs(
-    'od_blog_post_title_tabs'
-);
-
-// Normal
-$this->start_controls_tab(
-    'od_blog_post_title_normal_tab',
-    [
-        'label' => esc_html__('Normal', 'textdomain'),
-    ]
-);
 $this->add_control(
     'od_blog_post_title_normal_color',
     [
-        'label' => esc_html__('Text Color', 'textdomain'),
+        'label' => esc_html__('Text Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-blog-title' => 'color: {{VALUE}}',
-            '{{WRAPPER}} .ss-blog-title' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .border-line-black-2' => 'background-image: linear-gradient({{VALUE}}, {{VALUE}}), linear-gradient({{VALUE}}, {{VALUE}})',
         ],
     ]
 );
 
-
-
-
-$this->end_controls_tab();
-
-// Hover
-$this->start_controls_tab(
-    'od_blog_post_title_hover_tab',
-    [
-        'label' => esc_html__('Hover', 'textdomain'),
-    ]
-);
-
-$this->add_control(
-    'od_blog_post_title_hover_color',
-    [
-        'label' => esc_html__('Text Color', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'selectors' => [
-            '{{WRAPPER}} .it-blog-title .title-hover:hover' => 'color: {{VALUE}}',
-            '{{WRAPPER}} .ss-blog-title:hover' => 'color: {{VALUE}}',
-        ],
-    ]
-);
-
-$this->end_controls_tab();
-
-$this->end_controls_tabs();
 
 
 $this->add_group_control(
     \Elementor\Group_Control_Typography::get_type(),
     [
         'name' => 'od_blog_post_title_typo',
-        'selector' => '{{WRAPPER}} .it-blog-title, {{WRAPPER}}  .ss-blog-title',
+        'selector' => '{{WRAPPER}} .it-blog-title',
     ]
 );
 
@@ -484,11 +162,13 @@ $this->add_group_control(
 $this->add_control(
     'od_blog_post_description_color',
     [
-        'label' => esc_html__('Description Color', 'textdomain'),
+        'label' => esc_html__('Description Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .it-blog-content p' => 'color: {{VALUE}}',
-            '{{WRAPPER}} .ss-blog-content p' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-blog-2-content p' => 'color: {{VALUE}}',
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-2'],
         ],
     ]
 );
@@ -498,14 +178,17 @@ $this->add_group_control(
     \Elementor\Group_Control_Typography::get_type(),
     [
         'name' => 'od_blog_post_description_typo',
-        'selector' => '{{WRAPPER}} .it-blog-content p, {{WRAPPER}} .ss-blog-content p',
+        'selector' => '{{WRAPPER}} .it-blog-2-content p',
+        'condition' => [
+            'od_design_style' => ['layout-2'],
+        ],
     ]
 );
 
 $this->add_control(
     'od_blog_post_btn_heading',
     [
-        'label' => esc_html__('Button', 'textdomain'),
+        'label' => esc_html__('Button', OD),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
     ]
@@ -519,20 +202,18 @@ $this->start_controls_tabs(
 $this->start_controls_tab(
     'od_blog_post_btn__nromal_tab',
     [
-        'label' => esc_html__('Normal', 'textdomain'),
+        'label' => esc_html__('Normal', OD),
     ]
 );
 
 $this->add_control(
     'od_blog_post_btn__nromal_bg_color',
     [
-        'label' => esc_html__('BG Color', 'textdomain'),
+        'label' => esc_html__('BG Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .ss-btn' => 'background-color: {{VALUE}}',
-        ],
-        'condition' => [
-            'od_design_style' => ['layout-2'],
+            '{{WRAPPER}} .it-btn-sm.theme-bg' => 'background-color: {{VALUE}}',
+            '{{WRAPPER}} .it-btn-sm' => 'background-color: {{VALUE}}',
         ],
     ]
 );
@@ -540,11 +221,11 @@ $this->add_control(
 $this->add_control(
     'od_blog_post_btn__nromal_color',
     [
-        'label' => esc_html__('Text Color', 'textdomain'),
+        'label' => esc_html__('Text Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .it-blog-link' => 'color: {{VALUE}}',
-            '{{WRAPPER}} .ss-btn' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-btn-sm.theme-bg' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-btn-sm' => 'color: {{VALUE}}',
         ],
     ]
 );
@@ -555,21 +236,18 @@ $this->end_controls_tab();
 $this->start_controls_tab(
     'od_blog_post_btn__hover_tab',
     [
-        'label' => esc_html__('Hover', 'textdomain'),
+        'label' => esc_html__('Hover', OD),
     ]
 );
 
 $this->add_control(
     'od_blog_post_btn__hover_bg_color',
     [
-        'label' => esc_html__('BG Color', 'textdomain'),
+        'label' => esc_html__('BG Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .ss-blog-item:hover .ss-btn' => 'background-color: {{VALUE}}',
-            '{{WRAPPER}} .ss-btn::after' => 'background-color: {{VALUE}}',
-        ],
-        'condition' => [
-            'od_design_style' => ['layout-2'],
+            '{{WRAPPER}} .it-btn-sm.theme-bg:hover' => 'background-color: {{VALUE}}',
+            '{{WRAPPER}} .it-btn-sm:hover' => 'background-color: {{VALUE}}',
         ],
     ]
 );
@@ -577,11 +255,11 @@ $this->add_control(
 $this->add_control(
     'od_blog_post_btn__hover_color',
     [
-        'label' => esc_html__('Text Color', 'textdomain'),
+        'label' => esc_html__('Text Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .it-blog-link:hover' => 'color: {{VALUE}}',
-            '{{WRAPPER}} .ss-blog-item:hover .ss-btn' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-btn-sm.theme-bg:hover' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-btn-sm:hover' => 'color: {{VALUE}}',
         ],
     ]
 );
@@ -595,7 +273,7 @@ $this->add_group_control(
     \Elementor\Group_Control_Typography::get_type(),
     [
         'name' => 'od_blog_post_btn__typo',
-        'selector' => '{{WRAPPER}} .it-blog-link, {{WRAPPER}} .ss-btn',
+        'selector' => '{{WRAPPER}} .it-btn-sm.theme-bg, {{WRAPPER}} .it-btn-sm',
     ]
 );
 
@@ -603,56 +281,62 @@ $this->add_group_control(
 $this->add_control(
     'od_blog_post_date_heading',
     [
-        'label' => esc_html__('Date', 'textdomain'),
+        'label' => esc_html__('Blog Meta', OD),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
+    ]
+);
+
+
+$this->add_control(
+    'od_blog_post_meta_bg_color',
+    [
+        'label' => esc_html__('Meta BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-blog-2-date' => 'background-color: {{VALUE}}',
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-2'],
+        ],
+    ]
+);
+$this->add_control(
+    'od_blog_post_meta_bg2_color',
+    [
+        'label' => esc_html__('Meta After Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-blog-2-date::after' => 'background-color: {{VALUE}}',
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-2'],
+        ],
     ]
 );
 
 $this->add_control(
     'od_blog_post_date_bg_color',
     [
-        'label' => esc_html__('Date BG Color', 'textdomain'),
+        'label' => esc_html__('Meta Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .ss-blog-date' => 'background-color: {{VALUE}}',
-        ],
-        'condition' => [
-            'od_design_style' => ['layout-2'],
-        ],
-    ]
-);
-
-$this->add_control(
-    'od_blog_post_date_color',
-    [
-        'label' => esc_html__('Date Color', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'selectors' => [
+            '{{WRAPPER}} .it-blog-2-date span' => 'color: {{VALUE}}',
             '{{WRAPPER}} .it-blog-meta span' => 'color: {{VALUE}}',
-            '{{WRAPPER}} .ss-blog-date i' => 'color: {{VALUE}}',
         ],
     ]
 );
 
-$this->add_group_control(
-    \Elementor\Group_Control_Typography::get_type(),
-    [
-        'name' => 'od_blog_post_date_typo',
-        'selector' => '{{WRAPPER}}  .it-blog-meta span, {{WRAPPER}}  .ss-blog-date i ',
-    ]
-);
-
 $this->add_control(
-    'od_blog_post_month_year_color',
+    'od_blog_post_icon_color',
     [
-        'label' => esc_html__('Month Year Color', 'textdomain'),
+        'label' => esc_html__('Icon Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .ss-blog-date span' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-blog-meta span svg path' => 'fill: {{VALUE}}',
         ],
         'condition' => [
-            'od_design_style' => ['layout-2'],
+            'od_design_style' => ['layout-1'],
         ],
     ]
 );
@@ -660,49 +344,13 @@ $this->add_control(
 $this->add_group_control(
     \Elementor\Group_Control_Typography::get_type(),
     [
-        'name' => 'od_blog_post_month_year_typo',
-        'selector' => '{{WRAPPER}}  .ss-blog-date span ',
-    ]
-);
-$this->add_control(
-    'od_blog_post_category_heading',
-    [
-        'label' => esc_html__('Category', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::HEADING,
-        'separator' => 'before',
+        'name' => 'od_blog_post_meta_typo',
+        'selector' => '{{WRAPPER}}  .it-blog-2-date span, {{WRAPPER}}  .it-blog-meta span ',
     ]
 );
 
-$this->add_control(
-    'od_blog_post_category_bg_color',
-    [
-        'label' => esc_html__('Category BG Color', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'selectors' => [
-            '{{WRAPPER}} .it-blog-meta i' => 'background-color: {{VALUE}}',
-        ],
-    ]
-);
 
-$this->add_control(
-    'od_blog_post_category_color',
-    [
-        'label' => esc_html__('Category Color', 'textdomain'),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'selectors' => [
-            '{{WRAPPER}} .it-blog-meta i' => 'color: {{VALUE}}',
-            '{{WRAPPER}} .it-blog-meta span::after' => 'background-color: {{VALUE}}',
-        ],
-    ]
-);
 
-$this->add_group_control(
-    \Elementor\Group_Control_Typography::get_type(),
-    [
-        'name' => 'od_blog_post_category_typo',
-        'selector' => '{{WRAPPER}}  .it-blog-meta i',
-    ]
-);
 
 
 $this->end_controls_section();

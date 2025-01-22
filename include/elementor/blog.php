@@ -138,9 +138,6 @@ class Od_Blog_Post extends Widget_Base
     {
         $settings = $this->get_settings_for_display();
 
-        $od_blog_section_title_switcher = $settings['od_blog_section_title_switcher'];
-        $od_blog_section_title = $settings['od_blog_section_title'];
-        $od_blog_section_description = $settings['od_blog_section_description'];
 
         $od_blog_section_blog_btn = $settings['od_blog_section_blog_btn'];
 
@@ -150,10 +147,7 @@ class Od_Blog_Post extends Widget_Base
         $od_category_select = $settings['od_category_select'];
         $od_blog_post_orderby = $settings['od_blog_post_orderby'];
 
-        $od_btn_text = $settings['od_btn_text'];
-        $od_btn_link_type = $settings['od_btn_link_type'];
-        $od_btn_link = $settings['od_btn_link'];
-        $od_btn_page_link = $settings['od_btn_page_link'];
+   
 
         // Post Query
 
@@ -190,33 +184,18 @@ class Od_Blog_Post extends Widget_Base
 
         <?php if ($settings['od_design_style']  == 'layout-2'):
 
-            $od_blog_section_shap_img_1 = $settings['od_blog_section_shap_img_1'];
-            $od_blog_section_shap_img_2 = $settings['od_blog_section_shap_img_2'];
-            $od_blog_section_shap_img_3 = $settings['od_blog_section_shap_img_3'];
+        
 
-            $od_blog_section_subtitle = $settings['od_blog_section_subtitle'];
+     
 
 
         ?>
 
-            <!-- blog-area-start -->
-            <div class="ss-blog-area p-relative z-index-1 blue-bg pb-140">
-                <img class="ss-blog-shape-1 d-none d-lg-block" src="<?php echo esc_url($od_blog_section_shap_img_1['url'], 'ordainit-toolkit'); ?>" alt="">
-                <img class="ss-blog-shape-2" src="<?php echo esc_url($od_blog_section_shap_img_2['url'], 'ordainit-toolkit'); ?>" alt="">
-                <img class="ss-blog-shape-3" src="<?php echo esc_url($od_blog_section_shap_img_3['url'], 'ordainit-toolkit'); ?>" alt="">
-                <div class="container">
-                    <?php if (!empty($od_blog_section_title_switcher)): ?>
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="ss-section-title-box text-center mb-50">
-                                    <span class="ss-section-subtitle it_text_reveal_anim"><?php echo esc_html($od_blog_section_subtitle, 'ordainit-toolkit'); ?></span>
-                                    <h4 class="ss-section-title pb-15 it_text_reveal_anim"><?php echo esc_html($od_blog_section_title, 'ordainit-toolkit'); ?></h4>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                    <div class="row">
 
+            <div class="blog_widget_2">
+                <div class="container">
+
+                    <div class="row gx-35">
                         <?php
                         $i = -1;
 
@@ -226,148 +205,115 @@ class Od_Blog_Post extends Widget_Base
                                 $i++;
 
                         ?>
-                                <div class="col-xl-4 col-xl-4 col-md-6 it-fade-anim" data-fade-from="bottom" data-delay="<?php echo esc_attr(.3 + $i * .2); ?>">
-                                    <div class="ss-blog-item mb-30">
-                                        <div class="ss-blog-thumb p-relative mb-85">
+                                <div class="col-xl-4 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s"
+                                    data-wow-delay="<?php echo esc_attr(.3 + $i * .2); ?>s">
+                                    <div class="it-blog-2-item zoom white-bg mb-30">
+                                        <?php if(has_post_thumbnail()):?>
+                                        <div class="it-blog-2-thumb img-zoom">
                                             <a href="<?php the_permalink(); ?>">
-                                                <?php
-                                                // Post Thumbnail
-                                                if (has_post_thumbnail()) :
-                                                    the_post_thumbnail('medium', ['alt' => get_the_title()]);
-                                                endif;
-                                                ?>
+                                                <img class="w-100" src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>">
                                             </a>
-                                            <div class="ss-blog-date-wrap">
-                                                <div class="ss-blog-date">
-                                                    <i><?php echo get_the_date('d'); ?></i>
-                                                    <span><?php echo get_the_date('M, Y'); ?></span>
-                                                </div>
-                                            </div>
                                         </div>
-                                        <div class="ss-blog-content">
-                                            <h4 class="ss-blog-title">
-                                                <a class="border-line-white" href="<?php the_permalink(); ?>">
-                                                    <?php the_title(); ?>
-                                                </a>
-                                            </h4>
-                                            <p class="mb-35">
-                                                <?php echo wp_trim_words(get_the_excerpt(), 13, '...'); ?>
-                                            </p>
-                                            <a class="ss-btn" href="<?php the_permalink(); ?>">
-                                                <?php echo esc_html($od_blog_section_blog_btn, 'ordainit-toolkit'); ?>
-                                            </a>
+                                        <?php endif;?>
+                                        <div class="it-blog-2-content p-relative">
+                                            <div class="it-blog-2-date">
+                                                <span>
+                                                    <?php echo get_the_date('d'); ?> <br>
+                                                    <?php echo strtoupper(get_the_date('M')); ?>
+                                                </span>
+
+
+                                            </div>
+                                            <h4 class="it-blog-title mb-15"><a class="border-line-black-2" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                                            <p class="mb-25"><?php echo wp_trim_words(get_the_excerpt(), 10, '...'); ?></p>
+                                            <a class="it-btn-sm" href="<?php the_permalink(); ?>"><?php echo esc_html($od_blog_section_blog_btn, 'ordainit-toolkit'); ?></a>
                                         </div>
                                     </div>
                                 </div>
 
-
-                            <?php endwhile;
-                            wp_reset_postdata(); // Reset the query to avoid conflicts
-                        else : ?>
-                            <p>No posts found.</p>
-                        <?php endif; ?>
-
+                        <?php endwhile;
+                            wp_reset_postdata();
+                        endif; ?>
 
                     </div>
                 </div>
             </div>
-            <!-- blog-area-end -->
+
         <?php else:
 
-            //Set attributes for Button
-            $this->set_button_attributes(
-                $od_btn_link_type,
-                $od_btn_page_link,
-                $od_btn_link,
-                'od-button-arg',
-                'it-btn'
-            );
+            
 
 
         ?>
 
 
-            <!-- blog-area-start -->
-            <div class="it-blog-area it-blog-mlr">
-                <div class="it-blog-wrap">
-                    <div class="container">
-                        <?php if (!empty($od_blog_section_title_switcher)): ?>
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="it-section-title-box text-center it-text-anim mb-55">
-                                        <?php if (!empty($od_blog_section_title)): ?>
-                                            <h4 class="it-section-title it-split-text it-split-in-right mb-15"><?php echo esc_html($od_blog_section_title, 'ordainit-toolkit'); ?></h4>
-                                        <?php endif; ?>
-                                        <p><?php echo od_kses($od_blog_section_description, 'ordainit-toolkit'); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-                        <div class="row">
+            <div class="blog_widget">
+                <div class="container">
+                    <div class="row gx-35">
 
-                            <?php
+                        <?php
 
 
-                            $i = -1;
-                            if ($blog_query->have_posts()) :
-                                while ($blog_query->have_posts()) : $blog_query->the_post();
-                                    $i++;
-                            ?>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 it-fade-anim" data-fade-from="bottom" data-delay="<?php echo esc_attr(.3 + $i * .2); ?>">
-                                        <div class="it-blog-item zoom white-bg mb-30">
-                                            <?php if (has_post_thumbnail()) : ?>
-                                                <div class="it-blog-thumb img-zoom">
-                                                    <a href="<?php the_permalink(); ?>">
-
-                                                        <img class="w-100" src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>">
-
-                                                    </a>
-                                                </div>
-                                            <?php endif; ?>
-                                            <div class="it-blog-content">
-                                                <div class="it-blog-meta mb-25">
-                                                    <span><?php echo get_the_date('F d, Y'); ?></span>
-                                                    <?php
-                                                    $categories = get_the_category();
-                                                    if (!empty($categories)) : ?>
-                                                        <i><?php echo esc_html($categories[0]->name); ?></i>
-                                                    <?php endif; ?>
-                                                </div>
-                                                <h4 class="it-blog-title mb-20">
-                                                    <a class="border-line-theme title-hover" href="<?php the_permalink(); ?>">
-                                                        <?php the_title(); ?>
-                                                    </a>
-                                                </h4>
-                                                <p><?php echo wp_trim_words(get_the_excerpt(), 13, '...'); ?></p>
-                                                <a class="it-blog-link border-line-theme title-hover" href="<?php the_permalink(); ?>">
-                                                    <?php echo esc_html($od_blog_section_blog_btn, 'ordainit-toolkit'); ?>
-                                                    <svg width="21" height="12" viewBox="0 0 21 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M20.5303 6.53033C20.8232 6.23744 20.8232 5.76256 20.5303 5.46967L15.7574 0.696699C15.4645 0.403806 14.9896 0.403806 14.6967 0.696699C14.4038 0.989593 14.4038 1.46447 14.6967 1.75736L18.9393 6L14.6967 10.2426C14.4038 10.5355 14.4038 11.0104 14.6967 11.3033C14.9896 11.5962 15.4645 11.5962 15.7574 11.3033L20.5303 6.53033ZM0 6.75H20V5.25H0V6.75Z" fill="currentcolor"></path>
-                                                    </svg>
+                        $i = -1;
+                        if ($blog_query->have_posts()) :
+                            while ($blog_query->have_posts()) : $blog_query->the_post();
+                                $i++;
+                        ?>
+                                <div class="col-xl-4 col-lg-4 col-md-6 wow itfadeUp" data-wow-duration=".9s"
+                                    data-wow-delay="<?php echo esc_attr(.3 + $i * .2); ?>s">
+                                    <div class="it-blog-item zoom white-bg mb-30">
+                                        <?php if (has_post_thumbnail()): ?>
+                                            <div class="it-blog-thumb mb-35 img-zoom">
+                                                <a href="blog-details-right-sidebar.html">
+                                                    <img class="w-100" src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>">
                                                 </a>
                                             </div>
+                                        <?php endif; ?>
+                                        <div class="it-blog-content">
+                                            <div class="it-blog-meta mb-30">
+                                                <span>
+                                                    <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M12.5 2H11V0.375C11 0.1875 10.8125 0 10.625 0H10.375C10.1562 0 10 0.1875 10 0.375V2H4V0.375C4 0.1875 3.8125 0 3.625 0H3.375C3.15625 0 3 0.1875 3 0.375V2H1.5C0.65625 2 0 2.6875 0 3.5V14.5C0 15.3438 0.65625 16 1.5 16H12.5C13.3125 16 14 15.3438 14 14.5V3.5C14 2.6875 13.3125 2 12.5 2ZM1.5 3H12.5C12.75 3 13 3.25 13 3.5V5H1V3.5C1 3.25 1.21875 3 1.5 3ZM12.5 15H1.5C1.21875 15 1 14.7812 1 14.5V6H13V14.5C13 14.7812 12.75 15 12.5 15ZM4.625 10C4.8125 10 5 9.84375 5 9.625V8.375C5 8.1875 4.8125 8 4.625 8H3.375C3.15625 8 3 8.1875 3 8.375V9.625C3 9.84375 3.15625 10 3.375 10H4.625ZM7.625 10C7.8125 10 8 9.84375 8 9.625V8.375C8 8.1875 7.8125 8 7.625 8H6.375C6.15625 8 6 8.1875 6 8.375V9.625C6 9.84375 6.15625 10 6.375 10H7.625ZM10.625 10C10.8125 10 11 9.84375 11 9.625V8.375C11 8.1875 10.8125 8 10.625 8H9.375C9.15625 8 9 8.1875 9 8.375V9.625C9 9.84375 9.15625 10 9.375 10H10.625ZM7.625 13C7.8125 13 8 12.8438 8 12.625V11.375C8 11.1875 7.8125 11 7.625 11H6.375C6.15625 11 6 11.1875 6 11.375V12.625C6 12.8438 6.15625 13 6.375 13H7.625ZM4.625 13C4.8125 13 5 12.8438 5 12.625V11.375C5 11.1875 4.8125 11 4.625 11H3.375C3.15625 11 3 11.1875 3 11.375V12.625C3 12.8438 3.15625 13 3.375 13H4.625ZM10.625 13C10.8125 13 11 12.8438 11 12.625V11.375C11 11.1875 10.8125 11 10.625 11H9.375C9.15625 11 9 11.1875 9 11.375V12.625C9 12.8438 9.15625 13 9.375 13H10.625Z"
+                                                            fill="#DC1D1C" />
+                                                    </svg>
+
+                                                    <?php echo get_the_date(); ?>
+                                                </span>
+                                                <span>
+                                                    <svg width="20" height="15" viewBox="0 0 20 15" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M18.7812 12.8125C18.7812 12.7812 18.0938 12.0312 17.625 11.0938C18.4688 10.25 19 9.1875 19 8C19 5.5 16.5938 3.4375 13.4688 3.09375C12.5 1.28125 10.1875 0 7.5 0C3.90625 0 1 2.25 1 5C1 6.15625 1.5 7.21875 2.375 8.09375C1.875 9.03125 1.1875 9.78125 1.1875 9.8125C1 10 0.9375 10.3125 1.03125 10.5938C1.15625 10.8438 1.40625 11.0312 1.71875 11.0312C3.375 11.0312 4.71875 10.375 5.625 9.8125C5.90625 9.875 6.1875 9.90625 6.5 9.96875C7.46875 11.75 9.78125 13.0312 12.5 13.0312C13.125 13.0312 13.75 12.9375 14.3438 12.8125C15.25 13.375 16.5938 14.0312 18.2812 14.0312C18.5625 14.0312 18.8125 13.8438 18.9375 13.5938C19.0312 13.3125 19 13 18.7812 12.8125ZM5.84375 8.8125L5.4375 8.71875L5.0625 8.96875C4.4375 9.375 3.5 9.84375 2.34375 9.96875C2.59375 9.625 2.96875 9.125 3.25 8.53125L3.59375 7.875L3.0625 7.375C2.5625 6.875 2 6.09375 2 5C2 2.8125 4.46875 1 7.5 1C10.5312 1 13 2.8125 13 5C13 7.21875 10.5312 9 7.5 9C6.9375 9 6.375 8.9375 5.84375 8.8125ZM14.9062 11.9688L14.5312 11.7188L14.125 11.8438C13.5938 11.9688 13.0312 12.0312 12.5 12.0312C10.4375 12.0312 8.6875 11.2188 7.71875 10C11.1875 9.90625 14 7.71875 14 5C14 4.71875 13.9375 4.4375 13.875 4.15625C16.25 4.59375 18 6.15625 18 8C18 9.09375 17.4062 9.875 16.9062 10.375L16.4062 10.875L16.7188 11.5312C17 12.125 17.375 12.625 17.625 12.9688C16.4688 12.8438 15.5312 12.375 14.9062 11.9688Z"
+                                                            fill="#DC1D1C" />
+                                                    </svg>
+                                                    <?php
+                                                    $comment_count = get_comments_number();
+                                                    if ($comment_count == 0) {
+                                                        echo __('No Comment', 'ndisblty');
+                                                    } elseif ($comment_count == 1) {
+                                                        echo sprintf(__('Comment (%d)', 'ndisblty'), $comment_count);
+                                                    } else {
+                                                        echo sprintf(__('Comments (%d)', 'ndisblty'), $comment_count);
+                                                    }
+                                                    ?>
+                                                </span>
+                                            </div>
+                                            <h4 class="it-blog-title mb-35"><a class="border-line-black-2" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                                            <a class="it-btn-sm theme-bg" href="<?php the_permalink(); ?>"><?php echo esc_html($od_blog_section_blog_btn, 'ordainit-toolkit'); ?></a>
                                         </div>
                                     </div>
-                            <?php endwhile;
-                                wp_reset_postdata();
-                            endif; ?>
-
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="it-blog-button text-center mt-30 it-fade-anim" data-fade-from="top" data-ease="bounce" data-delay=".5">
-                                    <a <?php echo $this->get_render_attribute_string('od-button-arg'); ?>>
-                                        <?php echo esc_html($od_btn_text, 'ordainit-toolkit'); ?>
-                                    </a>
                                 </div>
-                            </div>
-                        </div>
+
+                        <?php endwhile;
+                            wp_reset_postdata();
+                        endif; ?>
                     </div>
                 </div>
             </div>
-            <!-- blog-area-end -->
+
+
 
         <?php endif; ?>
 
