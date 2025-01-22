@@ -36,6 +36,7 @@ include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/custom-post-job.php');
 include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/custom-post-service.php');
 include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/custom-post-team.php');
 include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/custom-post-megamenu.php');
+include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/custom-post-hf.php');
 include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/common-functions.php');
 include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/class-ocdi-importer.php');
 include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/allow-svg.php');

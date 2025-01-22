@@ -716,9 +716,9 @@ function od_service_init()
         'name'          => esc_html__('Service Sidebar', 'ordainit-toolkit'),
         'id'            => 'service-sidebar',
         'description'          => esc_html__('Set Your Service Widget', 'ordainit-toolkit'),
-        'before_widget' => '<div id="%1$s" class="it-common-sidebar-widget it-sv-sidebar-widget-box mb-50 %2$s">',
+        'before_widget' => '<div id="%1$s" class="it-common-sidebar-widget sidebar-widget mb-50 %2$s">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h4 class="it-sv-sidebar-widget-title">',
+        'before_title'  => '<h4 class="sidebar-widget-title mb-35">',
         'after_title'   => '</h4>',
     ]);
     /**
