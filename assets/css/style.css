@@ -26,3 +26,26 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* Testimonial */
+.elementor-widget-container .it-testimonial-author img {
+  border-radius: 40px;
+}
+
+/* Testimonial */
+
+.elementor-widget-container .it-testimonial-2-thumb img {
+  height: 100%;
+  max-width: inherit;
+  border-radius: 10px 0 0 10px;
+}
+
+.elementor-widget-container .testimonial-2 .it-testimonial-text p {
+  color: var(--it-common-black);
+}
+
+.elementor-widget-container .testimonial-2 .it-testimonial-author-info h5 {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--it-common-black);
+}

@@ -130,7 +130,7 @@ class OD_Brand_Slider extends Widget_Base
                     <div class="it-brand-item text-center">
                         <img
                             src="<?php echo esc_url($od_brand_slider_list['od_brand_slider_list_image']['url'], OD); ?>"
-                            alt="<?php echo esc_html__('brand-img', OD); ?>">
+                            alt="<?php echo esc_attr__('brand-img', OD); ?>">
                     </div>
                 <?php endforeach; ?>
                 <?php foreach ($od_brand_slider_lists as $od_brand_slider_list):
@@ -138,7 +138,7 @@ class OD_Brand_Slider extends Widget_Base
                     <div class="it-brand-item text-center">
                         <img
                             src="<?php echo esc_url($od_brand_slider_list['od_brand_slider_list_image']['url'], OD); ?>"
-                            alt="<?php echo esc_html__('brand-img', OD); ?>">
+                            alt="<?php echo esc_attr__('brand-img', OD); ?>">
                     </div>
                 <?php endforeach; ?>
             </div>

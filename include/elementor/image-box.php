@@ -129,11 +129,11 @@ class OD_Image_Box extends Widget_Base
             <div class="it-feature-icon-box p-relative">
                 <img
                     src="<?php echo esc_url($od_image_box_shape['url'], OD); ?>"
-                    alt="<?php echo esc_html__('shape-img', OD); ?>" />
+                    alt="<?php echo esc_attr__('shape-img', OD); ?>" />
                 <span class="icon">
                     <img
                         src="<?php echo esc_url($od_image_box_thumbnail['url'], OD); ?>"
-                        alt="<?php echo esc_html__('icon-img', OD); ?>" />
+                        alt="<?php echo esc_attr__('icon-img', OD); ?>" />
                 </span>
             </div>
             <div class="it-feature-content">

@@ -218,6 +218,8 @@ class OD_Core_Plugin
 			'single-choose',
 			'process-full',
 			'icon-box',
+			'single-event',
+			'testimonial-slider',
 		];
 	}
 

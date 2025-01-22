@@ -142,11 +142,11 @@ class OD_Hero_Slider extends Widget_Base
                                         <img
                                             class="it-slider-shape-2"
                                             src="<?php echo esc_url($od_hero_slider_shape_image_1['url'], OD); ?>"
-                                            alt="<?php echo esc_html__('shape-img', OD); ?>" />
+                                            alt="<?php echo esc_attr__('shape-img', OD); ?>" />
                                         <img
                                             class="it-slider-shape-3"
                                             src="<?php echo esc_url($od_hero_slider_shape_image_2['url'], OD); ?>"
-                                            alt="<?php echo esc_html__('shape-img', OD); ?>" />
+                                            alt="<?php echo esc_attr__('shape-img', OD); ?>" />
                                         <div class="it-slider-bg"
                                             style="background-image: url('<?php echo esc_url($od_hero_slider_list['od_hero_slider_list_bg_img']['url'], OD); ?>');">
                                         </div>
@@ -195,7 +195,7 @@ class OD_Hero_Slider extends Widget_Base
                                         <img
                                             class="it-slider-shape-1"
                                             src="<?php echo esc_url($od_hero_slider_shape_image_1['url'], OD); ?>"
-                                            alt="<?php echo esc_html__('shape-img', OD); ?>" />
+                                            alt="<?php echo esc_attr__('shape-img', OD); ?>" />
                                         <div class="it-slider-circle"></div>
                                         <div
                                             class="it-slider-bg"
