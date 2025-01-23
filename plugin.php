@@ -226,6 +226,8 @@ class OD_Core_Plugin
 			'faq',
 			'contact-form7',
 			'video-button',
+			'single-event',
+			'testimonial-slider',
 		];
 	}
 

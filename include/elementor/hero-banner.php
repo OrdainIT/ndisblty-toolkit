@@ -182,7 +182,7 @@ class OD_Hero_Banner extends Widget_Base
                         data-wow-duration="1.5s"
                         data-wow-delay="0.1s"
                         src="<?php echo esc_url($od_hero_banner_thumbnail_image['url'], OD); ?>"
-                        alt="<?php echo esc_html__('hero-img', OD); ?>" />
+                        alt="<?php echo esc_attr__('hero-img', OD); ?>" />
                     <span class="it-hero-3-thumb-icon ripple-red">
                         <?php echo od_kses($od_hero_banner_icon, OD);  ?>
                     </span>
@@ -209,7 +209,7 @@ class OD_Hero_Banner extends Widget_Base
                 <img
                     class="it-hero-2-shape-2"
                     src="<?php echo esc_url($od_hero_banner_shape_image_1['url'], OD); ?>"
-                    alt="<?php echo esc_html__('shape-img', OD); ?>">
+                    alt="<?php echo esc_attr__('shape-img', OD); ?>">
                 <span class="it-hero-2-red-bg"></span>
                 <div class="container">
                     <div class="row align-items-center">
@@ -243,7 +243,7 @@ class OD_Hero_Banner extends Widget_Base
                                 <img
                                     class="it-hero-2-shape-1"
                                     src="<?php echo esc_url($od_hero_banner_shape_image_2['url'], OD); ?>"
-                                    alt="<?php echo esc_html__('shape-img', OD); ?>" />
+                                    alt="<?php echo esc_attr__('shape-img', OD); ?>" />
                                 <div class="row gx-25">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="it-hero-2-thumb-left">
@@ -253,7 +253,7 @@ class OD_Hero_Banner extends Widget_Base
                                                     data-wow-duration="1.5s"
                                                     data-wow-delay="0.1s"
                                                     src="<?php echo esc_url($od_hero_banner_thumbnail_image['url'], OD); ?>"
-                                                    alt="<?php echo esc_html__('hero-img', OD); ?>">
+                                                    alt="<?php echo esc_attr__('hero-img', OD); ?>">
                                             </div>
                                             <div class="it-hero-2-experience d-none d-sm-inline-flex align-items-center">
                                                 <i><?php echo esc_html($od_hero_banner_right_number, OD); ?></i>
@@ -269,7 +269,7 @@ class OD_Hero_Banner extends Widget_Base
                                                     data-wow-duration="1.5s"
                                                     data-wow-delay="0.1s"
                                                     src="<?php echo esc_url($od_hero_banner_thumbnail_image_2['url'], OD); ?>"
-                                                    alt="<?php echo esc_html__('hero-img', OD); ?>">
+                                                    alt="<?php echo esc_attr__('hero-img', OD); ?>">
                                             </div>
                                             <div class="it-hero-2-thumb thumb-style-3">
                                                 <img
@@ -277,7 +277,7 @@ class OD_Hero_Banner extends Widget_Base
                                                     data-wow-duration="1.5s"
                                                     data-wow-delay="0.1s"
                                                     src="<?php echo esc_url($od_hero_banner_thumbnail_image_3['url'], OD); ?>"
-                                                    alt="<?php echo esc_html__('hero-img', OD); ?>">
+                                                    alt="<?php echo esc_attr__('hero-img', OD); ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -295,7 +295,7 @@ class OD_Hero_Banner extends Widget_Base
                 <div class="it-hero-shape">
                     <img
                         src="<?php echo esc_url($od_hero_banner_shape_image_1['url'], OD); ?>"
-                        alt="<?php echo esc_html__('shape-img', OD); ?>" />
+                        alt="<?php echo esc_attr__('shape-img', OD); ?>" />
                 </div>
                 <div class="container">
                     <div class="row align-items-center">
@@ -332,7 +332,7 @@ class OD_Hero_Banner extends Widget_Base
                                     data-wow-duration="1.5s"
                                     data-wow-delay="0.1s"
                                     src="<?php echo esc_url($od_hero_banner_thumbnail_image['url'], OD); ?>"
-                                    alt="<?php echo esc_html__('hero-img', OD); ?>">
+                                    alt="<?php echo esc_attr__('hero-img', OD); ?>">
                             </div>
                         </div>
                     </div>

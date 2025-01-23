@@ -310,7 +310,6 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .theme-bg' => 'background-color: {{VALUE}}',
         ],
-
     ]
 );
 

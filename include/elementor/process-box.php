@@ -143,7 +143,7 @@ class OD_Process_Box extends Widget_Base
             <div class="it-step-item d-flex justify-content-center align-items-center">
                 <div class="it-step-thumb mr-25">
                     <img src="<?php echo esc_url($od_process_box_img['url'], OD); ?>"
-                        alt="<?php echo esc_html__('process-img', OD); ?>" />
+                        alt="<?php echo esc_attr__('process-img', OD); ?>" />
                 </div>
                 <div class="it-step-content">
                     <span><?php echo esc_html($od_process_box_steps, OD); ?></span>
