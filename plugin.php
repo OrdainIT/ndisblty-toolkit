@@ -220,6 +220,7 @@ class OD_Core_Plugin
 			'icon-box',
 			'service',
 			'team',
+			'team-slider',
 		];
 	}
 
