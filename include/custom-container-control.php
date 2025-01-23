@@ -127,7 +127,7 @@ class CustomSaastyContainer
 
         // Add the it-fade-anim class if the switcher is set to "yes"
         if (isset($settings['data_fade_animation']) && $settings['data_fade_animation'] === 'yes') {
-            $element->add_render_attribute('_wrapper', 'class', 'it-fade-anim');
+            $element->add_render_attribute('_wrapper', 'class', 'img-anim-top');
         }
 
          // Add the it-fade-anim class if the switcher is set to "yes"

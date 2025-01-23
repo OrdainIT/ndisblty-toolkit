@@ -8,6 +8,44 @@ span.it-service-2-icon img {
 }
 
 
+button.wpcf7-form-control.wpcf7-submit.has-spinner {
+    display: block;
+}
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 21px 40px;
+    text-align: center;
+    transition: 0.4s;
+    text-transform: capitalize;
+    color: var(--it-common-white);
+    background-color: var(--it-common-red);
+}
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner:hover {
+    color: var(--it-common-white);
+    background-color: var(--it-theme-1);
+}
+
+.wpcf7 label {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.wpcf7-response-output {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+.it-video-icon.video-button {
+    position: relative;
+    display: inline-block;
+    transform:translateY(0)
+}
 
 
 /* start Responsive */

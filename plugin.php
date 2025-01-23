@@ -221,6 +221,11 @@ class OD_Core_Plugin
 			'service',
 			'team',
 			'team-slider',
+			'portfolio',
+			'portfolio-slider',
+			'faq',
+			'contact-form7',
+			'video-button',
 		];
 	}
 
