@@ -47,6 +47,22 @@ button.wpcf7-form-control.wpcf7-submit.has-spinner:hover {
     transform:translateY(0)
 }
 
+.animationY{
+    animation: ittranslateY 4s infinite alternate;
+}
+
+
+.animationX {
+    animation: ittranslateX 4s infinite alternate;
+}
+
+.swing {
+    animation: itswing 4s forwards infinite alternate;
+}
+
+span.it-about-2-more-icon img {
+    max-width: 24px;
+}
 
 /* start Responsive */
 

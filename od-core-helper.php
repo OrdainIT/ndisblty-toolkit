@@ -32,7 +32,7 @@ define('OD', 'ordainit-toolkit');
 /**
  * Include all files
  */
-include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/custom-post-job.php');
+
 include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/custom-post-service.php');
 include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/custom-post-team.php');
 include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/custom-post-megamenu.php');
@@ -42,6 +42,7 @@ include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/class-ocdi-importer.php');
 include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/include/allow-svg.php');
 
 include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/lib/codestar-framework/codestar-framework.php');
+include_once(ORDAINIT_TOOLKIT_ADDONS_DIR . '/lib/advanced-custom-fields-pro/acf.php');
 
 // custom container control
 

@@ -228,6 +228,7 @@ class OD_Core_Plugin
 			'video-button',
 			'single-event',
 			'testimonial-slider',
+			'about',
 		];
 	}
 
