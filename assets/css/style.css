@@ -1,0 +1,51 @@
+/* Hero Banner layout-1 */
+.elementor-widget-container .it-hero-thumb img {
+  max-width: inherit;
+  border-radius: 10px;
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 1800px),
+  only screen and (min-width: 1400px) and (max-width: 1599px),
+  only screen and (min-width: 1200px) and (max-width: 1399px),
+  only screen and (min-width: 992px) and (max-width: 1199px),
+  only screen and (min-width: 768px) and (max-width: 991px),
+  (max-width: 767px) {
+  .elementor-widget-container .it-hero-thumb img {
+    max-width: 100%;
+  }
+}
+
+/* Hero Banner layout-2 */
+.elementor-widget-container .it-hero-2-thumb img {
+  border-radius: 20px;
+}
+
+/* Hero Banner layout-3 */
+.elementor-widget-container .it-hero-3-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Testimonial */
+.elementor-widget-container .it-testimonial-author img {
+  border-radius: 40px;
+}
+
+/* Testimonial */
+
+.elementor-widget-container .it-testimonial-2-thumb img {
+  height: 100%;
+  max-width: inherit;
+  border-radius: 10px 0 0 10px;
+}
+
+.elementor-widget-container .testimonial-2 .it-testimonial-text p {
+  color: var(--it-common-black);
+}
+
+.elementor-widget-container .testimonial-2 .it-testimonial-author-info h5 {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--it-common-black);
+}

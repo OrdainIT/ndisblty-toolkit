@@ -1,0 +1,56 @@
+<?php
+function ndisblty_register_mega_menu_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Header Footers', 'Post Type General Name', OD ),
+        'singular_name'         => _x( 'Header Footer', 'Post Type Singular Name', OD ),
+        'menu_name'             => __( 'Header Footers', OD ),
+        'name_admin_bar'        => __( 'Header Footer', OD ),
+        'archives'              => __( 'Header Footer Archives', OD ),
+        'attributes'            => __( 'Header Footer Attributes', OD ),
+        'parent_item_colon'     => __( 'Parent Header Footer:', OD ),
+        'all_items'             => __( 'All Header Footers', OD ),
+        'add_new_item'          => __( 'Add New Header Footer', OD ),
+        'add_new'               => __( 'Add New', OD ),
+        'new_item'              => __( 'New Header Footer', OD ),
+        'edit_item'             => __( 'Edit Header Footer', OD ),
+        'update_item'           => __( 'Update Header Footer', OD ),
+        'view_item'             => __( 'View Header Footer', OD ),
+        'view_items'            => __( 'View Header Footers', OD ),
+        'search_items'          => __( 'Search Header Footer', OD ),
+        'not_found'             => __( 'Not found', OD ),
+        'not_found_in_trash'    => __( 'Not found in Trash', OD ),
+        'featured_image'        => __( 'Featured Image', OD ),
+        'set_featured_image'    => __( 'Set featured image', OD ),
+        'remove_featured_image' => __( 'Remove featured image', OD ),
+        'use_featured_image'    => __( 'Use as featured image', OD ),
+        'insert_into_item'      => __( 'Insert into Header Footer', OD ),
+        'uploaded_to_this_item' => __( 'Uploaded to this Header Footer', OD ),
+        'items_list'            => __( 'Header Footers list', OD ),
+        'items_list_navigation' => __( 'Header Footers list navigation', OD ),
+        'filter_items_list'     => __( 'Filter Header Footers list', OD ),
+    );
+    $args = array(
+        'label'                 => __( 'Header Footer', OD ),
+        'description'           => __( 'Custom post type for Header Footers', OD ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'revisions' ),
+        'taxonomies'            => array(),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-menu',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+        'show_in_rest'          => false, // Enables Gutenberg support
+        'rewrite'               => array( 'slug' => 'header-footer' ),
+    );
+    register_post_type( 'header-footer', $args );
+}
+add_action( 'init', 'ndisblty_register_mega_menu_post_type', 0 );

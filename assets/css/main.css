@@ -1,0 +1,122 @@
+span.it-service-2-icon img {
+    max-width: 40px;
+}
+
+
+.it-service-5-style .it-service-4-thumb img {
+    object-fit: cover;
+}
+
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner {
+    display: block;
+}
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 21px 40px;
+    text-align: center;
+    transition: 0.4s;
+    text-transform: capitalize;
+    color: var(--it-common-white);
+    background-color: var(--it-common-red);
+}
+
+button.wpcf7-form-control.wpcf7-submit.has-spinner:hover {
+    color: var(--it-common-white);
+    background-color: var(--it-theme-1);
+}
+
+.wpcf7 label {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.wpcf7-response-output {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+.it-video-icon.video-button {
+    position: relative;
+    display: inline-block;
+    transform:translateY(0)
+}
+
+.animationY{
+    animation: ittranslateY 4s infinite alternate;
+}
+
+
+.animationX {
+    animation: ittranslateX 4s infinite alternate;
+}
+
+.swing {
+    animation: itswing 4s forwards infinite alternate;
+}
+
+span.it-about-2-more-icon img {
+    max-width: 24px;
+}
+
+/* start Responsive */
+
+
+@media only screen and (min-width: 1400px) and (max-width: 1599px){
+
+
+
+
+}
+@media only screen and (min-width: 1200px) and (max-width: 1399px){
+
+
+
+}
+
+
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+
+ 
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+
+}
+
+
+
+@media only screen and (min-width: 576px) and (max-width: 767px){
+
+
+
+
+}
+
+
+
+
+
+@media only screen and (max-width: 575px){
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
