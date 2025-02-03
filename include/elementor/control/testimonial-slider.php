@@ -18,6 +18,7 @@ $this->add_control(
             'layout-1' => esc_html__('Layout 1', OD),
             'layout-2' => esc_html__('Layout 2', OD),
             'layout-3' => esc_html__('Layout 3', OD),
+            'layout-4' => esc_html__('Layout 4', OD),
         ],
         'default' => 'layout-1',
     ]
@@ -51,6 +52,7 @@ $this->add_control(
                 'name' => 'od_testimonial_slider_list_avatar',
                 'label' => esc_html__('Choose Avatar', OD),
                 'type' => \Elementor\Controls_Manager::MEDIA,
+                'description' => esc_html__('It works for layout 1 & 3'),
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
@@ -73,6 +75,7 @@ $this->add_control(
             [
                 'name' => 'od_testimonial_slider_list_rating',
                 'label' => esc_html__('Select Star', OD),
+                'description' => esc_html__('It works for layout 1 & 2'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => '5',
                 'options' => [
@@ -168,6 +171,9 @@ $this->add_control(
         'label_off' => esc_html__('Hide', OD),
         'return_value' => 'yes',
         'default' => 'yes',
+        'condition' => [
+            'od_design_style' => ['layout-1', 'layout-2']
+        ]
     ]
 );
 
@@ -180,6 +186,9 @@ $this->add_control(
         'label_off' => esc_html__('Hide', OD),
         'return_value' => 'yes',
         'default' => 'yes',
+        'condition' => [
+            'od_design_style' => ['layout-1', 'layout-2', 'layout-4']
+        ]
     ]
 );
 
@@ -193,7 +202,22 @@ $this->add_control(
         'return_value' => 'yes',
         'default' => 'yes',
         'condition' => [
-            'od_design_style' => ['layout-1']
+            'od_design_style' => ['layout-1', 'layout-3']
+        ]
+    ]
+);
+
+$this->add_control(
+    'od_testimonial_slider_navigation_switcher',
+    [
+        'label' => esc_html__('Navigation Switcher', OD),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__('Show', OD),
+        'label_off' => esc_html__('Hide', OD),
+        'return_value' => 'yes',
+        'default' => 'yes',
+        'condition' => [
+            'od_design_style' => ['layout-4']
         ]
     ]
 );
@@ -219,6 +243,8 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-testimonial-item' => 'background-color: {{VALUE}}',
+            '{{WRAPPER}} .it-testimonial-3-wrap' => 'background-color: {{VALUE}}',
+            '{{WRAPPER}} .it-testimonial-4-item' => 'background-color: {{VALUE}}',
         ],
     ]
 );
@@ -232,6 +258,8 @@ $this->add_responsive_control(
         'size_units' => ['px', '%', 'em', 'rem'],
         'selectors' => [
             '{{WRAPPER}} .it-testimonial-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            '{{WRAPPER}} .it-testimonial-3-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            '{{WRAPPER}} .it-testimonial-4-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
         ],
     ]
 );
@@ -244,6 +272,8 @@ $this->add_responsive_control(
         'size_units' => ['px', '%', 'em', 'rem'],
         'selectors' => [
             '{{WRAPPER}} .it-testimonial-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            '{{WRAPPER}} .it-testimonial-3-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            '{{WRAPPER}} .it-testimonial-4-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
         ],
     ]
 );
@@ -256,6 +286,8 @@ $this->add_control(
         'size_units' => ['px', '%', 'em', 'rem'],
         'selectors' => [
             '{{WRAPPER}} .it-testimonial-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            '{{WRAPPER}} .it-testimonial-3-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            '{{WRAPPER}} .it-testimonial-4-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
         ],
     ]
 );
@@ -264,7 +296,11 @@ $this->add_group_control(
     \Elementor\Group_Control_Box_Shadow::get_type(),
     [
         'name' => 'od_testimonial_slider_box_shadow',
-        'selector' => '{{WRAPPER}} .it-testimonial-item',
+        'selector' => '
+            {{WRAPPER}} .it-testimonial-item,
+            {{WRAPPER}} .it-testimonial-3-wrap,
+            {{WRAPPER}} .it-testimonial-4-item
+        ',
     ]
 );
 
@@ -297,6 +333,7 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-testimonial-author-info h5' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-testimonial-4-author-info h5' => 'color: {{VALUE}}',
         ],
     ]
 );
@@ -308,7 +345,8 @@ $this->add_group_control(
         'label' => esc_html__('Author Typography', OD),
         'name' => 'od_testimonial_slider_author_typography',
         'selector' => '
-            {{WRAPPER}} .it-testimonial-author-info h5
+            {{WRAPPER}} .it-testimonial-author-info h5,
+            {{WRAPPER}} .it-testimonial-4-author-info h5
         ',
     ]
 );
@@ -329,6 +367,7 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-testimonial-author-info span' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-testimonial-4-author-info span' => 'color: {{VALUE}}',
         ],
     ]
 );
@@ -340,7 +379,8 @@ $this->add_group_control(
         'label' => esc_html__('Designation Typography', OD),
         'name' => 'od_testimonial_slider_designation_typography',
         'selector' => '
-            {{WRAPPER}} .it-testimonial-author-info span
+            {{WRAPPER}} .it-testimonial-author-info span,
+            {{WRAPPER}} .it-testimonial-4-author-info span
         ',
     ]
 );
@@ -361,6 +401,7 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-testimonial-text p' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-testimonial-4-text p' => 'color: {{VALUE}}',
         ],
     ]
 );
@@ -372,7 +413,8 @@ $this->add_group_control(
         'label' => esc_html__('Description Typography', OD),
         'name' => 'od_testimonial_slider_description_typography',
         'selector' => '
-            {{WRAPPER}} .it-testimonial-text p
+            {{WRAPPER}} .it-testimonial-text p,
+            {{WRAPPER}} .it-testimonial-4-text p
         ',
     ]
 );
@@ -383,6 +425,9 @@ $this->add_control(
         'label' => esc_html__('Icon', OD),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
+        'condition' => [
+            'od_design_style' => ['layout-1', 'layout-2', 'layout-4']
+        ]
     ]
 );
 
@@ -394,6 +439,9 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .it-testimonial-ratting svg path' => 'fill: {{VALUE}}',
         ],
+        'condition' => [
+            'od_design_style' => ['layout-1', 'layout-2']
+        ]
     ]
 );
 
@@ -403,20 +451,41 @@ $this->add_control(
         'label' => esc_html__('Quote Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .it-testimonial-ratting-wrap .quote-icon svg path' => 'fill: {{VALUE}}',
+            '{{WRAPPER}}  .quote-icon svg path' => 'fill: {{VALUE}}',
+            '{{WRAPPER}}  .it-testimonial-4-quote span' => 'color: {{VALUE}}',
         ],
+        'condition' => [
+            'od_design_style' => ['layout-1', 'layout-2', 'layout-4']
+        ]
+    ]
+);
+
+$this->add_control(
+    'od_testimonial_slider_quote_bg_color',
+    [
+        'label' => esc_html__('Quote BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}}  .it-testimonial-4-quote span' => 'background-color: {{VALUE}}',
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-4']
+        ]
     ]
 );
 
 $this->end_controls_section();
 
 
-// Testimonial Content Style
+// Testimonial Pagination Style
 $this->start_controls_section(
     'od_testimonial_slider_pagination_style',
     [
         'label' => __('Pagination Style', OD),
         'tab' => Controls_Manager::TAB_STYLE,
+        'condition' => [
+            'od_design_style' => ['layout-1', 'layout-3']
+        ]
     ]
 );
 
@@ -427,6 +496,7 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-testimonial-dots .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
+            '{{WRAPPER}} .it-testimonial-3-dots .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
         ],
     ]
 );
@@ -438,7 +508,23 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-testimonial-dots .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
+            '{{WRAPPER}} .it-testimonial-3-dots .swiper-pagination-bullet-active' => 'border-color: {{VALUE}}',
+            '{{WRAPPER}} .it-testimonial-3-dots .swiper-pagination-bullet::after' => 'background-color: {{VALUE}}',
         ],
+    ]
+);
+
+$this->add_control(
+    'od_testimonial_slider_pagination_bullet_active_bg_color',
+    [
+        'label' => esc_html__('Bullet Active BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-testimonial-3-dots .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-3']
+        ]
     ]
 );
 

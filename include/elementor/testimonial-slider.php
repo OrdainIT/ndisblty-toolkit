@@ -125,11 +125,92 @@ class OD_Testimonial_Slider extends Widget_Base
         $od_testimonial_slider_star_switcher = $settings['od_testimonial_slider_star_switcher'];
         $od_testimonial_slider_quote_switcher = $settings['od_testimonial_slider_quote_switcher'];
         $od_testimonial_slider_pagination_switcher = $settings['od_testimonial_slider_pagination_switcher'];
+        $od_testimonial_slider_navigation_switcher = $settings['od_testimonial_slider_navigation_switcher'];
         $od_testimonial_slider_thumbnail_image = $settings['od_testimonial_slider_thumbnail_image'];
 ?>
 
 
-        <?php if ($settings['od_design_style']  == 'layout-3'): ?>
+        <?php if ($settings['od_design_style']  == 'layout-4'): ?>
+
+            <div class="it-testimonial-4-wrap p-relative">
+                <div class="swiper-container it-testimonial-4-active">
+                    <div class="swiper-wrapper">
+                        <?php foreach ($od_testimonial_slider_lists as $od_testimonial_slider_list): ?>
+                            <div class="swiper-slide">
+                                <div class="it-testimonial-4-item p-relative">
+                                    <?php if (!empty($od_testimonial_slider_quote_switcher)): ?>
+                                        <div class="it-testimonial-4-quote">
+                                            <span>
+                                                <i class="fa-solid fa-quote-right"></i>
+                                            </span>
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="it-testimonial-4-author-wrap d-flex align-items-center pb-25">
+                                        <div class="it-testimonial-4-author-thumb mr-15">
+                                            <img
+                                                src="<?php echo esc_url($od_testimonial_slider_list['od_testimonial_slider_list_avatar']['url'], OD); ?>"
+                                                alt="<?php echo esc_attr($od_testimonial_slider_list['od_testimonial_slider_list_author'] ?? ''); ?>" />
+                                        </div>
+                                        <div class="it-testimonial-4-author-info">
+                                            <h5><?php echo esc_html($od_testimonial_slider_list['od_testimonial_slider_list_author'], OD); ?></h5>
+                                            <span><?php echo esc_html($od_testimonial_slider_list['od_testimonial_slider_list_designation'], OD); ?></span>
+                                        </div>
+                                    </div>
+                                    <div class="it-testimonial-4-text">
+                                        <p><?php echo od_kses($od_testimonial_slider_list['od_testimonial_slider_list_description'], OD); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <?php if (!empty($od_testimonial_slider_navigation_switcher)): ?>
+                    <div class="it-testimonial-4-arrow-box d-none d-xxl-block">
+                        <button class="slider-prev mr-25">
+                            <span>
+                                <i class="fa-regular fa-angle-left"></i>
+                            </span>
+                        </button>
+                        <button class="slider-next active">
+                            <span>
+                                <i class="fa-regular fa-angle-right"></i>
+                            </span>
+                        </button>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+        <?php elseif ($settings['od_design_style']  == 'layout-3'): ?>
+
+            <div class="it-testimonial-3-wrap p-relative">
+                <div class="swiper-container it-testimonial-3-active">
+                    <div class="swiper-wrapper">
+                        <?php foreach ($od_testimonial_slider_lists as $od_testimonial_slider_list): ?>
+                            <div class="swiper-slide">
+                                <div class="it-testimonial-3-item">
+                                    <div class="it-testimonial-text pb-20">
+                                        <p><?php echo od_kses($od_testimonial_slider_list['od_testimonial_slider_list_description'], OD); ?></p>
+                                    </div>
+                                    <div class="it-testimonial-author-wrap d-flex align-items-center">
+                                        <div class="it-testimonial-author-thumb mr-15">
+                                            <img
+                                                src="<?php echo esc_url($od_testimonial_slider_list['od_testimonial_slider_list_avatar']['url'], OD); ?>"
+                                                alt="<?php echo esc_attr($od_testimonial_slider_list['od_testimonial_slider_list_author'] ?? ''); ?>" />
+                                        </div>
+                                        <div class="it-testimonial-author-info">
+                                            <h5><?php echo esc_html($od_testimonial_slider_list['od_testimonial_slider_list_author'], OD); ?></h5>
+                                            <span><?php echo esc_html($od_testimonial_slider_list['od_testimonial_slider_list_designation'], OD); ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <?php if (!empty($od_testimonial_slider_pagination_switcher)): ?>
+                    <div class="it-testimonial-3-dots"></div>
+                <?php endif; ?>
+            </div>
 
         <?php elseif ($settings['od_design_style']  == 'layout-2'): ?>
             <div class="testimonial-2">
@@ -145,7 +226,7 @@ class OD_Testimonial_Slider extends Widget_Base
                         </div>
                         <div class="col-xl-8 col-lg-8 col-md-7">
                             <div class="it-testimonial-2-item-box">
-                                <div class="swiper-container it-testimonial-3-active swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+                                <div class="swiper-container it-testimonial-2-active swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
                                     <div class="swiper-wrapper" id="swiper-wrapper-88f94764c0825231" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-1335px, 0px, 0px);">
                                         <?php foreach ($od_testimonial_slider_lists as $od_testimonial_slider_list):
                                             $testimonial_rating_star = $od_testimonial_slider_list['od_testimonial_slider_list_rating'];
@@ -281,6 +362,8 @@ class OD_Testimonial_Slider extends Widget_Base
 
                 const testimonialSliderAutoplay = <?php echo $od_testimonial_slider_autoplay ? 'true' : 'false'; ?>;
                 const testimonialSliderAutoplay2 = <?php echo $od_testimonial_slider_autoplay ? 'true' : 'false'; ?>;
+                const testimonialSliderAutoplay3 = <?php echo $od_testimonial_slider_autoplay ? 'true' : 'false'; ?>;
+                const testimonialSliderAutoplay4 = <?php echo $od_testimonial_slider_autoplay ? 'true' : 'false'; ?>;
                 const testimonialAutoplayDelay = <?php echo $od_testimonial_slider_autoplay_delay; ?>;
 
                 const testimonialSwiper = new Swiper('.it-testimonial-active', {
@@ -319,7 +402,7 @@ class OD_Testimonial_Slider extends Widget_Base
                 });
 
 
-                const testimonial3swiper = new Swiper('.it-testimonial-3-active', {
+                const testimonial2swiper = new Swiper('.it-testimonial-2-active', {
                     // Optional parameters
                     speed: 1500,
                     loop: true,
@@ -332,9 +415,94 @@ class OD_Testimonial_Slider extends Widget_Base
                         '1400': {
                             slidesPerView: 1,
                         },
+                        '1200': {
+                            slidesPerView: 1,
+                        },
+                        '992': {
+                            slidesPerView: 1,
+                        },
+                        '768': {
+                            slidesPerView: 1,
+                        },
+                        '576': {
+                            slidesPerView: 1,
+                        },
                         '0': {
                             slidesPerView: 1,
                         },
+                    },
+
+                });
+
+                const testimonial3swiper = new Swiper('.it-testimonial-3-active', {
+                    // Optional parameters
+                    speed: 1500,
+                    loop: true,
+                    slidesPerView: 1,
+                    spaceBetween: 35,
+                    autoplay: testimonialSliderAutoplay3 ? {
+                        delay: testimonialAutoplayDelay
+                    } : false,
+                    breakpoints: {
+                        '1400': {
+                            slidesPerView: 1,
+                        },
+                        '1200': {
+                            slidesPerView: 1,
+                        },
+                        '992': {
+                            slidesPerView: 1,
+                        },
+                        '768': {
+                            slidesPerView: 1,
+                        },
+                        '576': {
+                            slidesPerView: 1,
+                        },
+                        '0': {
+                            slidesPerView: 1,
+                        },
+                    },
+                    pagination: {
+                        el: ".it-testimonial-3-dots",
+                        clickable: true,
+                    },
+
+                });
+
+
+                const testimonial4swiper = new Swiper('.it-testimonial-4-active', {
+                    // Optional parameters
+                    speed: 1500,
+                    loop: true,
+                    slidesPerView: 2,
+                    spaceBetween: 35,
+                    autoplay: testimonialSliderAutoplay4 ? {
+                        delay: testimonialAutoplayDelay
+                    } : false,
+                    breakpoints: {
+                        '1400': {
+                            slidesPerView: 2,
+                        },
+                        '1200': {
+                            slidesPerView: 2,
+                        },
+                        '992': {
+                            slidesPerView: 2,
+                        },
+                        '768': {
+                            slidesPerView: 1,
+                        },
+                        '576': {
+                            slidesPerView: 1,
+                        },
+                        '0': {
+                            slidesPerView: 1,
+                        },
+                    },
+                    navigation: {
+                        prevEl: '.slider-prev',
+                        nextEl: '.slider-next',
                     },
 
                 });

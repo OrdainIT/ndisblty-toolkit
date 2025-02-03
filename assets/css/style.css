@@ -49,3 +49,9 @@
   font-size: 20px;
   color: var(--it-common-black);
 }
+
+.elementor-widget-container .it-testimonial-4-author-thumb img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
