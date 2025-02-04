@@ -147,7 +147,7 @@ class OD_Title_Box extends Widget_Base
 ?>
 
 
-        <div <?php echo $this->get_render_attribute_string('section_title_box_args'); ?>>
+        <div class="it-section-title-box" style="text-align: <?php echo esc_attr($od_title_box_title_alignment); ?>;">
 
             <?php if (!empty($od_title_box_subtitle_show)): ?>
                 <span class="it-section-subtitle">
