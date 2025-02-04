@@ -229,6 +229,7 @@ class OD_Core_Plugin
 			'single-event',
 			'testimonial-slider',
 			'about',
+			'test-title',
 		];
 	}
 
