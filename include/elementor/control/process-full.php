@@ -88,6 +88,15 @@ $this->start_controls_section(
 );
 
 $this->add_control(
+    'od_process_title_heading',
+    [
+        'label' => esc_html__('Title', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+    ]
+);
+
+$this->add_control(
     'od_process_title_color',
     [
         'label' => esc_html__('Title Color', OD),
@@ -108,9 +117,11 @@ $this->add_group_control(
 );
 
 $this->add_control(
-    'hr',
+    'od_process_description_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Description', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
     ]
 );
 
@@ -134,10 +145,13 @@ $this->add_group_control(
     ]
 );
 
+
 $this->add_control(
-    'hr_3',
+    'od_process_icon_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Icon', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
     ]
 );
 
@@ -154,9 +168,11 @@ $this->add_control(
 
 
 $this->add_control(
-    'hr_2',
+    'od_process_steps_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Step', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
     ]
 );
 
@@ -239,9 +255,11 @@ $this->add_group_control(
 );
 
 $this->add_control(
-    'hr_4',
+    'od_process_line_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Line', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
     ]
 );
 

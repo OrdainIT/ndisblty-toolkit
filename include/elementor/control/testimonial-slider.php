@@ -474,6 +474,20 @@ $this->add_control(
     ]
 );
 
+$this->add_control(
+    'od_testimonial_slider_quote_box_color',
+    [
+        'label' => esc_html__('Quote Box Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}}  .it-testimonial-4-quote::after' => 'border-color: {{VALUE}}',
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-4']
+        ]
+    ]
+);
+
 $this->end_controls_section();
 
 
@@ -527,5 +541,94 @@ $this->add_control(
         ]
     ]
 );
+
+$this->end_controls_section();
+
+
+// Testimonial Navigation Style
+$this->start_controls_section(
+    'od_testimonial_slider_navigation_style',
+    [
+        'label' => __('Navigation Style', OD),
+        'tab' => Controls_Manager::TAB_STYLE,
+        'condition' => [
+            'od_design_style' => ['layout-4']
+        ]
+    ]
+);
+
+$this->start_controls_tabs(
+    'od_testimonial_slider_navigation_style_tabs'
+);
+
+// Normal
+$this->start_controls_tab(
+    'od_testimonial_slider_navigation_style_normal_tab',
+    [
+        'label' => esc_html__('Normal', OD),
+    ]
+);
+
+$this->add_control(
+    'od_testimonial_slider_navigation_style_normal_tab_color',
+    [
+        'label' => esc_html__('Arrow Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-testimonial-4-arrow-box button' => 'color: {{VALUE}}',
+
+        ],
+    ]
+);
+
+$this->add_control(
+    'od_testimonial_slider_navigation_style_normal_tab_bg_color',
+    [
+        'label' => esc_html__('Arrow BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-testimonial-4-arrow-box button' => 'background-color: {{VALUE}}',
+
+        ],
+    ]
+);
+
+$this->end_controls_tab();
+
+// Hover
+$this->start_controls_tab(
+    'od_testimonial_slider_navigation_style_hover_tab',
+    [
+        'label' => esc_html__('Hover', OD),
+    ]
+);
+
+$this->add_control(
+    'od_testimonial_slider_navigation_style_hover_tab_color',
+    [
+        'label' => esc_html__('Arrow Hover Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-testimonial-4-arrow-box button:hover' => 'color: {{VALUE}}',
+
+        ],
+    ]
+);
+
+$this->add_control(
+    'od_testimonial_slider_navigation_style_hover_tab_bg_color',
+    [
+        'label' => esc_html__('Arrow Hover BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-testimonial-4-arrow-box button:hover' => 'background-color: {{VALUE}}',
+
+        ],
+    ]
+);
+
+$this->end_controls_tab();
+
+$this->end_controls_tabs();
 
 $this->end_controls_section();

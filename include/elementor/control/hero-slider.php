@@ -248,6 +248,15 @@ $this->start_controls_section(
     ]
 );
 
+$this->add_control(
+    'od_hero_slider_title_heading',
+    [
+        'label' => esc_html__('Title', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+    ]
+);
+
 // Title Style
 $this->add_control(
     'od_hero_slider_title_color',
@@ -285,9 +294,11 @@ $this->add_group_control(
 );
 
 $this->add_control(
-    'hr',
+    'od_hero_slider_subtitle_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Subtitle', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
         'condition' => [
             'od_design_style' => ['layout-1'],
         ]
@@ -323,9 +334,11 @@ $this->add_group_control(
 );
 
 $this->add_control(
-    'hr_2',
+    'od_hero_slider_description_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Description', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
     ]
 );
 

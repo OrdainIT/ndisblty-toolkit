@@ -189,6 +189,15 @@ $this->start_controls_section(
 );
 
 $this->add_control(
+    'od_process_box_title_heading',
+    [
+        'label' => esc_html__('Title', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+    ]
+);
+
+$this->add_control(
     'od_process_box_title_color',
     [
         'label' => esc_html__('Title Color', OD),
@@ -213,12 +222,13 @@ $this->add_group_control(
 );
 
 $this->add_control(
-    'hr',
+    'od_process_box_description_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Description', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
     ]
 );
-
 $this->add_control(
     'od_process_box_description_color',
     [
@@ -244,9 +254,14 @@ $this->add_group_control(
 );
 
 $this->add_control(
-    'hr_2',
+    'od_process_box_step_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Step', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
     ]
 );
 
@@ -286,6 +301,18 @@ $this->add_group_control(
         'selector' => '{{WRAPPER}} .it-step-content span',
         'condition' => [
             'od_design_style' => ['layout-1']
+        ]
+    ]
+);
+
+$this->add_control(
+    'od_process_box_icon_heading',
+    [
+        'label' => esc_html__('Icon', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+        'condition' => [
+            'od_design_style' => ['layout-2']
         ]
     ]
 );

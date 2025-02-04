@@ -338,6 +338,15 @@ $this->start_controls_section(
     ]
 );
 
+$this->add_control(
+    'od_hero_banner_title_heading',
+    [
+        'label' => esc_html__('Title', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+    ]
+);
+
 // Title Style
 $this->add_control(
     'od_hero_banner_title_color',
@@ -380,9 +389,11 @@ $this->add_group_control(
 );
 
 $this->add_control(
-    'hr',
+    'od_hero_banner_description_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Description', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
     ]
 );
 
@@ -498,9 +509,11 @@ $this->add_control(
 );
 
 $this->add_control(
-    'hr_3',
+    'od_hero_banner_right_number_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Number', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
     ]
 );
 
@@ -525,9 +538,11 @@ $this->add_group_control(
 );
 
 $this->add_control(
-    'hr_4',
+    'od_hero_banner_right_description_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Description', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
     ]
 );
 

@@ -163,6 +163,18 @@ $this->start_controls_section(
 );
 
 $this->add_control(
+    'od_funfact_box_icon_heading',
+    [
+        'label' => esc_html__('Icon', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
+    ]
+);
+
+$this->add_control(
     'od_funfact_box_icon_color',
     [
         'label' => esc_html__('Icon Color', OD),
@@ -222,9 +234,11 @@ $this->add_responsive_control(
 );
 
 $this->add_control(
-    'hr',
+    'od_funfact_box_number_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Number', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
     ]
 );
 
@@ -279,9 +293,11 @@ $this->add_responsive_control(
 );
 
 $this->add_control(
-    'hr_2',
+    'od_funfact_box_description_heading',
     [
-        'type' => \Elementor\Controls_Manager::DIVIDER,
+        'label' => esc_html__('Description', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
     ]
 );
 
