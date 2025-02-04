@@ -145,7 +145,9 @@ class Od_Blog_Post extends Widget_Base
 
         $od_blog_section_blog_post_per_page = $settings['od_blog_section_blog_post_per_page'];
         $od_category_select = $settings['od_category_select'];
-        $od_blog_post_orderby = $settings['od_blog_post_orderby'];
+
+        $od_blog_post_orderby = isset($settings['od_blog_post_orderby']) ? $settings['od_blog_post_orderby'] : 'DESC';
+
 
    
 
