@@ -149,13 +149,12 @@ class OD_Title_Box extends Widget_Base
 
         <div class="it-section-title-box" style="text-align: <?php echo esc_attr($od_title_box_title_alignment); ?>;">
 
-            <?php if (!empty($od_title_box_subtitle_show)): ?>
+           
                 <span class="it-section-subtitle">
                     <?php echo esc_html($od_title_box_subtitle, 'ordainit-toolkit'); ?>
                 </span>
-            <?php endif; ?>
+        
 
-            <?php if (!empty($od_title_box_title_show)): ?>
                 <?php
                 $heading_tag = esc_attr($settings['od_title_box_title_tag']);
                 $heading_attributes = $this->get_render_attribute_string('heading_title_args');
@@ -167,8 +166,7 @@ class OD_Title_Box extends Widget_Base
 
                 echo "<{$heading_tag} {$heading_attributes}>{$heading_content}</{$heading_tag}>";
                 ?>
-            <?php endif; ?>
-
+          
         </div>
 
 
