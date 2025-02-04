@@ -183,6 +183,8 @@ class Test_title extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
+        $title = $settings['title'];
+        $Description = $settings['description'];
 ?>
 
         <div class="test_widgets">
