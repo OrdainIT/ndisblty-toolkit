@@ -145,29 +145,13 @@ class OD_Title_Box extends Widget_Base
             $link_attributes = $this->get_render_attribute_string('heading_link_args');
         }
 ?>
-
-
-        <div class="it-section-title-box" style="text-align: <?php echo esc_attr($od_title_box_title_alignment); ?>;">
-
-           
-                <span class="it-section-subtitle">
-                    <?php echo esc_html($od_title_box_subtitle, 'ordainit-toolkit'); ?>
-                </span>
-        
-
-                <?php
-                $heading_tag = esc_attr($settings['od_title_box_title_tag']);
-                $heading_attributes = $this->get_render_attribute_string('heading_title_args');
-                $heading_content = od_kses($od_title_box_title, 'ordainit-toolkit');
-
-                if ($link_attributes) {
-                    $heading_content = '<a ' . $link_attributes . '>' . $heading_content . '</a>';
-                }
-
-                echo "<{$heading_tag} {$heading_attributes}>{$heading_content}</{$heading_tag}>";
-                ?>
-          
+        <div class="it-section-title-box">
+            <span class="it-section-subtitle"><?php echo esc_html($od_title_box_subtitle, OD); ?></span>
+            <h4 class="it-section-title"><?php echo od_kses($od_title_box_title, OD); ?></h4>
         </div>
+
+
+
 
 
         <script>
