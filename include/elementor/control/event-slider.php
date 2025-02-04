@@ -26,10 +26,9 @@ $this->add_control(
     'od_event_slider_heading_subtitle',
     [
         'label' => esc_html__('Subtitle', OD),
-        'type' => Controls_Manager::TEXTAREA,
-        'rows' => '3',
+        'type' => Controls_Manager::TEXT,
         'default' => esc_html__('OD Subtitle', OD),
-        'placeholder' => esc_html__('Type title here', OD),
+        'placeholder' => esc_html__('Type subtitle here', OD),
         'label_block' => true,
     ]
 );
@@ -148,5 +147,51 @@ $this->add_control(
         'title_field' => '{{{ od_event_slider_list_title }}}',
     ]
 );
+
+$this->end_controls_section();
+
+// Event Slider Settings
+$this->start_controls_section(
+    'od_event_slider_settings',
+    [
+        'label' => __('Slider Settings', OD),
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_autoplay',
+    [
+        'label' => esc_html__('Autoplay Switcher', OD),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__('On', OD),
+        'label_off' => esc_html__('Off', OD),
+        'return_value' => 'yes',
+        'default' => 'yes',
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_autoplay_delay',
+    [
+        'label' => esc_html__('Autoplay Delay (ms)', OD),
+        'type' => \Elementor\Controls_Manager::NUMBER,
+        'min' => 1000,
+        'step' => 100,
+        'default' => 3000,
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_navigation_switcher',
+    [
+        'label' => esc_html__('Navigation Switcher', OD),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__('Show', OD),
+        'label_off' => esc_html__('Hide', OD),
+        'return_value' => 'yes',
+        'default' => 'yes',
+    ]
+);
+
 
 $this->end_controls_section();

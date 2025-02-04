@@ -120,6 +120,11 @@ class OD_Event_Slider extends Widget_Base
     {
         $settings = $this->get_settings_for_display();
         $od_event_slider_lists = $settings['od_event_slider_lists'];
+        $od_event_slider_heading_title = $settings['od_event_slider_heading_title'];
+        $od_event_slider_heading_subtitle = $settings['od_event_slider_heading_subtitle'];
+        $od_event_slider_autoplay = $settings['od_event_slider_autoplay'];
+        $od_event_slider_autoplay_delay = $settings['od_event_slider_autoplay_delay'];
+        $od_event_slider_navigation_switcher = $settings['od_event_slider_navigation_switcher'];
 ?>
 
         <div class="it-event-area">
@@ -128,35 +133,37 @@ class OD_Event_Slider extends Widget_Base
                     <div class="row align-items-end">
                         <div class="col-xl-5 col-lg-6">
                             <div class="it-section-title-box">
-                                <span class="it-section-subtitle">Featured Event</span>
-                                <h4 class="it-section-title">part of our next exciting
-                                    event Join now</h4>
+                                <span class="it-section-subtitle"><?php echo esc_html($od_event_slider_heading_subtitle, OD); ?></span>
+                                <h4 class="it-section-title"><?php echo od_kses($od_event_slider_heading_title, OD); ?></h4>
                             </div>
                         </div>
-                        <div class="col-xl-7 col-lg-6">
-                            <div class="it-event-arrow-box text-lg-end">
-                                <button class="slider-prev mr-25">
-                                    <span>
-                                        <svg width="26" height="12" viewBox="0 0 26 12" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M0.469669 5.46967C0.176777 5.76256 0.176777 6.23743 0.469669 6.53033L5.24264 11.3033C5.53553 11.5962 6.01041 11.5962 6.3033 11.3033C6.59619 11.0104 6.59619 10.5355 6.3033 10.2426L2.06066 6L6.3033 1.75736C6.59619 1.46446 6.59619 0.989591 6.3033 0.696697C6.01041 0.403804 5.53553 0.403804 5.24264 0.696697L0.469669 5.46967ZM26 5.25L1 5.25L1 6.75L26 6.75L26 5.25Z"
-                                                fill="currentcolor" />
-                                        </svg>
-                                    </span>
-                                </button>
-                                <button class="slider-next active">
-                                    <span>
-                                        <svg width="26" height="12" viewBox="0 0 26 12" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M25.5303 5.46967C25.8232 5.76256 25.8232 6.23743 25.5303 6.53033L20.7574 11.3033C20.4645 11.5962 19.9896 11.5962 19.6967 11.3033C19.4038 11.0104 19.4038 10.5355 19.6967 10.2426L23.9393 6L19.6967 1.75736C19.4038 1.46446 19.4038 0.989591 19.6967 0.696697C19.9896 0.403804 20.4645 0.403804 20.7574 0.696697L25.5303 5.46967ZM-6.55672e-08 5.25L25 5.25L25 6.75L6.55672e-08 6.75L-6.55672e-08 5.25Z"
-                                                fill="currentcolor" />
-                                        </svg>
-                                    </span>
-                                </button>
+
+                        <?php if (!empty($od_event_slider_navigation_switcher)): ?>
+                            <div class="col-xl-7 col-lg-6">
+                                <div class="it-event-arrow-box text-lg-end">
+                                    <button class="slider-prev mr-25">
+                                        <span>
+                                            <svg width="26" height="12" viewBox="0 0 26 12" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M0.469669 5.46967C0.176777 5.76256 0.176777 6.23743 0.469669 6.53033L5.24264 11.3033C5.53553 11.5962 6.01041 11.5962 6.3033 11.3033C6.59619 11.0104 6.59619 10.5355 6.3033 10.2426L2.06066 6L6.3033 1.75736C6.59619 1.46446 6.59619 0.989591 6.3033 0.696697C6.01041 0.403804 5.53553 0.403804 5.24264 0.696697L0.469669 5.46967ZM26 5.25L1 5.25L1 6.75L26 6.75L26 5.25Z"
+                                                    fill="currentcolor" />
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <button class="slider-next active">
+                                        <span>
+                                            <svg width="26" height="12" viewBox="0 0 26 12" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M25.5303 5.46967C25.8232 5.76256 25.8232 6.23743 25.5303 6.53033L20.7574 11.3033C20.4645 11.5962 19.9896 11.5962 19.6967 11.3033C19.4038 11.0104 19.4038 10.5355 19.6967 10.2426L23.9393 6L19.6967 1.75736C19.4038 1.46446 19.4038 0.989591 19.6967 0.696697C19.9896 0.403804 20.4645 0.403804 20.7574 0.696697L25.5303 5.46967ZM-6.55672e-08 5.25L25 5.25L25 6.75L6.55672e-08 6.75L-6.55672e-08 5.25Z"
+                                                    fill="currentcolor" />
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="row">
@@ -218,13 +225,18 @@ class OD_Event_Slider extends Widget_Base
         <script>
             jQuery(document).ready(function($) {
 
+                const eventSliderAutoplay = <?php echo $od_event_slider_autoplay ? 'true' : 'false'; ?>;
+                const eventSliderAutoplayDelay = <?php echo $od_event_slider_autoplay_delay; ?>;
+
                 const eventswiper = new Swiper('.it-event-active', {
                     // Optional parameters
                     speed: 1500,
                     loop: true,
                     slidesPerView: 3,
                     spaceBetween: 35,
-                    autoplay: true,
+                    autoplay: eventSliderAutoplay ? {
+                        delay: eventSliderAutoplayDelay
+                    } : false,
                     breakpoints: {
                         '1400': {
                             slidesPerView: 3,
