@@ -2,9 +2,10 @@
 
 namespace ordainit_toolkit\Widgets;
 
-use Elementor\Controls_Manager;
+
 
 use Elementor\Widget_Base;
+
 
 if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
@@ -106,7 +107,8 @@ class OD_Button extends Widget_Base
      */
     protected function register_controls()
     {
-        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/button.php');
+        
+        require_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/button.php');
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-
+use Elementor\Controls_Manager;
 
 // Button Content Section
 $this->start_controls_section(
