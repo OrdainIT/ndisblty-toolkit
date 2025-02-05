@@ -29,6 +29,9 @@ $this->start_controls_section(
     'od_cta_bg_img_section',
     [
         'label' => esc_html__('CTA BG Image', OD),
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
     ]
 );
 
@@ -75,6 +78,41 @@ $this->add_control(
         'default' => esc_html__('+369 258 741 000', OD),
         'placeholder' => esc_html__('Type phone no. here', OD),
         'label_block' => true,
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
+    ]
+);
+
+$this->add_control(
+    'od_cta_btn_text',
+    [
+        'label' => esc_html__('Button Text', OD),
+        'type' => Controls_Manager::TEXT,
+        'rows' => '3',
+        'default' => esc_html__('OD Button', OD),
+        'placeholder' => esc_html__('Type btn text here', OD),
+        'label_block' => true,
+        'condition' => [
+            'od_design_style' => ['layout-2']
+        ]
+    ]
+);
+
+$this->add_control(
+    'od_cta_btn_url',
+    [
+        'label' => esc_html__('Button Url', OD),
+        'type' => Controls_Manager::URL,
+        'placeholder' => esc_html__('https://your-link.com', OD),
+        'show_external' => true,
+        'default' => [
+            'url' => '#',
+        ],
+        'label_block' => true,
+        'condition' => [
+            'od_design_style' => ['layout-2']
+        ]
     ]
 );
 
@@ -112,6 +150,7 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-cta-4-ptb.red-bg' => 'background-color: {{VALUE}}',
+            '{{WRAPPER}} .it-cta-5-area.red-bg' => 'background-color: {{VALUE}}',
         ],
     ]
 );
@@ -125,6 +164,7 @@ $this->add_responsive_control(
         'size_units' => ['px', '%', 'em', 'rem'],
         'selectors' => [
             '{{WRAPPER}} .it-cta-4-ptb' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            '{{WRAPPER}} .it-cta-5-area' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
         ],
     ]
 );
@@ -137,6 +177,7 @@ $this->add_responsive_control(
         'size_units' => ['px', '%', 'em', 'rem'],
         'selectors' => [
             '{{WRAPPER}} .it-cta-4-ptb' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            '{{WRAPPER}} .it-cta-5-area' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
         ],
     ]
 );
@@ -170,6 +211,7 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-cta-4-title' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-cta-5-title' => 'color: {{VALUE}}',
         ],
     ]
 );
@@ -179,7 +221,10 @@ $this->add_group_control(
     [
         'label' => esc_html__('Title Typography', OD),
         'name' => 'od_cta_title_typography',
-        'selector' => '{{WRAPPER}} .it-cta-4-title',
+        'selector' => '
+            {{WRAPPER}} .it-cta-4-title,
+            {{WRAPPER}} .it-cta-5-title
+        ',
     ]
 );
 
@@ -189,6 +234,9 @@ $this->add_control(
         'label' => esc_html__('Phone', OD),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
     ]
 );
 
@@ -200,6 +248,9 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .it-cta-4-title a' => 'color: {{VALUE}}',
         ],
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
     ]
 );
 
@@ -211,6 +262,9 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .border-line-white' => 'background-image:linear-gradient({{VALUE}}, {{VALUE}}), linear-gradient({{VALUE}}, {{VALUE}})',
         ],
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
     ]
 );
 
@@ -220,20 +274,27 @@ $this->add_group_control(
         'label' => esc_html__('Phone Typography', OD),
         'name' => 'od_cta_phone_typography',
         'selector' => '{{WRAPPER}} .it-cta-4-title a',
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
     ]
 );
 
-$this->add_control(
-    'od_cta_icon_heading',
+$this->end_controls_section();
+
+$this->start_controls_section(
+    'od_cta_phone_icon_style',
     [
-        'label' => esc_html__('Phone Icon', OD),
-        'type' => \Elementor\Controls_Manager::HEADING,
-        'separator' => 'before',
+        'label' => __('Phone Icon Style', OD),
+        'tab' => Controls_Manager::TAB_STYLE,
+        'condition' => [
+            'od_design_style' => ['layout-1']
+        ]
     ]
 );
 
 $this->start_controls_tabs(
-    'od_cta_phone_icon_style_tabs'
+    'od_cta_phone_icon_style_tabs',
 );
 
 // Normal
@@ -300,5 +361,109 @@ $this->add_control(
 
 $this->end_controls_tab();
 $this->end_controls_tabs();
+
+$this->end_controls_section();
+
+
+
+$this->start_controls_section(
+    'od_cta_btn_style',
+    [
+        'label' => __('Button Style', OD),
+        'tab' => Controls_Manager::TAB_STYLE,
+        'condition' => [
+            'od_design_style' => ['layout-2']
+        ]
+    ]
+);
+
+$this->add_control(
+    'od_cta_btn_heading',
+    [
+        'label' => esc_html__('Button', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+    ]
+);
+
+
+$this->start_controls_tabs(
+    'od_cta_btn_style_tabs'
+);
+
+// Normal
+$this->start_controls_tab(
+    'od_cta_btn_style_normal_tab',
+    [
+        'label' => esc_html__('Normal', OD),
+    ]
+);
+
+$this->add_control(
+    'od_cta_btn_style_normal_color',
+    [
+        'label' => esc_html__('Button Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} a.it-btn-red.white-btn.hover-2' => 'color: {{VALUE}}',
+        ],
+    ]
+);
+$this->add_control(
+    'od_cta_btn_style_normal_bgcolor',
+    [
+        'label' => esc_html__('Button BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} a.it-btn-red.white-btn.hover-2' => 'background-color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->end_controls_tab();
+
+// Hover
+
+$this->start_controls_tab(
+    'od_cta_btn_style_hover_tab',
+    [
+        'label' => esc_html__('Hover', OD),
+    ]
+);
+
+$this->add_control(
+    'od_cta_btn_style_hover_color',
+    [
+        'label' => esc_html__('Button hover Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} a.it-btn-red.white-btn.hover-2:hover' => 'color: {{VALUE}}',
+
+        ],
+    ]
+);
+$this->add_control(
+    'od_cta_btn_style_hover_bgcolor',
+    [
+        'label' => esc_html__('Button Hover BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} a.it-btn-red.white-btn.hover-2:hover' => 'background-color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->end_controls_tab();
+$this->end_controls_tabs();
+
+// Button Typography
+$this->add_group_control(
+    \Elementor\Group_Control_Typography::get_type(),
+    [
+        'label' => esc_html__('Button Typography', OD),
+        'name' => 'od_cta_btn_typography',
+        'selector' => '{{WRAPPER}} .it-btn-red.white-btn',
+    ]
+);
 
 $this->end_controls_section();

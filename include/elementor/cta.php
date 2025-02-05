@@ -123,6 +123,8 @@ class OD_CTA extends Widget_Base
         $od_cta_img = $settings['od_cta_img'];
         $od_cta_title = $settings['od_cta_title'];
         $od_cta_phone = $settings['od_cta_phone'];
+        $od_cta_btn_text = $settings['od_cta_btn_text'];
+        $od_cta_btn_url = $settings['od_cta_btn_url'];
 ?>
 
 
@@ -143,7 +145,9 @@ class OD_CTA extends Widget_Base
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-5">
                                 <div class="it-cta-5-btn text-end">
-                                    <a class="it-btn-red white-btn hover-2" href="contact.html">Free Consultation</a>
+                                    <a class="it-btn-red white-btn hover-2" href="<?php echo esc_url($od_cta_btn_url['url'], OD); ?>">
+                                        <?php echo esc_html($od_cta_btn_text, OD); ?>
+                                    </a>
                                 </div>
                             </div>
                         </div>
