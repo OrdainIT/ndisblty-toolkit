@@ -124,10 +124,27 @@ class OD_Process_Box extends Widget_Base
         $od_process_box_steps = $settings['od_process_box_steps'];
         $od_process_box_img = $settings['od_process_box_img'];
         $od_process_box_icon = $settings['od_process_box_icon'];
+        $od_process_box_title_url = $settings['od_process_box_title_url'];
 ?>
 
 
-        <?php if ($settings['od_design_style']  == 'layout-2'): ?>
+        <?php if ($settings['od_design_style']  == 'layout-3'): ?>
+
+            <div class="it-feature-4-item mb-30">
+                <span class="it-feature-4-icon mb-35">
+                    <?php echo od_kses($od_process_box_icon, OD); ?>
+                </span>
+                <h4
+                    class="it-feature-4-title">
+                    <a class="border-line-white-2"
+                        href="<?php echo esc_url($od_process_box_title_url['url'], OD); ?>">
+                        <?php echo od_kses($od_process_box_title, OD); ?>
+                    </a>
+                </h4>
+                <p><?php echo od_kses($od_process_box_description, OD); ?></p>
+            </div>
+
+        <?php elseif ($settings['od_design_style']  == 'layout-2'): ?>
             <div class="it-step-3-item p-relative text-center mb-30">
                 <span class="it-step-4-icon">
                     <?php echo od_kses($od_process_box_icon, OD); ?>
@@ -137,7 +154,6 @@ class OD_Process_Box extends Widget_Base
                     <p class="mb-0"><?php echo od_kses($od_process_box_description, OD); ?></p>
                 </div>
             </div>
-
         <?php else: ?>
 
             <div class="it-step-item d-flex justify-content-center align-items-center">

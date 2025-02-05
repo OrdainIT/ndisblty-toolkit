@@ -17,6 +17,7 @@ $this->add_control(
         'options' => [
             'layout-1' => esc_html__('Layout 1', OD),
             'layout-2' => esc_html__('Layout 2', OD),
+            'layout-3' => esc_html__('Layout 3', OD),
         ],
         'default' => 'layout-1',
     ]
@@ -41,6 +42,24 @@ $this->add_control(
         'default' => esc_html__('OD Process Title', OD),
         'placeholder' => esc_html__('Type title here', OD),
         'label_block' => true,
+    ]
+);
+
+
+$this->add_control(
+    'od_process_box_title_url',
+    [
+        'label' => esc_html__('Title Url', OD),
+        'type' => Controls_Manager::URL,
+        'placeholder' => esc_html__('https://your-link.com', OD),
+        'show_external' => true,
+        'default' => [
+            'url' => '#',
+        ],
+        'label_block' => true,
+        'condition' => [
+            'od_design_style' => ['layout-3']
+        ]
     ]
 );
 
@@ -92,7 +111,7 @@ $this->add_control(
         'placeholder' => esc_html__('Put svg icon here', OD),
         'label_block' => true,
         'condition' => [
-            'od_design_style' => ['layout-2']
+            'od_design_style' => ['layout-2', 'layout-3']
         ]
     ]
 );
@@ -120,7 +139,22 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .it-step-item' => 'background-color: {{VALUE}}',
             '{{WRAPPER}} .it-step-3-item' => 'background-color: {{VALUE}}',
+            '{{WRAPPER}} .it-feature-4-item' => 'background-color: {{VALUE}}',
         ],
+    ]
+);
+
+$this->add_control(
+    'od_process_box_bg_hover_color',
+    [
+        'label' => esc_html__('BG Hover Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-feature-4-item:hover' => 'background-color: {{VALUE}}',
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-3']
+        ]
     ]
 );
 
@@ -134,6 +168,7 @@ $this->add_responsive_control(
         'selectors' => [
             '{{WRAPPER}} .it-step-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             '{{WRAPPER}} .it-step-3-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            '{{WRAPPER}} .it-feature-4-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
         ],
     ]
 );
@@ -147,6 +182,7 @@ $this->add_responsive_control(
         'selectors' => [
             '{{WRAPPER}} .it-step-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             '{{WRAPPER}} .it-step-3-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            '{{WRAPPER}} .it-feature-4-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
         ],
     ]
 );
@@ -160,6 +196,7 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .it-step-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             '{{WRAPPER}} .it-step-3-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            '{{WRAPPER}} .it-feature-4-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
         ],
     ]
 );
@@ -168,9 +205,12 @@ $this->add_group_control(
     \Elementor\Group_Control_Box_Shadow::get_type(),
     [
         'name' => 'od_process_box_box_shadow',
-        'selector' => '{{WRAPPER}} .it-step-3-item',
+        'selector' => '
+            {{WRAPPER}} .it-step-3-item,
+            {{WRAPPER}} .it-feature-4-item
+        ',
         'condition' => [
-            'od_design_style' => ['layout-2']
+            'od_design_style' => ['layout-2', 'layout-3']
         ]
     ]
 );
@@ -205,7 +245,36 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .it-step-title' => 'color: {{VALUE}}',
             '{{WRAPPER}} .it-step-4-title' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-feature-4-title' => 'color: {{VALUE}}',
         ],
+    ]
+);
+
+$this->add_control(
+    'od_process_box_title_hover_color',
+    [
+        'label' => esc_html__('Title Hover Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-feature-4-item:hover .it-feature-4-title' => 'color: {{VALUE}}',
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-3']
+        ]
+    ]
+);
+
+$this->add_control(
+    'od_process_box_title_border_color',
+    [
+        'label' => esc_html__('Title Border Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .border-line-white-2' => 'background-image:linear-gradient({{VALUE}}, {{VALUE}}), linear-gradient({{VALUE}}, {{VALUE}})',
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-3']
+        ]
     ]
 );
 
@@ -216,7 +285,8 @@ $this->add_group_control(
         'name' => 'od_process_box_title_typography',
         'selector' => '
             {{WRAPPER}} .it-step-title,
-            {{WRAPPER}} .it-step-4-title
+            {{WRAPPER}} .it-step-4-title,
+            {{WRAPPER}} .it-feature-4-title
         ',
     ]
 );
@@ -229,6 +299,7 @@ $this->add_control(
         'separator' => 'before',
     ]
 );
+
 $this->add_control(
     'od_process_box_description_color',
     [
@@ -237,7 +308,22 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .it-step-content p' => 'color: {{VALUE}}',
             '{{WRAPPER}} .it-step-3-content p' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-feature-4-item p' => 'color: {{VALUE}}',
         ],
+    ]
+);
+
+$this->add_control(
+    'od_process_box_description_hover_color',
+    [
+        'label' => esc_html__('Description Hover Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-feature-4-item:hover p' => 'color: {{VALUE}}',
+        ],
+        'condition' => [
+            'od_design_style' => ['layout-3']
+        ]
     ]
 );
 
@@ -248,7 +334,8 @@ $this->add_group_control(
         'name' => 'od_process_box_description_typography',
         'selector' => '
             {{WRAPPER}} .it-step-content p,
-            {{WRAPPER}} .it-step-3-content p
+            {{WRAPPER}} .it-step-3-content p,
+            {{WRAPPER}} .it-feature-4-item p
         ',
     ]
 );
@@ -312,7 +399,7 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
         'condition' => [
-            'od_design_style' => ['layout-2']
+            'od_design_style' => ['layout-2', 'layout-3']
         ]
     ]
 );
@@ -324,9 +411,10 @@ $this->add_control(
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-step-4-icon svg path' => 'fill: {{VALUE}}',
+            '{{WRAPPER}} .it-feature-4-icon svg path' => 'fill: {{VALUE}}',
         ],
         'condition' => [
-            'od_design_style' => ['layout-2']
+            'od_design_style' => ['layout-2', 'layout-3']
         ]
     ]
 );
