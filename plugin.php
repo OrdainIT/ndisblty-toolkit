@@ -232,6 +232,7 @@ class OD_Core_Plugin
 			'feature-box',
 			'brand-title',
 			'event-slider',
+			'cta',
 		];
 	}
 

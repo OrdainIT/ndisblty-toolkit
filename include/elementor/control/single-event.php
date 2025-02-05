@@ -267,7 +267,7 @@ $this->add_control(
 $this->add_control(
     'od_event_published_date_bg_color',
     [
-        'label' => esc_html__('Date Color', OD),
+        'label' => esc_html__('Date BG Color', OD),
         'type' => \Elementor\Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .it-event-date' => 'background-color: {{VALUE}}',

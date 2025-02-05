@@ -55,3 +55,11 @@
   width: 75px;
   border-radius: 50%;
 }
+
+/* CTA */
+.elementor-widget-container .it-cta-4-thumb img {
+  object-fit: cover;
+  height: 100%;
+  border-left: 15px solid var(--it-common-white);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 12.5% 100%);
+}

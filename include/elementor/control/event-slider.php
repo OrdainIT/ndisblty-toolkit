@@ -195,3 +195,540 @@ $this->add_control(
 
 
 $this->end_controls_section();
+
+
+// Event Style
+$this->start_controls_section(
+    'od_event_slider_heading_style',
+    [
+        'label' => __('Event Heading Style', OD),
+        'tab' => Controls_Manager::TAB_STYLE,
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_title_heading',
+    [
+        'label' => esc_html__('Title', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_heading_title_color',
+    [
+        'label' => esc_html__('Title Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-section-title' => 'color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->add_group_control(
+    \Elementor\Group_Control_Typography::get_type(),
+    [
+        'label' => esc_html__('Title Typography', OD),
+        'name' => 'od_event_slider_heading_title_typography',
+        'selector' => '{{WRAPPER}} .it-section-title',
+    ]
+);
+
+$this->add_responsive_control(
+    'od_event_slider_heading_title_margin',
+    [
+        'label' => esc_html__('Title Margin', OD),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => ['px', '%', 'em', 'rem'],
+        'selectors' => [
+            '{{WRAPPER}} .it-section-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+    ]
+);
+
+$this->add_responsive_control(
+    'od_event_slider_heading_title_padding',
+    [
+        'label' => esc_html__('Title Padding', OD),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => ['px', '%', 'em', 'rem'],
+        'selectors' => [
+            '{{WRAPPER}} .it-section-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_subtitle_heading',
+    [
+        'label' => esc_html__('Subtitle', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+    ]
+);
+
+
+$this->add_control(
+    'od_event_slider_heading_subtitle_color',
+    [
+        'label' => esc_html__('Subtitle Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-section-subtitle' => 'color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_heading_subtitle_icon_color',
+    [
+        'label' => esc_html__('Subtitle Icon Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-section-subtitle::before' => 'background-color: {{VALUE}}',
+            '{{WRAPPER}} .it-section-subtitle::after' => 'background-color: {{VALUE}}',
+        ],
+    ]
+);
+
+
+$this->add_group_control(
+    \Elementor\Group_Control_Typography::get_type(),
+    [
+        'label' => esc_html__('Subtitle Typography', OD),
+        'name' => 'od_event_slider_heading_subtitle_typography',
+        'selector' => '{{WRAPPER}} .it-section-subtitle',
+    ]
+);
+
+$this->add_responsive_control(
+    'od_event_slider_heading_subtitle_margin',
+    [
+        'label' => esc_html__('Subtitle Margin', OD),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => ['px', '%', 'em', 'rem'],
+        'selectors' => [
+            '{{WRAPPER}} .it-section-subtitle' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+    ]
+);
+
+$this->add_responsive_control(
+    'od_event_slider_heading_subtitle_padding',
+    [
+        'label' => esc_html__('Subtitle Padding', OD),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => ['px', '%', 'em', 'rem'],
+        'selectors' => [
+            '{{WRAPPER}} .it-section-subtitle' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+    ]
+);
+
+$this->end_controls_section();
+
+
+// Event Style
+$this->start_controls_section(
+    'od_event_slider_box_style',
+    [
+        'label' => __('Event Box Style', OD),
+        'tab' => Controls_Manager::TAB_STYLE,
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_box_bg_color',
+    [
+        'label' => esc_html__('BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-event-item' => 'background: {{VALUE}}',
+        ],
+    ]
+);
+
+
+$this->add_responsive_control(
+    'od_event_slider_box_margin',
+    [
+        'label' => esc_html__('Margin', OD),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => ['px', '%', 'em', 'rem'],
+        'selectors' => [
+            '{{WRAPPER}} .it-event-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+    ]
+);
+
+$this->add_responsive_control(
+    'od_event_slider_box_padding',
+    [
+        'label' => esc_html__('Padding', OD),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => ['px', '%', 'em', 'rem'],
+        'selectors' => [
+            '{{WRAPPER}} .it-event-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_box_border_radius',
+    [
+        'label' => esc_html__('Border Radius', OD),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'size_units' => ['px', '%', 'em', 'rem'],
+        'selectors' => [
+            '{{WRAPPER}} .it-event-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        ],
+    ]
+);
+
+$this->add_group_control(
+    \Elementor\Group_Control_Box_Shadow::get_type(),
+    [
+        'name' => 'od_event_slider_box_box_shadow',
+        'selector' => '{{WRAPPER}} .it-event-item',
+    ]
+);
+
+
+$this->end_controls_section();
+
+
+
+
+// Event Content Style
+$this->start_controls_section(
+    'od_event_slider_item_content_style',
+    [
+        'label' => __('Content Style', OD),
+        'tab' => Controls_Manager::TAB_STYLE,
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_title_heading',
+    [
+        'label' => esc_html__('Title', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_title_color',
+    [
+        'label' => esc_html__('Title Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-event-title' => 'color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_title_border_color',
+    [
+        'label' => esc_html__('Title Border Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .border-line-black-2' => 'background-image: linear-gradient({{VALUE}}, {{VALUE}}), linear-gradient({{VALUE}}, {{VALUE}})',
+        ],
+    ]
+);
+
+$this->add_group_control(
+    \Elementor\Group_Control_Typography::get_type(),
+    [
+        'label' => esc_html__('Title Typography', OD),
+        'name' => 'od_event_slider_item_title_typography',
+        'selector' => '{{WRAPPER}} .it-event-title',
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_event_date_heading',
+    [
+        'label' => esc_html__('Event Date', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_event_date_color',
+    [
+        'label' => esc_html__('Date Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-event-date span' => 'color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_event_date_bg_color',
+    [
+        'label' => esc_html__('Date BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-event-date' => 'background-color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->add_group_control(
+    \Elementor\Group_Control_Border::get_type(),
+    [
+        'name' => 'od_event_slider_item_event_date_border',
+        'selector' => '{{WRAPPER}} .it-event-date',
+    ]
+);
+
+$this->add_group_control(
+    \Elementor\Group_Control_Typography::get_type(),
+    [
+        'label' => esc_html__('Date Typography', OD),
+        'name' => 'od_event_slider_event_date_typography',
+        'selector' => '{{WRAPPER}} .it-event-date span',
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_meta_heading',
+    [
+        'label' => esc_html__('Meta Content', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_meta_icon_color',
+    [
+        'label' => esc_html__('Icon Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-event-meta span svg' => 'color: {{VALUE}}',
+            '{{WRAPPER}} .it-event-meta span svg path' => 'fill: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_meta_location_color',
+    [
+        'label' => esc_html__('Location Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-event-meta a' => 'color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->add_group_control(
+    \Elementor\Group_Control_Typography::get_type(),
+    [
+        'label' => esc_html__('Location Typography', OD),
+        'name' => 'od_event_slider_item_meta_location_typography',
+        'selector' => '{{WRAPPER}} .it-event-meta a',
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_meta_time_color',
+    [
+        'label' => esc_html__('Time Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-event-meta .event-time' => 'color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->add_group_control(
+    \Elementor\Group_Control_Typography::get_type(),
+    [
+        'label' => esc_html__('Time Typography', OD),
+        'name' => 'od_event_slider_item_meta_time_typography',
+        'selector' => '{{WRAPPER}} .it-event-meta .event-time',
+    ]
+);
+
+
+$this->add_control(
+    'od_event_slider_item_btn_heading',
+    [
+        'label' => esc_html__('Button', OD),
+        'type' => \Elementor\Controls_Manager::HEADING,
+        'separator' => 'before',
+    ]
+);
+
+
+$this->start_controls_tabs(
+    'od_event_slider_item_btn_style_tabs'
+);
+
+// Normal
+$this->start_controls_tab(
+    'od_event_slider_item_btn_style_normal_tab',
+    [
+        'label' => esc_html__('Normal', OD),
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_btn_style_normal_color',
+    [
+        'label' => esc_html__('Button Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-btn-sm' => 'color: {{VALUE}}',
+        ],
+    ]
+);
+$this->add_control(
+    'od_event_slider_item_btn_style_normal_bgcolor',
+    [
+        'label' => esc_html__('Button BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-btn-sm' => 'background-color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->end_controls_tab();
+
+// Hover
+
+$this->start_controls_tab(
+    'od_event_slider_item_btn_style_hover_tab',
+    [
+        'label' => esc_html__('Hover', OD),
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_item_btn_style_hover_color',
+    [
+        'label' => esc_html__('Button hover Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-btn-sm:hover' => 'color: {{VALUE}}',
+
+        ],
+    ]
+);
+$this->add_control(
+    'od_event_slider_item_btn_style_hover_bgcolor',
+    [
+        'label' => esc_html__('Button Hover BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-btn-sm:hover' => 'background-color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->end_controls_tab();
+$this->end_controls_tabs();
+
+// Button Typography
+$this->add_group_control(
+    \Elementor\Group_Control_Typography::get_type(),
+    [
+        'label' => esc_html__('Button Typography', OD),
+        'name' => 'od_event_slider_item_btn_typography',
+        'selector' => '{{WRAPPER}} .it-btn-sm',
+    ]
+);
+
+$this->end_controls_section();
+
+
+
+// Event Content Style
+$this->start_controls_section(
+    'od_event_slider_navigation_style',
+    [
+        'label' => __('Navigation Style', OD),
+        'tab' => Controls_Manager::TAB_STYLE,
+    ]
+);
+
+
+$this->start_controls_tabs(
+    'od_event_slider_navigation_btn_style_tabs'
+);
+
+// Normal
+$this->start_controls_tab(
+    'od_event_slider_navigation_btn_style_normal_tab',
+    [
+        'label' => esc_html__('Normal', OD),
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_navigation_btn_style_normal_color',
+    [
+        'label' => esc_html__('Button Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-event-arrow-box button' => 'color: {{VALUE}}',
+        ],
+    ]
+);
+$this->add_control(
+    'od_event_slider_navigation_btn_style_normal_bgcolor',
+    [
+        'label' => esc_html__('Button BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-event-arrow-box button' => 'background-color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->end_controls_tab();
+
+// Hover
+
+$this->start_controls_tab(
+    'od_event_slider_navigation_btn_style_hover_tab',
+    [
+        'label' => esc_html__('Hover', OD),
+    ]
+);
+
+$this->add_control(
+    'od_event_slider_navigation_btn_style_hover_color',
+    [
+        'label' => esc_html__('Button hover Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-event-arrow-box button:hover' => 'color: {{VALUE}}',
+
+        ],
+    ]
+);
+$this->add_control(
+    'od_event_slider_navigation_btn_style_hover_bgcolor',
+    [
+        'label' => esc_html__('Button Hover BG Color', OD),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .it-event-arrow-box button:hover' => 'background-color: {{VALUE}}',
+        ],
+    ]
+);
+
+$this->end_controls_tab();
+$this->end_controls_tabs();
+
+$this->end_controls_section();
