@@ -233,6 +233,7 @@ class OD_Core_Plugin
 			'brand-title',
 			'event-slider',
 			'cta',
+			'funfact-full',
 		];
 	}
 
