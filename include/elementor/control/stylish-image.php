@@ -32,43 +32,7 @@ $this->add_control(
     ]
 );
 
-
-// $service_cats = get_terms('project-categories', array('order' => 'DESC'));
-// $cat_array = array( '' => 'Select One' );
-// foreach($service_cats as $cat) {
-//     $cat_array[$cat->slug] = $cat->name;
-// }
-
-/**
- * Get Post Categories
- */
-// function od_get_categories($taxonomy)
-// {
-//     $terms = get_terms(array(
-//         'taxonomy' => $taxonomy,
-//         'hide_empty' => true,
-//     ));
-//     $options = array();
-//     if (!empty($terms) && !is_wp_error($terms)) {
-//         foreach ($terms as $term) {
-//             $options[$term->slug] = $term->name;
-//         }
-//     }
-//     return $options;
-// }
-
-
-// $this->add_control(
-//     'category',
-//     [
-//         'label' => esc_html__('Include Categories', 'ordainit-toolkit'),
-//         'description' => esc_html__('Select a category to include or leave blank for all.', 'ordainit-toolkit'),
-//         'type' => Controls_Manager::SELECT2,
-//         'multiple' => true,
-//         'options' => od_get_categories('project-categories'),
-//         'label_block' => true,
-//     ]
-// );
+// Style Starts
 
 $this->end_controls_section();
 

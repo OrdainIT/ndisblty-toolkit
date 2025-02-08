@@ -2,6 +2,7 @@
 
 namespace ordainit_toolkit\Widgets;
 
+use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
 
 if (! defined('ABSPATH')) exit; // Exit if accessed directly
@@ -104,7 +105,637 @@ class OD_Testimonial_Slider extends Widget_Base
      */
     protected function register_controls()
     {
-        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/testimonial-slider.php');
+
+        $this->start_controls_section(
+            'od_layout',
+            [
+                'label' => esc_html__('Design Layout', OD),
+            ]
+        );
+
+        $this->add_control(
+            'od_design_style',
+            [
+                'label' => esc_html__('Select Layout', OD),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'layout-1' => esc_html__('Layout 1', OD),
+                    'layout-2' => esc_html__('Layout 2', OD),
+                    'layout-3' => esc_html__('Layout 3', OD),
+                    'layout-4' => esc_html__('Layout 4', OD),
+                ],
+                'default' => 'layout-1',
+            ]
+        );
+
+        $this->end_controls_section();
+
+
+        // Testimonial List Content
+        $this->start_controls_section(
+            'od_testimonial_slider_section_content_list',
+            [
+                'label' => __('Testimonial Content', OD),
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_lists',
+            [
+                'label' => esc_html__('Testimonial List', OD),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => [
+                    [
+                        'name' => 'od_testimonial_slider_list_author',
+                        'label' => esc_html__('Author', OD),
+                        'type' => \Elementor\Controls_Manager::TEXT,
+                        'default' => esc_html__('OD Testimonial Author', OD),
+                        'label_block' => true,
+                    ],
+                    [
+                        'name' => 'od_testimonial_slider_list_avatar',
+                        'label' => esc_html__('Choose Avatar', OD),
+                        'type' => \Elementor\Controls_Manager::MEDIA,
+                        'description' => esc_html__('It works for layout 1 & 3'),
+                        'default' => [
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
+                        ],
+
+                    ],
+                    [
+                        'name' => 'od_testimonial_slider_list_designation',
+                        'label' => esc_html__('Designation', OD),
+                        'type' => \Elementor\Controls_Manager::TEXT,
+                        'default' => esc_html__('OD Testimonial Designation', OD),
+                        'label_block' => true,
+                    ],
+                    [
+                        'name' => 'od_testimonial_slider_list_description',
+                        'label' => esc_html__('Description', OD),
+                        'type' => \Elementor\Controls_Manager::TEXTAREA,
+                        'default' => esc_html__('OD Testimonial Description', OD),
+                        'label_block' => true,
+                    ],
+                    [
+                        'name' => 'od_testimonial_slider_list_rating',
+                        'label' => esc_html__('Select Star', OD),
+                        'description' => esc_html__('It works for layout 1 & 2'),
+                        'type' => \Elementor\Controls_Manager::SELECT,
+                        'default' => '5',
+                        'options' => [
+                            '1' => esc_html__('1 Star', OD),
+                            '2' => esc_html__('2 Stars', OD),
+                            '3' => esc_html__('3 Stars', OD),
+                            '4' => esc_html__('4 Stars', OD),
+                            '5' => esc_html__('5 Stars', OD),
+                        ],
+
+                    ],
+
+                ],
+                'default' => [
+                    [
+                        'od_testimonial_slider_list_author' => esc_html__('Francis Roman', OD),
+                    ],
+                    [
+                        'od_testimonial_slider_list_author' => esc_html__('Isco Alarcon', OD),
+                    ],
+                    [
+                        'od_testimonial_slider_list_author' => esc_html__('Sergio Ramos', OD),
+                    ],
+
+                ],
+                'title_field' => '{{{ od_testimonial_slider_list_author }}}',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // Testimonial Thumb
+        $this->start_controls_section(
+            'od_testimonial_slider_thumbnail',
+            [
+                'label' => __('Testimonial Image', OD),
+                'condition' => [
+                    'od_design_style' => ['layout-2']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_thumbnail_image',
+            [
+                'label' => esc_html__('Choose Thumbnail Image', OD),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // Testimonial settings
+        $this->start_controls_section(
+            'od_testimonial_slider_settings',
+            [
+                'label' => __('Testimonial Settings', OD),
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_autoplay',
+            [
+                'label' => esc_html__('Autoplay Switcher', OD),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('On', OD),
+                'label_off' => esc_html__('Off', OD),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_autoplay_delay',
+            [
+                'label' => esc_html__('Autoplay Delay (ms)', OD),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'min' => 1000,
+                'step' => 100,
+                'default' => 3000,
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_star_switcher',
+            [
+                'label' => esc_html__('Star Switcher', OD),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Show', OD),
+                'label_off' => esc_html__('Hide', OD),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => [
+                    'od_design_style' => ['layout-1', 'layout-2']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_quote_switcher',
+            [
+                'label' => esc_html__('Quote Switcher', OD),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Show', OD),
+                'label_off' => esc_html__('Hide', OD),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => [
+                    'od_design_style' => ['layout-1', 'layout-2', 'layout-4']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_pagination_switcher',
+            [
+                'label' => esc_html__('Pagination Switcher', OD),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Show', OD),
+                'label_off' => esc_html__('Hide', OD),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => [
+                    'od_design_style' => ['layout-1', 'layout-3']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_navigation_switcher',
+            [
+                'label' => esc_html__('Navigation Switcher', OD),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Show', OD),
+                'label_off' => esc_html__('Hide', OD),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => [
+                    'od_design_style' => ['layout-4']
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+
+
+        // Style Starts
+        // Testimonial Style
+        $this->start_controls_section(
+            'od_testimonial_slider_style',
+            [
+                'label' => __('Testimonial Slider Style', OD),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_bg_color',
+            [
+                'label' => esc_html__('BG Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-item' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .it-testimonial-3-wrap' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .it-testimonial-4-item' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+
+        $this->add_responsive_control(
+            'od_testimonial_slider_margin',
+            [
+                'label' => esc_html__('Margin', OD),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem'],
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .it-testimonial-3-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .it-testimonial-4-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'od_testimonial_slider_padding',
+            [
+                'label' => esc_html__('Padding', OD),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem'],
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .it-testimonial-3-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .it-testimonial-4-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_border_radius',
+            [
+                'label' => esc_html__('Border Radius', OD),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem'],
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .it-testimonial-3-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .it-testimonial-4-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'od_testimonial_slider_box_shadow',
+                'selector' => '
+            {{WRAPPER}} .it-testimonial-item,
+            {{WRAPPER}} .it-testimonial-3-wrap,
+            {{WRAPPER}} .it-testimonial-4-item
+        ',
+            ]
+        );
+
+
+        $this->end_controls_section();
+
+
+        // Testimonial Content Style
+        $this->start_controls_section(
+            'od_testimonial_slider_content_style',
+            [
+                'label' => __('Content Style', OD),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_author_heading',
+            [
+                'label' => esc_html__('Author', OD),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_author_color',
+            [
+                'label' => esc_html__('Author Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-author-info h5' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .it-testimonial-4-author-info h5' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'label' => esc_html__('Author Typography', OD),
+                'name' => 'od_testimonial_slider_author_typography',
+                'selector' => '
+            {{WRAPPER}} .it-testimonial-author-info h5,
+            {{WRAPPER}} .it-testimonial-4-author-info h5
+        ',
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_designation_heading',
+            [
+                'label' => esc_html__('Designation', OD),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_designation_color',
+            [
+                'label' => esc_html__('Designation Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-author-info span' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .it-testimonial-4-author-info span' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'label' => esc_html__('Designation Typography', OD),
+                'name' => 'od_testimonial_slider_designation_typography',
+                'selector' => '
+            {{WRAPPER}} .it-testimonial-author-info span,
+            {{WRAPPER}} .it-testimonial-4-author-info span
+        ',
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_description_heading',
+            [
+                'label' => esc_html__('Description', OD),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_description_color',
+            [
+                'label' => esc_html__('Description Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-text p' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .it-testimonial-4-text p' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'label' => esc_html__('Description Typography', OD),
+                'name' => 'od_testimonial_slider_description_typography',
+                'selector' => '
+            {{WRAPPER}} .it-testimonial-text p,
+            {{WRAPPER}} .it-testimonial-4-text p
+        ',
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_icon_heading',
+            [
+                'label' => esc_html__('Icon', OD),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+                'condition' => [
+                    'od_design_style' => ['layout-1', 'layout-2', 'layout-4']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_star_color',
+            [
+                'label' => esc_html__('Star Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-ratting svg path' => 'fill: {{VALUE}}',
+                ],
+                'condition' => [
+                    'od_design_style' => ['layout-1', 'layout-2']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_quote_color',
+            [
+                'label' => esc_html__('Quote Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}}  .quote-icon svg path' => 'fill: {{VALUE}}',
+                    '{{WRAPPER}}  .it-testimonial-4-quote span' => 'color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'od_design_style' => ['layout-1', 'layout-2', 'layout-4']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_quote_bg_color',
+            [
+                'label' => esc_html__('Quote BG Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}}  .it-testimonial-4-quote span' => 'background-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'od_design_style' => ['layout-4']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_quote_box_color',
+            [
+                'label' => esc_html__('Quote Box Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}}  .it-testimonial-4-quote::after' => 'border-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'od_design_style' => ['layout-4']
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+
+        // Testimonial Pagination Style
+        $this->start_controls_section(
+            'od_testimonial_slider_pagination_style',
+            [
+                'label' => __('Pagination Style', OD),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'od_design_style' => ['layout-1', 'layout-3']
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_pagination_bullet_color',
+            [
+                'label' => esc_html__('Bullet Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-dots .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .it-testimonial-3-dots .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_pagination_bullet_active_color',
+            [
+                'label' => esc_html__('Bullet Active Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-dots .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .it-testimonial-3-dots .swiper-pagination-bullet-active' => 'border-color: {{VALUE}}',
+                    '{{WRAPPER}} .it-testimonial-3-dots .swiper-pagination-bullet::after' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_pagination_bullet_active_bg_color',
+            [
+                'label' => esc_html__('Bullet Active BG Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-3-dots .swiper-pagination-bullet-active' => 'background-color: {{VALUE}}',
+                ],
+                'condition' => [
+                    'od_design_style' => ['layout-3']
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
+
+        // Testimonial Navigation Style
+        $this->start_controls_section(
+            'od_testimonial_slider_navigation_style',
+            [
+                'label' => __('Navigation Style', OD),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'od_design_style' => ['layout-4']
+                ]
+            ]
+        );
+
+        $this->start_controls_tabs(
+            'od_testimonial_slider_navigation_style_tabs'
+        );
+
+        // Normal
+        $this->start_controls_tab(
+            'od_testimonial_slider_navigation_style_normal_tab',
+            [
+                'label' => esc_html__('Normal', OD),
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_navigation_style_normal_tab_color',
+            [
+                'label' => esc_html__('Arrow Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-4-arrow-box button' => 'color: {{VALUE}}',
+
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_navigation_style_normal_tab_bg_color',
+            [
+                'label' => esc_html__('Arrow BG Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-4-arrow-box button' => 'background-color: {{VALUE}}',
+
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        // Hover
+        $this->start_controls_tab(
+            'od_testimonial_slider_navigation_style_hover_tab',
+            [
+                'label' => esc_html__('Hover', OD),
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_navigation_style_hover_tab_color',
+            [
+                'label' => esc_html__('Arrow Hover Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-4-arrow-box button:hover' => 'color: {{VALUE}}',
+
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'od_testimonial_slider_navigation_style_hover_tab_bg_color',
+            [
+                'label' => esc_html__('Arrow Hover BG Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-testimonial-4-arrow-box button:hover' => 'background-color: {{VALUE}}',
+
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
     }
 
     /**
