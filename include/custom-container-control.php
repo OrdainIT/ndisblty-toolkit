@@ -39,6 +39,7 @@ class CustomSaastyContainer
                     '' => __('None', 'ordainit-toolkit'),
                     'wow itfadeLeft' => __('Left', 'ordainit-toolkit'),
                     'wow itfadeRight' => __('Right', 'ordainit-toolkit'),
+                    'wow itfadeUp' => __('Up', 'ordainit-toolkit'),
                 ],
             ]
         );
