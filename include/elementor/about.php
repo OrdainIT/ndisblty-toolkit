@@ -2,6 +2,7 @@
 
 namespace ordainit_toolkit\Widgets;
 
+use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
 
 if (! defined('ABSPATH')) exit; // Exit if accessed directly
@@ -104,7 +105,142 @@ class Od_About extends Widget_Base
      */
     protected function register_controls()
     {
-        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/about.php');
+
+        $this->start_controls_section(
+            'od_about_section_title_content',
+            [
+                'label' => __('Title & Content', 'ordainit-toolkit'),
+            ]
+        );
+
+
+        $this->add_control(
+            'od_about_section_title',
+            [
+                'label' => __('Title', OD),
+                'type' => Controls_Manager::TEXTAREA,
+                'default' => od_kses('About Us', OD),
+            ]
+        );
+
+        // description
+
+        $this->add_control(
+            'od_about_section_description',
+            [
+                'label' => __('Description', OD),
+                'type' => Controls_Manager::TEXTAREA,
+                'default' => od_kses('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', OD),
+            ]
+        );
+
+
+
+
+
+
+        $this->end_controls_section();
+
+
+
+        $this->start_controls_section(
+            'od_about_section_info_content',
+            [
+                'label' => __('Info', 'ordainit-toolkit'),
+            ]
+        );
+
+        $this->add_control(
+            'od_about_section_info_lists',
+            [
+                'label' => esc_html__('Info List', OD),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => [
+                    [
+                        'name' => 'about_info_title',
+                        'label' => esc_html__('Title', OD),
+                        'type' => \Elementor\Controls_Manager::TEXT,
+                        'default' => esc_html__('List Title', OD),
+                        'label_block' => true,
+                    ],
+                    [
+                        'name' => 'about_info_content',
+                        'label' => esc_html__('Content', OD),
+                        'type' => \Elementor\Controls_Manager::TEXTAREA,
+                        'default' => esc_html__('List Content', OD),
+                        'label_block' => true,
+                    ],
+                    // img
+
+                    [
+                        'name' => 'about_info_img',
+                        'label' => esc_html__('Choose Image', OD),
+                        'type' => \Elementor\Controls_Manager::MEDIA,
+                        'default' => [
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
+                        ],
+                    ],
+                ],
+                'default' => [
+                    [
+                        'about_info_title' => esc_html__('Title #1', OD),
+                    ],
+                    [
+                        'about_info_title' => esc_html__('Title #2', OD),
+                    ],
+                ],
+                'title_field' => '{{{ about_info_title }}}',
+            ]
+        );
+
+
+
+
+        $this->end_controls_section();
+
+
+        $this->start_controls_section(
+            'od_about_section_thumbnail',
+            [
+                'label' => __('Thumbnail', 'ordainit-toolkit'),
+            ]
+        );
+
+        $this->add_control(
+            'od_about_section_thumbnail_image1',
+            [
+                'label' => __('Choose Image', 'ordainit-toolkit'),
+                'type' => Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'od_about_section_thumbnail_image2',
+            [
+                'label' => __('Choose Image', 'ordainit-toolkit'),
+                'type' => Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+
+        // shape
+
+        $this->add_control(
+            'od_about_section_thumbnail_shape',
+            [
+                'label' => __('Shape', 'ordainit-toolkit'),
+                'label' => __('Choose Image', 'ordainit-toolkit'),
+                'type' => Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
     }
 
     /**
@@ -137,10 +273,10 @@ class Od_About extends Widget_Base
                     <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 order-1 order-xl-1">
                         <div class="it-about-2-left p-relative">
                             <div class="it-about-2-left-shape text-center">
-                                <img src="<?php echo esc_url($od_about_section_thumbnail_shape['url'], OD);?>" alt="">
+                                <img src="<?php echo esc_url($od_about_section_thumbnail_shape['url'], OD); ?>" alt="">
                             </div>
                             <div class="it-about-2-left-thumb wow img-anim-left" data-wow-duration="1.5s" data-wow-delay="0.1s">
-                                <img class="w-100" src="<?php echo esc_url($od_about_section_thumbnail_image1['url'], OD);?>" alt="">
+                                <img class="w-100" src="<?php echo esc_url($od_about_section_thumbnail_image1['url'], OD); ?>" alt="">
                             </div>
                         </div>
                     </div>
@@ -158,26 +294,26 @@ class Od_About extends Widget_Base
                             <div class="row">
                                 <?php foreach ($od_about_section_info_lists as $item) :
                                     $info_img = $item['about_info_img'];
-                                     ?>
-                                <div class="col-xl-6 col-lg-5 col-md-6 col-sm-6">
-                                    <div class="it-about-2-more-info">
-                                        <?php if(!empty($info_img['url'])): ?>
-                                        <span class="it-about-2-more-icon">
-                                            <img src="<?php echo esc_url($info_img['url'], OD);?>" alt="">
-                                           
-                                        </span>
-                                        <?php endif; ?>
-                                        <h4 class="it-about-2-more-title"><?php echo od_kses($item['about_info_title']);?></h4>
-                                        <p><?php echo od_kses($item['about_info_content']);?></p>
+                                ?>
+                                    <div class="col-xl-6 col-lg-5 col-md-6 col-sm-6">
+                                        <div class="it-about-2-more-info">
+                                            <?php if (!empty($info_img['url'])): ?>
+                                                <span class="it-about-2-more-icon">
+                                                    <img src="<?php echo esc_url($info_img['url'], OD); ?>" alt="">
+
+                                                </span>
+                                            <?php endif; ?>
+                                            <h4 class="it-about-2-more-title"><?php echo od_kses($item['about_info_title']); ?></h4>
+                                            <p><?php echo od_kses($item['about_info_content']); ?></p>
+                                        </div>
                                     </div>
-                                </div>
                                 <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
                     <div class="col-xxl-4 col-xl-3 col-lg-6 col-md-6 order-1 order-xl-1">
                         <div class="it-about-2-right-thumb wow img-anim-right" data-wow-duration="1.5s" data-wow-delay="0.1s">
-                            <img src="<?php echo esc_url($od_about_section_thumbnail_image2['url'], OD);?>" alt="">
+                            <img src="<?php echo esc_url($od_about_section_thumbnail_image2['url'], OD); ?>" alt="">
                         </div>
                     </div>
                 </div>

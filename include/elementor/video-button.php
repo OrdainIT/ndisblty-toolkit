@@ -2,6 +2,7 @@
 
 namespace ordainit_toolkit\Widgets;
 
+use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
 
 if (! defined('ABSPATH')) exit; // Exit if accessed directly
@@ -41,7 +42,7 @@ class Od_Video_Button extends Widget_Base
      */
     public function get_title()
     {
-        return __('Video Button', 'ordainit-toolkit');
+        return __('Video Button', OD);
     }
 
     /**
@@ -74,7 +75,7 @@ class Od_Video_Button extends Widget_Base
      */
     public function get_categories()
     {
-        return ['ordainit-toolkit'];
+        return [OD];
     }
 
     /**
@@ -90,7 +91,7 @@ class Od_Video_Button extends Widget_Base
      */
     public function get_script_depends()
     {
-        return ['ordainit-toolkit'];
+        return [OD];
     }
 
     /**
@@ -104,7 +105,105 @@ class Od_Video_Button extends Widget_Base
      */
     protected function register_controls()
     {
-        include_once(ORDAINIT_TOOLKIT_ELEMENTS_PATH . '/control/video-button.php');
+
+        $this->start_controls_section(
+            'od_video_button_content',
+            [
+                'label' => __('Button URL', OD),
+            ]
+        );
+
+        $this->add_control(
+            'od_video_button_url',
+            [
+                'label' => esc_html__('URL', OD),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('https://www.youtube.com/watch?v=YoOG5H4603Y', OD),
+                'label_block' => true,
+            ]
+        );
+
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'od_video_button_style',
+            [
+                'label' => __('Style', OD),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'od_video_button_bg_colr',
+            [
+                'label' => esc_html__('BG Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-video-icon a' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+        $this->add_control(
+            'od_video_button_icon_colr',
+            [
+                'label' => esc_html__('Icon Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-video-icon a svg path' => 'fill: {{VALUE}}',
+                ],
+            ]
+        );
+        $this->add_control(
+            'od_video_button_icon_animation',
+            [
+                'label' => esc_html__('Icon Animation Color', OD),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .it-video-icon a svg path' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'od_video_button_height',
+            [
+                'label' => esc_html__('Height', OD),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 500,
+                        'step' => 1,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .it-video-icon a' => 'height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_responsive_control(
+            'od_video_button_width',
+            [
+                'label' => esc_html__('Width', OD),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 500,
+                        'step' => 1,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .it-video-icon a' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+
+        $this->end_controls_section();
     }
 
     /**
