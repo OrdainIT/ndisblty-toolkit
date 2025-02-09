@@ -56,15 +56,6 @@ class CustomSaastyContainer
         );
 
         $element->add_control(
-            'od_data_delay',
-            [
-                'label' => __('Delay', 'ordainit-toolkit'),
-                'type' => Controls_Manager::TEXT,
-                'default' => 0,
-                'description' => __('Enter delay in milliseconds.', 'ordainit-toolkit'),
-            ]
-        );
-        $element->add_control(
             'od_data_duration',
             [
                 'label' => __('Duration', 'ordainit-toolkit'),
@@ -73,6 +64,17 @@ class CustomSaastyContainer
                 'description' => __('Enter delay in milliseconds.', 'ordainit-toolkit'),
             ]
         );
+
+        $element->add_control(
+            'od_data_delay',
+            [
+                'label' => __('Delay', 'ordainit-toolkit'),
+                'type' => Controls_Manager::TEXT,
+                'default' => 0,
+                'description' => __('Enter delay in milliseconds.', 'ordainit-toolkit'),
+            ]
+        );
+      
 
         $element->end_controls_section();
 
@@ -106,8 +108,8 @@ class CustomSaastyContainer
         $settings = $element->get_settings();
 
         // Add the data-wow-delay attribute if it has a value
-        if (!empty($settings['data_delay'])) {
-            $element->add_render_attribute('_wrapper', 'data-wow-delay', $settings['data_delay']);
+        if (!empty($settings['od_data_delay'])) {
+            $element->add_render_attribute('_wrapper', 'data-wow-delay', $settings['od_data_delay']);
         }
 
         // Add the data-wow-duration attribute if it has a value

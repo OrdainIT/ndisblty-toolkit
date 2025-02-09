@@ -121,6 +121,7 @@ class OD_Icon_Box extends Widget_Base
                 'options' => [
                     'layout-1' => esc_html__('Layout 1', OD),
                     'layout-2' => esc_html__('Layout 2', OD),
+                    'layout-3' => esc_html__('Layout 3', OD),
                 ],
                 'default' => 'layout-1',
             ]
@@ -191,6 +192,7 @@ class OD_Icon_Box extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .it-about-2-more-info' => 'background-color: {{VALUE}}',
                     '{{WRAPPER}} .it-choose-5-style .it-choose-5-item' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .it-choose-5-item' => 'background-color: {{VALUE}}',
                 ],
             ]
         );
@@ -205,6 +207,7 @@ class OD_Icon_Box extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .it-about-2-more-info' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     '{{WRAPPER}} .it-choose-5-style .it-choose-5-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}}  .it-choose-5-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -218,6 +221,7 @@ class OD_Icon_Box extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .it-about-2-more-info' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     '{{WRAPPER}} .it-choose-5-style .it-choose-5-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .it-choose-5-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -267,6 +271,7 @@ class OD_Icon_Box extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .it-about-2-more-title' => 'color: {{VALUE}}',
                     '{{WRAPPER}} .it-choose-5-item-title' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .it-choose-5-item-title-sm span' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -278,7 +283,8 @@ class OD_Icon_Box extends Widget_Base
                 'name' => 'od_icon_box_title_typography',
                 'selector' => '
             {{WRAPPER}} .it-about-2-more-title,
-            {{WRAPPER}} .it-choose-5-item-title
+            {{WRAPPER}} .it-choose-5-item-title,
+            {{WRAPPER}} .it-choose-5-item-title-sm span
         ',
             ]
         );
@@ -298,6 +304,7 @@ class OD_Icon_Box extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .it-about-2-more-info p' => 'color: {{VALUE}}',
                     '{{WRAPPER}} .it-choose-5-style .it-choose-5-item p' => 'color: {{VALUE}}',
+                    '{{WRAPPER}}  .it-choose-5-item p' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -309,7 +316,8 @@ class OD_Icon_Box extends Widget_Base
                 'name' => 'od_icon_box_description_typography',
                 'selector' => '
             {{WRAPPER}} .it-about-2-more-info p,
-            {{WRAPPER}} .it-choose-5-style .it-choose-5-item p
+            {{WRAPPER}} .it-choose-5-style .it-choose-5-item p,
+            {{WRAPPER}}  .it-choose-5-item p,
         ',
             ]
         );
@@ -368,7 +376,15 @@ class OD_Icon_Box extends Widget_Base
         $od_icon_box_icon = $settings['od_icon_box_icon'];
 ?>
 
-        <?php if ($settings['od_design_style']  == 'layout-2'): ?>
+        <?php if ($settings['od_design_style']  == 'layout-3'): ?>
+            <div class="it-choose-5-item">
+                <div class="it-choose-5-item-title-sm d-flex ">
+                     <?php echo od_kses($od_icon_box_icon, OD); ?>
+                    <span><?php echo esc_html($od_icon_box_title, OD); ?></span>
+                </div>
+                <p><?php echo od_kses($od_icon_box_description, OD); ?></p>
+            </div>
+        <?php elseif ($settings['od_design_style']  == 'layout-2'): ?>
             <div class="it-choose-5-style">
                 <div class="it-choose-5-item">
                     <span class="it-choose-5-item-icon">
