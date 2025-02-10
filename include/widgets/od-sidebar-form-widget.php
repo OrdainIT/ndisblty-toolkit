@@ -18,8 +18,8 @@
 	class od_sidebar_form_widget  extends WP_Widget{
 		
 		public function __construct(){
-			parent::__construct('od_sidebar_form_widget',esc_html__('Solvra Sidebar Form','ordainit-toolkit'),array(
-				'description' => esc_html__('Solvra Sidebar Form Widget by Theme_Pure','ordainit-toolkit'),
+			parent::__construct('od_sidebar_form_widget',esc_html__('OD Sidebar Form','ordainit-toolkit'),array(
+				'description' => esc_html__('OD Sidebar Form Widget by Ordainit','ordainit-toolkit'),
 			));
 		}
 		
