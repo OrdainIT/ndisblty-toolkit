@@ -207,6 +207,28 @@ class CustomSaastyContainer
                     ]
                 );
 
+                $element->add_control(
+                    'od_image_data_duration',
+                    [
+                        'label' => __('Duration',
+                            'ordainit-toolkit'
+                        ),
+                        'type' => Controls_Manager::TEXT,
+                        'default' => __('.9s', 'ordainit-toolkit'),
+                        'description' => __('Enter delay in milliseconds.', 'ordainit-toolkit'),
+                    ]
+                );
+
+                $element->add_control(
+                    'od_image_data_delay',
+                    [
+                        'label' => __('Delay', 'ordainit-toolkit'),
+                        'type' => Controls_Manager::TEXT,
+                        'default' => __('.3s', 'ordainit-toolkit'),
+                        'description' => __('Enter delay in milliseconds.', 'ordainit-toolkit'),
+                    ]
+                );
+
              
 
 
@@ -238,7 +260,7 @@ class CustomSaastyContainer
                     );
 
                     // Example: Add custom markup (wrap the content in a new div)
-                    $custom_markup = '<div class="img-zoom ' . esc_attr($image_fdae_animation) .  '">';
+                    $custom_markup = '<div class="img-zoom wow ' . esc_attr($image_fdae_animation) .  '" data-wow-duration="' . esc_attr($settings['od_image_data_duration']) . '" data-wow-delay="' . esc_attr($settings['od_image_data_delay']) . '">';
                     $content = $custom_markup . $content . '</div>';
                 }
 

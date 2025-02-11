@@ -558,6 +558,12 @@ class Od_Blog_Post extends Widget_Base
 
                                 $i++;
 
+
+                                $post_meta_thumbnail = get_post_meta(get_the_ID(), 'ndisblty_post_meta_side', true);
+
+
+                                $post_thumbnail_image = isset($post_meta_thumbnail['post_thumbnail_image']) ? $post_meta_thumbnail['post_thumbnail_image']['url'] : '';
+
                         ?>
                                 <div class="col-xl-4 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s"
                                     data-wow-delay="<?php echo esc_attr(.3 + $i * .2); ?>s">
@@ -565,7 +571,12 @@ class Od_Blog_Post extends Widget_Base
                                         <?php if (has_post_thumbnail()): ?>
                                             <div class="it-blog-2-thumb img-zoom">
                                                 <a href="<?php the_permalink(); ?>">
-                                                    <img class="w-100" src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>">
+
+                                                    <?php if (!empty($post_thumbnail_image)): ?>
+                                                        <img class="w-100" src="<?php echo esc_url($post_thumbnail_image) ?>" alt="<?php the_title_attribute(); ?>">
+                                                    <?php else: ?>
+                                                        <img class="w-100" src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>">
+                                                    <?php endif; ?>
                                                 </a>
                                             </div>
                                         <?php endif; ?>
@@ -612,14 +623,23 @@ class Od_Blog_Post extends Widget_Base
                         if ($blog_query->have_posts()) :
                             while ($blog_query->have_posts()) : $blog_query->the_post();
                                 $i++;
+
+                                $post_meta_thumbnail = get_post_meta(get_the_ID(), 'ndisblty_post_meta_side', true);
+
+
+                                $post_thumbnail_image = isset($post_meta_thumbnail['post_thumbnail_image']) ? $post_meta_thumbnail['post_thumbnail_image']['url'] : '';
                         ?>
                                 <div class="col-xl-4 col-lg-4 col-md-6 wow itfadeUp" data-wow-duration=".9s"
                                     data-wow-delay="<?php echo esc_attr(.3 + $i * .2); ?>s">
                                     <div class="it-blog-item zoom white-bg mb-30">
                                         <?php if (has_post_thumbnail()): ?>
                                             <div class="it-blog-thumb mb-35 img-zoom">
-                                                <a href="blog-details-right-sidebar.html">
-                                                    <img class="w-100" src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>">
+                                                <a href="<?php the_permalink(); ?>">
+                                                    <?php if (!empty($post_thumbnail_image)): ?>
+                                                        <img class="w-100" src="<?php echo esc_url($post_thumbnail_image) ?>" alt="<?php the_title_attribute(); ?>">
+                                                    <?php else: ?>
+                                                        <img class="w-100" src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title_attribute(); ?>">
+                                                    <?php endif; ?>
                                                 </a>
                                             </div>
                                         <?php endif; ?>
