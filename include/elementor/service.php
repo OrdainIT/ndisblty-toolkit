@@ -765,6 +765,7 @@ class Od_service extends Widget_Base
 
 
                                 $service_thumbnail_image = isset($service_meta_thumbnail['service_thumbnail_image']) ? $service_meta_thumbnail['service_thumbnail_image']['url'] : '';
+                                $service_thumbnail_images = isset($service_meta_thumbnail['service_thumbnail_images']) ? $service_meta_thumbnail['service_thumbnail_images']['url'] : '';
 
                         ?>
                                 <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 wow itfadeUp" data-wow-duration=".9s"
@@ -772,7 +773,11 @@ class Od_service extends Widget_Base
                                     <div class="it-service-2-item zoom mb-30">
                                         <?php if (has_post_thumbnail()): ?>
                                             <div class="it-service-2-thumb img-zoom">
+                                                <?php if(!empty($service_thumbnail_images)):?>
+                                                <img class="w-100" src="<?php echo esc_url($service_thumbnail_images, OD);?>" alt="<?php the_title(); ?>">
+                                                <?php else:?>
                                                 <img class="w-100" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                                <?php endif;?>
                                             </div>
                                         <?php endif; ?>
                                         <div class="it-service-content p-relative mb-50">
