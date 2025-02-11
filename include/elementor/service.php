@@ -773,11 +773,11 @@ class Od_service extends Widget_Base
                                     <div class="it-service-2-item zoom mb-30">
                                         <?php if (has_post_thumbnail()): ?>
                                             <div class="it-service-2-thumb img-zoom">
-                                                <?php if(!empty($service_thumbnail_images)):?>
-                                                <img class="w-100" src="<?php echo esc_url($service_thumbnail_images, OD);?>" alt="<?php the_title(); ?>">
-                                                <?php else:?>
-                                                <img class="w-100" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
-                                                <?php endif;?>
+                                                <?php if (!empty($service_thumbnail_images)): ?>
+                                                    <img class="w-100" src="<?php echo esc_url($service_thumbnail_images, OD); ?>" alt="<?php the_title(); ?>">
+                                                <?php else: ?>
+                                                    <img class="w-100" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                                <?php endif; ?>
                                             </div>
                                         <?php endif; ?>
                                         <div class="it-service-content p-relative mb-50">
@@ -788,7 +788,7 @@ class Od_service extends Widget_Base
                                             <?php endif; ?>
                                             <h4 class="it-service-title"><a class="border-line-black" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                             </h4>
-                                            <p><?php echo wp_trim_words(get_the_excerpt(), 12, '...'); ?></p>
+                                            <p><?php echo wp_trim_words(get_the_excerpt(), 18, '...'); ?></p>
                                             <a class="it-btn-sm" href="<?php the_permalink(); ?>"><?php echo esc_html($od_service_section_service_btn, 'ordainit-toolkit'); ?></a>
                                         </div>
                                     </div>
@@ -869,6 +869,10 @@ class Od_service extends Widget_Base
 
                                 $i++;
 
+                                $service_meta_thumbnail = get_post_meta(get_the_ID(), 'ndisblty_service_meta_side', true);
+
+                                $service_thumbnail_images = isset($service_meta_thumbnail['service_thumbnail_images']) ? $service_meta_thumbnail['service_thumbnail_images']['url'] : '';
+
 
                         ?>
                                 <div class="col mb-30 wow itfadeUp" data-wow-duration=".9s"
@@ -876,7 +880,12 @@ class Od_service extends Widget_Base
                                     <div class="it-service-4-item zoom text-center" style="background-image: url(<?php echo ORDAINIT_TOOLKIT_ADDONS_URL . '/assets/img/shap/service-4-1.png'; ?>);">
                                         <?php if (has_post_thumbnail()): ?>
                                             <div class="it-service-4-thumb img-zoom">
-                                                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+
+                                                <?php if (!empty($service_thumbnail_images)): ?>
+                                                    <img src="<?php echo esc_url($service_thumbnail_images, OD); ?>" alt="<?php the_title(); ?>">
+                                                <?php else: ?>
+                                                    <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                                <?php endif; ?>
                                             </div>
                                         <?php endif; ?>
                                         <h4 class="it-service-4-title"><a class="border-line-white"
@@ -919,7 +928,7 @@ class Od_service extends Widget_Base
                                 $service_meta_thumbnail = get_post_meta(get_the_ID(), 'ndisblty_service_meta_side', true);
 
 
-                                $service_thumbnail_image = isset($service_meta_thumbnail['service_thumbnail_image']) ? $service_meta_thumbnail['service_thumbnail_image']['url'] : '';
+                                $service_thumbnail_images = isset($service_meta_thumbnail['service_thumbnail_images']) ? $service_meta_thumbnail['service_thumbnail_images']['url'] : '';
 
                         ?>
                                 <div class="col mb-30 wow itfadeUp" data-wow-duration=".9s"
@@ -927,7 +936,12 @@ class Od_service extends Widget_Base
                                     <div class="it-service-4-item text-center">
                                         <?php if (has_post_thumbnail()): ?>
                                             <div class="it-service-4-thumb">
-                                                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+
+                                                <?php if (!empty($service_thumbnail_images)): ?>
+                                                    <img src="<?php echo esc_url($service_thumbnail_images, OD); ?>" alt="<?php the_title(); ?>">
+                                                <?php else: ?>
+                                                    <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                                <?php endif; ?>
                                             </div>
                                         <?php endif; ?>
                                         <h4 class="it-service-4-title"><a class="border-line-white"

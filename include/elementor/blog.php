@@ -653,7 +653,7 @@ class Od_Blog_Post extends Widget_Base
                                                             fill="#DC1D1C" />
                                                     </svg>
 
-                                                    <?php echo get_the_date(); ?>
+                                                    <?php echo get_the_date('d M Y'); ?>
                                                 </span>
                                                 <span>
                                                     <svg width="20" height="15" viewBox="0 0 20 15" fill="none"
