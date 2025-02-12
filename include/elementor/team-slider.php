@@ -757,12 +757,25 @@ class Od_Team_Slider extends Widget_Base
                                             $team_social_instagram_url = $team_meta['team_social_instagram_url'];
 
 
+
+                                            $team_meta_thumbnail = get_post_meta(get_the_ID(), 'ndisblty_team_meta_side', true);
+
+
+                                            $team_thumbnail_image = isset($team_meta_thumbnail['team_thumbnail_image']) ? $team_meta_thumbnail['team_thumbnail_image']['url'] : '';
+
+
                                     ?>
                                             <div class="swiper-slide">
                                                 <div class="it-team-item text-center">
                                                     <?php if (has_post_thumbnail()): ?>
                                                         <div class="it-team-thumb mb-25">
-                                                            <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+
+                                                            <?php if ($team_thumbnail_image) : ?>
+                                                                <img  src="<?php echo esc_url($team_thumbnail_image); ?>" alt="<?php the_title(); ?>">
+                                                            <?php else : ?>
+                                                                <img  src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                                            <?php endif; ?>
+                                                        
                                                         </div>
                                                     <?php endif; ?>
                                                     <div class="it-team-content">

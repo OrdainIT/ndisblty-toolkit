@@ -443,6 +443,13 @@ class Od_team extends Widget_Base
                                 $team_social_instagram_url = $team_meta['team_social_instagram_url'];
 
 
+
+                            $team_meta_thumbnail = get_post_meta(get_the_ID(), 'ndisblty_team_meta_side', true);
+
+
+                            $team_thumbnail_image = isset($team_meta_thumbnail['team_thumbnail_image']) ? $team_meta_thumbnail['team_thumbnail_image']['url'] : '';
+
+
                         ?>
 
                                 <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30 wow itfadeUp" data-wow-duration=".9s"
@@ -450,7 +457,13 @@ class Od_team extends Widget_Base
                                     <div class="it-team-item text-center">
                                         <?php if (has_post_thumbnail()): ?>
                                             <div class="it-team-thumb mb-25">
-                                                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+
+                                                <?php if ($team_thumbnail_image) : ?>
+                                                    <img class="w-100" src="<?php echo esc_url($team_thumbnail_image); ?>" alt="<?php the_title(); ?>">
+                                                <?php else : ?>
+                                                    <img class="w-100" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                                <?php endif; ?>
+                                            
                                             </div>
                                         <?php endif; ?>
                                         <div class="it-team-content">
@@ -496,13 +509,22 @@ class Od_team extends Widget_Base
                                 $team_social_twitter_url = $team_meta['team_social_twitter_url'];
                                 $team_social_instagram_url = $team_meta['team_social_instagram_url'];
 
+                                $team_meta_thumbnail = get_post_meta(get_the_ID(), 'ndisblty_team_meta_side', true);
+
+
+                                $team_thumbnail_image = isset($team_meta_thumbnail['team_thumbnail_image']) ? $team_meta_thumbnail['team_thumbnail_image']['url'] : '';
+
 
                         ?>
                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 wow img-anim-top" data-wow-duration="1s" data-wow-delay="<?php echo esc_attr(.3 + $i * .2); ?>s">
                                     <div class="it-team-2-item mb-30">
                                         <div class="it-team-2-thumb p-relative mb-20">
                                             <?php if (has_post_thumbnail()): ?>
-                                                <img class="w-100" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                                <?php if ($team_thumbnail_image) : ?>
+                                                    <img class="w-100" src="<?php echo esc_url($team_thumbnail_image); ?>" alt="<?php the_title(); ?>">
+                                                <?php else : ?>
+                                                    <img class="w-100" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                                <?php endif; ?>
                                             <?php endif; ?>
                                             <div class="it-team-2-social">
                                                 <a href="<?php echo esc_url($team_social_facebook_url, 'ordainit-toolkit'); ?>"><i class="fa-brands fa-facebook-f"></i></a>
