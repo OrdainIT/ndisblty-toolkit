@@ -489,8 +489,8 @@ class OD_Funfact_Box extends Widget_Base
                         data-purecounter-duration="1"
                         data-purecounter-end="<?php echo esc_attr($od_funfact_box_number, OD); ?>">
                         0
-                    </i>
-                    <?php echo esc_html($od_funfact_box_suffix, OD); ?>
+                    </i><?php echo esc_html($od_funfact_box_suffix, OD); ?>
+
                 </h4>
                 <span><?php echo od_kses($od_funfact_box_description, OD); ?></span>
             </div>
@@ -504,8 +504,8 @@ class OD_Funfact_Box extends Widget_Base
                 <div class="it-about-funfact-content">
                     <h5 class="it-about-funfact-title">
                         <i class="purecounter" data-purecounter-duration="1"
-                            data-purecounter-end="<?php echo esc_attr($od_funfact_box_number, OD); ?>"></i>
-                        <?php echo esc_html($od_funfact_box_suffix, OD); ?>
+                            data-purecounter-end="<?php echo esc_attr($od_funfact_box_number, OD); ?>"></i><?php echo esc_html($od_funfact_box_suffix, OD); ?>
+
                     </h5>
                     <span><?php echo od_kses($od_funfact_box_description, OD); ?></span>
                 </div>
