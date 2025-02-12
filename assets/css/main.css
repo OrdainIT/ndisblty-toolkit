@@ -94,6 +94,15 @@ span.it-about-2-more-icon img {
 	background-size: 0% 1px, 100% 1px;
 }
 
+.elementor-widget-container .it-choose-item span svg {
+	width: auto;
+	
+}
+
+.elementor-widget-container .it-step-4-icon svg {
+	width: auto;
+}
+
 
 /* start Responsive */
 
