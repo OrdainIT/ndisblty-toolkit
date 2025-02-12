@@ -317,7 +317,7 @@ class OD_Icon_Box extends Widget_Base
                 'selector' => '
             {{WRAPPER}} .it-about-2-more-info p,
             {{WRAPPER}} .it-choose-5-style .it-choose-5-item p,
-            {{WRAPPER}}  .it-choose-5-item p,
+            {{WRAPPER}} .d3.it-choose-5-item p
         ',
             ]
         );
@@ -377,7 +377,7 @@ class OD_Icon_Box extends Widget_Base
 ?>
 
         <?php if ($settings['od_design_style']  == 'layout-3'): ?>
-            <div class="it-choose-5-item">
+            <div class="d3 it-choose-5-item">
                 <div class="it-choose-5-item-title-sm d-flex ">
                      <?php echo od_kses($od_icon_box_icon, OD); ?>
                     <span><?php echo esc_html($od_icon_box_title, OD); ?></span>
