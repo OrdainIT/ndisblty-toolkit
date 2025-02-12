@@ -81,6 +81,19 @@ span.it-about-2-more-icon img {
     width: 100%;
 }
 
+.elementor-widget-container .home-img-content .home-img-title a {
+	background-image: linear-gradient(#000, #000), linear-gradient(#000, #000);
+	display: inline;
+	background-size: 0% 1px, 0 1px;
+	background-position: 100% 100%, 0 100%;
+	background-repeat: no-repeat;
+	transition: background-size 0.3s linear;
+}
+
+.elementor-widget-container .home-img-content .home-img-title:hover a {
+	background-size: 0% 1px, 100% 1px;
+}
+
 
 /* start Responsive */
 
