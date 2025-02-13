@@ -188,7 +188,7 @@ class OD_Title_Box extends Widget_Base
                         'icon' => 'eicon-editor-h6'
                     ]
                 ],
-                'default' => 'h3',
+                'default' => 'h4',
                 'toggle' => false,
                 'condition' => [
                     'od_title_box_title_show' => 'yes',
@@ -420,7 +420,6 @@ class OD_Title_Box extends Widget_Base
         $settings = $this->get_settings_for_display();
         $od_title_box_title_show = $settings['od_title_box_title_show'];
         $od_title_box_title = $settings['od_title_box_title'];
-        $od_title_box_description = $settings['od_title_box_description'];
         $od_title_box_title_alignment = $settings['od_title_box_alignment'];
         $od_title_box_subtitle_show = $settings['od_title_box_subtitle_show'];
         $od_title_box_subtitle = $settings['od_title_box_subtitle'];
