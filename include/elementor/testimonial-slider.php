@@ -1069,6 +1069,7 @@ class OD_Testimonial_Slider extends Widget_Base
                     // Optional parameters
                     speed: 1500,
                     loop: true,
+                    loopedSlides: 1,
                     slidesPerView: 1,
                     spaceBetween: 35,
                     autoplay: testimonialSliderAutoplay3 ? {

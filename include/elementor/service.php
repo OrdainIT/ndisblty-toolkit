@@ -788,7 +788,7 @@ class Od_service extends Widget_Base
                                             <?php endif; ?>
                                             <h4 class="it-service-title"><a class="border-line-black" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                             </h4>
-                                            <p><?php echo wp_trim_words(get_the_excerpt(), 18, '...'); ?></p>
+                                            <p><?php echo wp_trim_words(get_the_excerpt(), 14, '...'); ?></p>
                                             <a class="it-btn-sm" href="<?php the_permalink(); ?>"><?php echo esc_html($od_service_section_service_btn, 'ordainit-toolkit'); ?></a>
                                         </div>
                                     </div>
@@ -831,7 +831,7 @@ class Od_service extends Widget_Base
                                                 <div class="col-lg-6">
                                                     <div class="it-service-3-right d-flex justify-content-between align-items-center">
                                                         <div class="it-service-3-text">
-                                                            <p><?php echo wp_trim_words(get_the_excerpt(), 12, '...'); ?></p>
+                                                            <p><?php echo wp_trim_words(get_the_excerpt(), 15, '...'); ?></p>
                                                         </div>
                                                         <span class="it-service-3-arrow">
                                                             <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
@@ -946,7 +946,7 @@ class Od_service extends Widget_Base
                                         <?php endif; ?>
                                         <h4 class="it-service-4-title"><a class="border-line-white"
                                                 href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-                                        <p class="mb-20"><?php echo wp_trim_words(get_the_excerpt(), 8, '...'); ?></p>
+                                        <p class="mb-20"><?php echo wp_trim_words(get_the_excerpt(), 9,); ?></p>
                                         <a class="it-service-4-arrow" href="<?php the_permalink(); ?>">
                                             <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M14.4258 10.9899L23.0101 10.9899L23.0101 19.5741" stroke="currentcolor"

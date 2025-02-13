@@ -771,11 +771,11 @@ class Od_Team_Slider extends Widget_Base
                                                         <div class="it-team-thumb mb-25">
 
                                                             <?php if ($team_thumbnail_image) : ?>
-                                                                <img  src="<?php echo esc_url($team_thumbnail_image); ?>" alt="<?php the_title(); ?>">
+                                                                <img src="<?php echo esc_url($team_thumbnail_image); ?>" alt="<?php the_title(); ?>">
                                                             <?php else : ?>
-                                                                <img  src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                                                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
                                                             <?php endif; ?>
-                                                        
+
                                                         </div>
                                                     <?php endif; ?>
                                                     <div class="it-team-content">
@@ -813,11 +813,15 @@ class Od_Team_Slider extends Widget_Base
                 const autoplay_team = <?php echo $od_team_slider_autoplay ? 'true' : 'false'; ?>;
                 const autoplay_delay = <?php echo esc_attr($od_team_slider_delay); ?>;
 
+
+
+
                 // Swiper Js
                 const teamswiper = new Swiper('.it-team-active', {
                     // Optional parameters
                     speed: 1500,
                     loop: true,
+                    loopedSlides: 4,
                     slidesPerView: 4,
                     spaceBetween: 35,
                     autoplay: autoplay_team ? {
@@ -849,6 +853,7 @@ class Od_Team_Slider extends Widget_Base
                         nextEl: '.slider-next',
                     },
                 });
+
 
 
             });
